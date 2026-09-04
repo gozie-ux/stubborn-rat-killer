@@ -1,0 +1,186 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bgTrapcoll" cx="50%" cy="50%" r="75%">
+      <stop offset="0%" stop-color="#2a0808" />
+      <stop offset="50%" stop-color="#140404" />
+      <stop offset="100%" stop-color="#050202" />
+    </radialGradient>
+
+    <!-- Trapcoll Vivid Red Box Gradient -->
+    <linearGradient id="redBoxGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ef4444" />
+      <stop offset="30%" stop-color="#dc2626" />
+      <stop offset="80%" stop-color="#b91c1c" />
+      <stop offset="100%" stop-color="#991b1b" />
+    </linearGradient>
+
+    <!-- Tube Metallic Gloss Red -->
+    <linearGradient id="redTubeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f87171" />
+      <stop offset="25%" stop-color="#ef4444" />
+      <stop offset="60%" stop-color="#dc2626" />
+      <stop offset="100%" stop-color="#991b1b" />
+    </linearGradient>
+
+    <!-- Cap Red Gradient -->
+    <linearGradient id="capGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#b91c1c" />
+      <stop offset="40%" stop-color="#ef4444" />
+      <stop offset="100%" stop-color="#7f1d1d" />
+    </linearGradient>
+
+    <filter id="trapShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#000000" flood-opacity="0.75" />
+    </filter>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="1000" height="600" fill="url(#bgTrapcoll)" />
+
+  <!-- Ground Shadows -->
+  <ellipse cx="580" cy="460" rx="340" ry="32" fill="#000000" opacity="0.65" />
+  <ellipse cx="380" cy="510" rx="280" ry="25" fill="#000000" opacity="0.7" />
+
+  <!-- TOP-RIGHT BOX (Perspective angled) -->
+  <g transform="translate(380, 100) rotate(22)" filter="url(#trapShadow)">
+    <!-- Box Body 3D -->
+    <polygon points="0,60 380,60 460,0 80,0" fill="#dc2626" stroke="#991b1b" stroke-width="1.5" />
+    <polygon points="380,60 460,0 460,110 380,170" fill="#7f1d1d" stroke="#581c87" stroke-width="1" />
+    <rect x="0" y="60" width="380" height="110" rx="4" fill="url(#redBoxGrad)" stroke="#b91c1c" stroke-width="2" />
+
+    <!-- Tree Logo on Top Face -->
+    <circle cx="140" cy="30" r="14" fill="#15803d" />
+    <polygon points="135,42 145,42 142,24 138,24" fill="#78350f" />
+
+    <!-- TRAPCOLL Main Bold Yellow Title -->
+    <text x="190" y="118" font-family="'Impact', 'Outfit', sans-serif" font-weight="900" font-size="44" fill="#facc15" letter-spacing="3" text-anchor="middle">
+      TRAPCOLL
+    </text>
+    <text x="355" y="85" font-family="'Outfit', sans-serif" font-weight="800" font-size="14" fill="#ffffff">
+      135 g
+    </text>
+
+    <!-- Subtitle Italian/English -->
+    <text x="190" y="140" font-family="'Outfit', sans-serif" font-weight="700" font-size="11" fill="#fecaca" text-anchor="middle">
+      Colla topicida non velenosa • NON POISONOUS GLUE
+    </text>
+
+    <!-- Small Mice Graphic Silhouette -->
+    <g transform="translate(250, 80) scale(0.65)">
+      <ellipse cx="40" cy="40" rx="20" ry="14" fill="#d1d5db" />
+      <circle cx="25" cy="32" r="8" fill="#d1d5db" />
+      <path d="M 15 30 Q 8 20 22 28" stroke="#f472b6" stroke-width="2" fill="none" />
+      <circle cx="22" cy="30" r="2" fill="#000" />
+      <path d="M 58 42 Q 85 45 95 30" stroke="#f472b6" stroke-width="2.5" fill="none" />
+      <path d="M 40 50 L 50 65" stroke="#facc15" stroke-width="4" stroke-linecap="round" />
+    </g>
+
+    <!-- Made in Italy / Kenda Farben label -->
+    <text x="30" y="158" font-family="'Outfit', sans-serif" font-weight="600" font-size="9" fill="#fecaca">
+      KENDA FARBEN • Made in Italy - EU
+    </text>
+  </g>
+
+  <!-- SECOND BOX (Left side, lower angle) -->
+  <g transform="translate(100, 240) rotate(-8)" filter="url(#trapShadow)">
+    <rect x="0" y="0" width="340" height="95" rx="4" fill="url(#redBoxGrad)" stroke="#b91c1c" stroke-width="2" />
+    
+    <!-- Yellow Diamond Logo -->
+    <g transform="translate(25, 25)">
+      <rect x="0" y="0" width="28" height="28" fill="#ffffff" transform="rotate(45 14 14)" />
+      <polygon points="14,4 24,14 14,24 4,14" fill="#dc2626" />
+      <ellipse cx="14" cy="14" rx="8" ry="4" fill="#facc15" />
+    </g>
+
+    <!-- TRAPCOLL text -->
+    <text x="175" y="48" font-family="'Impact', 'Outfit', sans-serif" font-weight="900" font-size="34" fill="#facc15" letter-spacing="2" text-anchor="middle">
+      TRAPCOLL
+    </text>
+    <text x="175" y="70" font-family="'Outfit', sans-serif" font-weight="700" font-size="10" fill="#ffffff" text-anchor="middle">
+      COLLA TOPICIDA NON VELENOSA • 135 g
+    </text>
+    <text x="25" y="85" font-family="'Outfit', sans-serif" font-weight="600" font-size="8" fill="#fca5a5">
+      KENDA FARBEN S.p.A. - Made in Italy
+    </text>
+  </g>
+
+  <!-- FRONT TUBE (Squeeze Tube with Red Cap) -->
+  <g transform="translate(150, 360) rotate(-4)" filter="url(#trapShadow)">
+    <!-- Tube Body (Tapered) -->
+    <path d="M 30,30 L 450,20 C 470,20 480,25 480,45 L 480,75 C 480,95 470,100 450,100 L 30,90 Z" fill="url(#redTubeGrad)" stroke="#b91c1c" stroke-width="2" />
+    <!-- Tube Crimped End (Left) -->
+    <rect x="18" y="28" width="16" height="64" rx="2" fill="#991b1b" stroke="#7f1d1d" stroke-width="1.5" />
+    <line x1="22" y1="32" x2="22" y2="88" stroke="#dc2626" stroke-width="1" />
+    <line x1="26" y1="32" x2="26" y2="88" stroke="#dc2626" stroke-width="1" />
+    <line x1="30" y1="32" x2="30" y2="88" stroke="#dc2626" stroke-width="1" />
+
+    <!-- Tube Nozzle & Cap (Right) -->
+    <rect x="480" y="42" width="20" height="36" rx="2" fill="#dc2626" stroke="#991b1b" stroke-width="1.5" />
+    <!-- Screw Cap -->
+    <rect x="500" y="38" width="45" height="44" rx="5" fill="url(#capGrad)" stroke="#7f1d1d" stroke-width="1.5" />
+    <!-- Cap Grips -->
+    <line x1="510" y1="40" x2="510" y2="80" stroke="#fca5a5" stroke-width="1.5" />
+    <line x1="518" y1="40" x2="518" y2="80" stroke="#fca5a5" stroke-width="1.5" />
+    <line x1="526" y1="40" x2="526" y2="80" stroke="#fca5a5" stroke-width="1.5" />
+    <line x1="534" y1="40" x2="534" y2="80" stroke="#fca5a5" stroke-width="1.5" />
+
+    <!-- Tube Branding -->
+    <text x="140" y="65" font-family="'Impact', 'Outfit', sans-serif" font-weight="900" font-size="32" fill="#facc15" letter-spacing="2">
+      TRAPCOLL
+    </text>
+    <text x="140" y="78" font-family="'Outfit', sans-serif" font-weight="800" font-size="8" fill="#ffffff">
+      COLLA TOPICIDA NON VELENOSA • NON POISONOUS GLUE
+    </text>
+
+    <!-- Mice Pulling Mascot Illustration on Tube -->
+    <g transform="translate(300, 28) scale(0.65)">
+      <!-- Sticky glue pool -->
+      <path d="M 40,75 Q 70,60 100,75 Q 130,90 80,85 Z" fill="#facc15" opacity="0.9" />
+      <path d="M 60,65 Q 75,45 85,65" stroke="#fde047" stroke-width="3" stroke-linecap="round" fill="none" />
+      
+      <!-- Mouse 1 (Pulling Left) -->
+      <g transform="translate(10, 10)">
+        <ellipse cx="25" cy="35" rx="18" ry="12" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1" />
+        <circle cx="12" cy="28" r="8" fill="#e5e7eb" />
+        <circle cx="10" cy="26" r="2" fill="#000" />
+        <path d="M 40 38 Q 65 40 70 25" stroke="#f472b6" stroke-width="2" fill="none" />
+      </g>
+
+      <!-- Mouse 2 (Trapped in middle) -->
+      <g transform="translate(70, 20)">
+        <ellipse cx="20" cy="30" rx="16" ry="11" fill="#9ca3af" stroke="#6b7280" stroke-width="1" />
+        <circle cx="12" cy="22" r="7" fill="#9ca3af" />
+        <circle cx="10" cy="20" r="1.5" fill="#ef4444" />
+      </g>
+
+      <!-- Mouse 3 (Pulling Right) -->
+      <g transform="translate(120, 12)">
+        <ellipse cx="20" cy="32" rx="16" ry="12" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1" />
+        <circle cx="30" cy="24" r="8" fill="#e5e7eb" />
+        <circle cx="32" cy="22" r="2" fill="#000" />
+        <path d="M 8 36 Q -10 38 -15 25" stroke="#f472b6" stroke-width="2" fill="none" />
+      </g>
+    </g>
+
+    <!-- Net Weight -->
+    <text x="60" y="80" font-family="'Outfit', sans-serif" font-weight="900" font-size="11" fill="#facc15">
+      135 g
+    </text>
+  </g>
+
+  <!-- Badges / Info Overlays -->
+  <g transform="translate(40, 40)">
+    <rect x="0" y="0" width="220" height="42" rx="12" fill="#000000" opacity="0.85" stroke="#dc2626" stroke-width="1.5" />
+    <text x="15" y="26" font-family="'Outfit', sans-serif" font-weight="900" font-size="14" fill="#facc15">
+      ★ ORIGINAL KENDA FARBEN
+    </text>
+  </g>
+
+  <g transform="translate(740, 40)">
+    <rect x="0" y="0" width="220" height="42" rx="12" fill="#000000" opacity="0.85" stroke="#16a34a" stroke-width="1.5" />
+    <text x="15" y="26" font-family="'Outfit', sans-serif" font-weight="900" font-size="14" fill="#4ade80">
+      ✓ 100% NON-POISONOUS
+    </text>
+  </g>
+</svg>

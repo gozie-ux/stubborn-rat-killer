@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="100%" height="100%">
+  <defs>
+    <!-- Concrete Ground Pattern / Gradient -->
+    <radialGradient id="concreteGrad" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#a8a29e" />
+      <stop offset="60%" stop-color="#78716c" />
+      <stop offset="100%" stop-color="#57534e" />
+    </radialGradient>
+
+    <!-- Plywood Board Wood Texture Gradient -->
+    <linearGradient id="plywoodGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d97706" />
+      <stop offset="30%" stop-color="#b45309" />
+      <stop offset="70%" stop-color="#92400e" />
+      <stop offset="100%" stop-color="#78350f" />
+    </linearGradient>
+
+    <!-- Glue Sheen on Board -->
+    <linearGradient id="glueSheen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" stop-opacity="0.4" />
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.2" />
+    </linearGradient>
+
+    <filter id="boardShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="18" stdDeviation="15" flood-color="#000000" flood-opacity="0.65" />
+    </filter>
+  </defs>
+
+  <!-- Concrete Pavement Background -->
+  <rect width="1000" height="600" fill="url(#concreteGrad)" />
+
+  <!-- Concrete floor lines & texture -->
+  <line x1="0" y1="200" x2="1000" y2="280" stroke="#44403c" stroke-width="2" opacity="0.4" />
+  <line x1="0" y1="420" x2="1000" y2="490" stroke="#44403c" stroke-width="2.5" opacity="0.4" />
+
+  <!-- Drain Manhole Cover (Top Right) -->
+  <g transform="translate(620, 40)">
+    <rect x="0" y="0" width="220" height="180" rx="35" fill="#e7e5e4" stroke="#a8a29e" stroke-width="4" />
+    <rect x="25" y="25" width="170" height="130" rx="15" fill="#d6d3d1" stroke="#78716c" stroke-width="2" />
+    <!-- Grid on manhole -->
+    <line x1="55" y1="25" x2="55" y2="155" stroke="#a8a29e" stroke-width="2" />
+    <line x1="85" y1="25" x2="85" y2="155" stroke="#a8a29e" stroke-width="2" />
+    <line x1="115" y1="25" x2="115" y2="155" stroke="#a8a29e" stroke-width="2" />
+    <line x1="145" y1="25" x2="145" y2="155" stroke="#a8a29e" stroke-width="2" />
+    <line x1="175" y1="25" x2="175" y2="155" stroke="#a8a29e" stroke-width="2" />
+    <line x1="25" y1="65" x2="195" y2="65" stroke="#a8a29e" stroke-width="2" />
+    <line x1="25" y1="105" x2="195" y2="105" stroke="#a8a29e" stroke-width="2" />
+    <circle cx="60" cy="50" r="8" fill="#57534e" />
+    <circle cx="160" cy="50" r="8" fill="#57534e" />
+  </g>
+
+  <!-- Yellow Curb Step at Bottom -->
+  <polygon points="0,520 1000,480 1000,600 0,600" fill="#eab308" stroke="#ca8a04" stroke-width="3" />
+  <polygon points="0,550 1000,510 1000,600 0,600" fill="#1c1917" opacity="0.3" />
+
+  <!-- PLYWOOD BOARD GLUE TRAP (Angled Center) -->
+  <g transform="translate(260, 100) rotate(14)" filter="url(#boardShadow)">
+    <!-- Wooden board Base -->
+    <rect x="0" y="0" width="380" height="340" rx="6" fill="url(#plywoodGrad)" stroke="#78350f" stroke-width="3" />
+    
+    <!-- Wood grain ridges -->
+    <line x1="10" y1="40" x2="370" y2="40" stroke="#78350f" stroke-width="1.5" opacity="0.4" />
+    <line x1="10" y1="90" x2="370" y2="90" stroke="#78350f" stroke-width="1.5" opacity="0.4" />
+    <line x1="10" y1="160" x2="370" y2="160" stroke="#78350f" stroke-width="1.5" opacity="0.4" />
+    <line x1="10" y1="240" x2="370" y2="240" stroke="#78350f" stroke-width="1.5" opacity="0.4" />
+    <line x1="10" y1="300" x2="370" y2="300" stroke="#78350f" stroke-width="1.5" opacity="0.4" />
+
+    <!-- Glossy Rat Glue Surface Applied -->
+    <rect x="25" y="25" width="330" height="290" rx="4" fill="url(#glueSheen)" stroke="#fef08a" stroke-width="1" />
+
+    <!-- Trapped Rat #1 (Top Right) -->
+    <g transform="translate(180, 50)">
+      <!-- Long Fur Body -->
+      <ellipse cx="65" cy="45" rx="45" ry="24" fill="#292524" stroke="#1c1917" stroke-width="1.5" />
+      <circle cx="28" cy="38" r="16" fill="#292524" />
+      <!-- Snout & Whiskers -->
+      <circle cx="16" cy="35" r="5" fill="#f472b6" />
+      <!-- Ears -->
+      <circle cx="32" cy="24" r="8" fill="#44403c" stroke="#f472b6" stroke-width="1" />
+      <!-- Legs Immobilized in glue -->
+      <path d="M 50 65 L 60 85" stroke="#1c1917" stroke-width="5" stroke-linecap="round" />
+      <path d="M 85 65 L 100 85" stroke="#1c1917" stroke-width="5" stroke-linecap="round" />
+      <!-- Curled Rat Tail -->
+      <path d="M 110 45 Q 160 30 145 70 Q 130 95 110 80" stroke="#f472b6" stroke-width="4" stroke-linecap="round" fill="none" />
+    </g>
+
+    <!-- Trapped Rat #2 (Bottom Left) -->
+    <g transform="translate(40, 160)">
+      <!-- Body -->
+      <ellipse cx="55" cy="50" rx="42" ry="22" fill="#292524" stroke="#1c1917" stroke-width="1.5" />
+      <circle cx="92" cy="45" r="15" fill="#292524" />
+      <!-- Snout -->
+      <circle cx="102" cy="45" r="4.5" fill="#f472b6" />
+      <!-- Ear -->
+      <circle cx="85" cy="32" r="7.5" fill="#44403c" stroke="#f472b6" stroke-width="1" />
+      <!-- Tail -->
+      <path d="M 15 50 Q -25 60 -15 20 Q -5 -10 15 10" stroke="#f472b6" stroke-width="4" stroke-linecap="round" fill="none" />
+      <!-- Stuck limbs -->
+      <path d="M 40 70 L 30 90" stroke="#1c1917" stroke-width="5" stroke-linecap="round" />
+      <path d="M 75 70 L 85 90" stroke="#1c1917" stroke-width="5" stroke-linecap="round" />
+    </g>
+
+    <!-- Watermark text across photo -->
+    <text x="190" y="190" font-family="'Outfit', sans-serif" font-weight="900" font-size="34" fill="#ef4444" fill-opacity="0.8" text-anchor="middle" transform="rotate(-30 190 190)">
+      Killapest Resources
+    </text>
+  </g>
+
+  <!-- Live Field Results Badge -->
+  <g transform="translate(40, 40)">
+    <rect x="0" y="0" width="280" height="50" rx="14" fill="#000000" opacity="0.9" stroke="#ef4444" stroke-width="2" />
+    <text x="20" y="32" font-family="'Outfit', sans-serif" font-weight="900" font-size="15" fill="#ffffff">
+      🔴 100% CATCH RESULT IN ACTION
+    </text>
+  </g>
+</svg>

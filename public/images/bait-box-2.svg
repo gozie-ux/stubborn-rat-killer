@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bgBaitBoxOpen" cx="50%" cy="50%" r="75%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="60%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#020617" />
+    </radialGradient>
+
+    <linearGradient id="interiorTrayGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#475569" />
+      <stop offset="40%" stop-color="#334155" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+
+    <linearGradient id="lidHingeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155" />
+      <stop offset="50%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+
+    <filter id="openBoxShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="20" stdDeviation="18" flood-color="#000000" flood-opacity="0.8" />
+    </filter>
+  </defs>
+
+  <rect width="1000" height="600" fill="url(#bgBaitBoxOpen)" />
+
+  <!-- Studio Floor Glow -->
+  <ellipse cx="500" cy="520" rx="340" ry="30" fill="#000000" opacity="0.75" />
+
+  <!-- OPEN BAIT BOX CONTAINER -->
+  <g transform="translate(180, 40)" filter="url(#openBoxShadow)">
+    <!-- HINGED OPEN LID (Tilted back/upwards) -->
+    <g transform="translate(20, 20) rotate(-18)">
+      <polygon points="0,0 440,40 460,260 20,220" fill="url(#lidHingeGrad)" stroke="#64748b" stroke-width="2" />
+      <!-- Lid Interior Structural Cross Bracing Ribs -->
+      <line x1="20,10" x2="440,250" stroke="#475569" stroke-width="2" />
+      <line x1="430,45" x2="30,215" stroke="#475569" stroke-width="2" />
+      <circle cx="80" cy="60" r="14" fill="#0f172a" stroke="#334155" stroke-width="1.5" />
+      <circle cx="380" cy="80" r="14" fill="#0f172a" stroke="#334155" stroke-width="1.5" />
+      <!-- Lock catch clips -->
+      <rect x="72" y="45" width="16" height="30" rx="3" fill="#1e293b" stroke="#64748b" stroke-width="1" />
+      <rect x="372" y="65" width="16" height="30" rx="3" fill="#1e293b" stroke="#64748b" stroke-width="1" />
+    </g>
+
+    <!-- MAIN BASE TRAY BODY -->
+    <g transform="translate(30, 200)">
+      <!-- Outer Base Shell -->
+      <polygon points="0,60 480,0 600,160 120,220" fill="#090d16" stroke="#000000" stroke-width="2" />
+      
+      <!-- Inside Deep Cavity / Compartments -->
+      <polygon points="15,65 470,10 585,155 130,210" fill="#0f172a" stroke="#334155" stroke-width="1.5" />
+
+      <!-- Left Rodent Entrance Hole -->
+      <g transform="translate(40, 45)">
+        <path d="M 0,40 C 0,15 35,15 35,40 L 35,65 L 0,65 Z" fill="#000000" stroke="#64748b" stroke-width="1.5" />
+      </g>
+
+      <!-- Right Rodent Exit/Entrance Hole -->
+      <g transform="translate(520, 110)">
+        <path d="M 0,35 C 0,10 30,10 30,35 L 30,60 L 0,60 Z" fill="#000000" stroke="#64748b" stroke-width="1.5" />
+      </g>
+
+      <!-- Internal Baffle / Runway Divider Wall (Light Gray) -->
+      <polygon points="80,85 490,30 510,75 100,130" fill="#94a3b8" stroke="#cbd5e1" stroke-width="1" />
+      <polygon points="100,130 510,75 510,95 100,150" fill="#64748b" stroke="#475569" stroke-width="1" />
+
+      <!-- Removable Bait Trays (Dual Chambers) -->
+      <rect x="130" y="105" width="120" height="55" rx="4" fill="#334155" stroke="#64748b" stroke-width="1.5" transform="rotate(-6 130 105)" />
+      <rect x="270" y="90" width="120" height="55" rx="4" fill="#334155" stroke="#64748b" stroke-width="1.5" transform="rotate(-6 270 90)" />
+
+      <!-- METAL BAIT SECURING ROD (Horizontal Steel Pin) -->
+      <line x1="110" y1="125" x2="420" y2="92" stroke="#e2e8f0" stroke-width="4" stroke-linecap="round" />
+      <!-- Rod securing end clip -->
+      <circle cx="110" cy="125" r="5" fill="#94a3b8" />
+      <circle cx="420" cy="92" r="5" fill="#94a3b8" />
+
+      <!-- Wax Bait Blocks Threaded on Rod -->
+      <!-- Block 1 (Blue Wax Rodenticide Block) -->
+      <rect x="160" y="112" width="34" height="26" rx="3" fill="#2563eb" stroke="#1d4ed8" stroke-width="1" transform="rotate(-6 160 112)" />
+      <line x1="160" y1="125" x2="194" y2="121" stroke="#e2e8f0" stroke-width="2.5" />
+
+      <!-- Block 2 (Blue Wax Block) -->
+      <rect x="205" y="107" width="34" height="26" rx="3" fill="#2563eb" stroke="#1d4ed8" stroke-width="1" transform="rotate(-6 205 107)" />
+      <line x1="205" y1="120" x2="239" y2="116" stroke="#e2e8f0" stroke-width="2.5" />
+
+      <!-- Block 3 (Red/Pink Wax Block) -->
+      <rect x="310" y="96" width="34" height="26" rx="3" fill="#dc2626" stroke="#b91c1c" stroke-width="1" transform="rotate(-6 310 96)" />
+      <line x1="310" y1="109" x2="344" y2="105" stroke="#e2e8f0" stroke-width="2.5" />
+
+      <!-- Metal Spring Latches on Front Lip -->
+      <g transform="translate(60, 160)">
+        <path d="M 0,0 Q 8,-15 16,0 Q 24,-15 32,0 Q 40,-15 48,0" stroke="#f8fafc" stroke-width="2.5" fill="none" />
+      </g>
+      <g transform="translate(460, 115)">
+        <path d="M 0,0 Q 8,-15 16,0 Q 24,-15 32,0 Q 40,-15 48,0" stroke="#f8fafc" stroke-width="2.5" fill="none" />
+      </g>
+    </g>
+  </g>
+
+  <!-- Left Side Highlights Card -->
+  <g transform="translate(50, 40)">
+    <rect x="0" y="0" width="260" height="150" rx="14" fill="#0f172a" opacity="0.9" stroke="#38bdf8" stroke-width="1.5" />
+    <text x="20" y="32" font-family="'Outfit', sans-serif" font-weight="900" font-size="15" fill="#38bdf8">
+      INSIDE BAIT CHAMBER
+    </text>
+    <line x1="20" y1="46" x2="240" y2="46" stroke="#334155" stroke-width="1" />
+    <text x="20" y="70" font-family="'Outfit', sans-serif" font-weight="700" font-size="11" fill="#facc15">
+      ✓ Metal Rod Locks Bait in Place
+    </text>
+    <text x="20" y="94" font-family="'Outfit', sans-serif" font-weight="700" font-size="11" fill="#4ade80">
+      ✓ Rats Cannot Drag Poison Outside
+    </text>
+    <text x="20" y="118" font-family="'Outfit', sans-serif" font-weight="700" font-size="11" fill="#ffffff">
+      ✓ Dual Runway Baffle Entry
+    </text>
+  </g>
+
+  <!-- Right Side Safety Card -->
+  <g transform="translate(690, 40)">
+    <rect x="0" y="0" width="260" height="150" rx="14" fill="#0f172a" opacity="0.9" stroke="#22c55e" stroke-width="1.5" />
+    <text x="20" y="32" font-family="'Outfit', sans-serif" font-weight="900" font-size="15" fill="#4ade80">
+      PROTECTS PETS &amp; FOOD
+    </text>
+    <line x1="20" y1="46" x2="240" y2="46" stroke="#334155" stroke-width="1" />
+    <text x="20" y="70" font-family="'Outfit', sans-serif" font-weight="700" font-size="11" fill="#ffffff">
+      • Dogs &amp; Cats Cannot Reach In
+    </text>
+    <text x="20" y="94" font-family="'Outfit', sans-serif" font-weight="700" font-size="11" fill="#ffffff">
+      • Keeps Bait Dry &amp; Fresh in Rain
+    </text>
+    <text x="20" y="118" font-family="'Outfit', sans-serif" font-weight="700" font-size="11" fill="#facc15">
+      • Easy 24-Hr Feeding Inspection
+    </text>
+  </g>
+</svg>

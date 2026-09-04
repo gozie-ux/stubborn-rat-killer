@@ -1,0 +1,29 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="silver3D" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#94a3b8"/>
+      <stop offset="100%" stop-color="#64748b"/>
+    </linearGradient>
+    <radialGradient id="redBrushedShield" cx="45%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#ff2a2a"/>
+      <stop offset="30%" stop-color="#e50914"/>
+      <stop offset="70%" stop-color="#990000"/>
+      <stop offset="100%" stop-color="#400000"/>
+    </radialGradient>
+    <linearGradient id="goldBrass3D" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fffbeb"/>
+      <stop offset="30%" stop-color="#fef08a"/>
+      <stop offset="60%" stop-color="#ca8a04"/>
+      <stop offset="100%" stop-color="#854d0e"/>
+    </linearGradient>
+  </defs>
+  <path d="M 120 70 Q 250 50 380 70 Q 395 190 395 280 C 395 380 250 450 250 450 C 250 450 105 380 105 280 Q 105 190 120 70 Z" fill="#cbd5e1"/>
+  <path d="M 130 82 Q 250 64 370 82 Q 382 190 382 274 C 382 364 250 430 250 430 C 250 430 118 364 118 274 Q 118 190 130 82 Z" fill="url(#redBrushedShield)"/>
+  <text x="250" y="145" text-anchor="middle" fill="url(#silver3D)" stroke="#0f172a" stroke-width="3" font-weight="900" font-size="52" font-family="Arial, sans-serif">STUBBORN</text>
+  <text x="250" y="200" text-anchor="middle" fill="url(#silver3D)" stroke="#0f172a" stroke-width="2.5" font-weight="900" font-size="48" font-family="Arial, sans-serif">RAT</text>
+  <polygon points="130,120 220,285 180,285 240,390 160,260 200,260" fill="url(#goldBrass3D)"/>
+  <polygon points="370,120 280,285 320,285 260,390 340,260 300,260" fill="url(#goldBrass3D)"/>
+  <ellipse cx="250" cy="330" rx="98" ry="55" fill="url(#goldBrass3D)" stroke="#5c3806" stroke-width="4"/>
+  <text x="250" y="420" text-anchor="middle" fill="url(#silver3D)" stroke="#0f172a" stroke-width="3" font-weight="900" font-size="46" font-family="Arial, sans-serif">KILLER</text>
+</svg>

@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bgBaitBox" cx="50%" cy="50%" r="75%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="60%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#020617" />
+    </radialGradient>
+
+    <!-- Heavy Duty Matte Black Plastic Gradient -->
+    <linearGradient id="blackMatteGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155" />
+      <stop offset="25%" stop-color="#1e293b" />
+      <stop offset="70%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+
+    <!-- Box Lid Top Surface -->
+    <linearGradient id="lidTopGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#475569" />
+      <stop offset="40%" stop-color="#334155" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+
+    <!-- Key Metallic / Matte Black Texture -->
+    <linearGradient id="keyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#64748b" />
+      <stop offset="50%" stop-color="#334155" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+
+    <filter id="boxShadow3D" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="24" stdDeviation="20" flood-color="#000000" flood-opacity="0.85" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="600" fill="url(#bgBaitBox)" />
+
+  <!-- Studio Floor Glow -->
+  <ellipse cx="500" cy="510" rx="380" ry="40" fill="#38bdf8" opacity="0.1" />
+  <ellipse cx="480" cy="490" rx="320" ry="32" fill="#000000" opacity="0.8" />
+
+  <!-- MAIN BAIT BOX (Closed 3D Isometric View) -->
+  <g transform="translate(180, 80)" filter="url(#boxShadow3D)">
+    <!-- Right Angled Side Wall -->
+    <polygon points="520,120 620,170 620,380 520,330" fill="#090d16" stroke="#020617" stroke-width="1.5" />
+    <!-- Vertical Rib Reinforcements on Right Side -->
+    <polygon points="545,133 558,139 558,349 545,343" fill="#1e293b" />
+    <polygon points="575,148 588,154 588,364 575,358" fill="#1e293b" />
+
+    <!-- Front Face Wall with Rodent Entry Arch -->
+    <polygon points="40,240 520,120 520,330 40,450" fill="url(#blackMatteGrad)" stroke="#334155" stroke-width="1.5" />
+
+    <!-- Left Front Side Wall -->
+    <polygon points="0,220 40,240 40,450 0,430" fill="#0f172a" stroke="#1e293b" stroke-width="1" />
+
+    <!-- Rodent Tunnel Entry Arch on Front Face -->
+    <g transform="translate(140, 290)">
+      <!-- Tunnel Cavity Interior (Dark Void) -->
+      <path d="M 0,115 L 0,35 C 0,5 60,0 60,35 L 60,100 Z" fill="#000000" stroke="#020617" stroke-width="2" />
+      <path d="M 0,35 C 0,5 60,0 60,35" stroke="#475569" stroke-width="2" fill="none" />
+      <rect x="5" y="45" width="50" height="60" fill="#050811" />
+      <!-- Runway ramp -->
+      <polygon points="0,115 60,100 80,105 20,120" fill="#1e293b" />
+    </g>
+
+    <!-- Keyhole Latch Lock on Side Corner -->
+    <g transform="translate(80, 250)">
+      <rect x="0" y="0" width="22" height="24" rx="4" fill="#020617" stroke="#475569" stroke-width="1.5" />
+      <circle cx="11" cy="9" r="4" fill="#0f172a" />
+      <polygon points="9,9 13,9 14,19 8,19" fill="#0f172a" />
+    </g>
+
+    <!-- TOP LID SLANTED 3D SURFACE -->
+    <polygon points="0,220 440,90 620,170 180,300" fill="url(#lidTopGrad)" stroke="#64748b" stroke-width="2" />
+
+    <!-- Lid Rim / Lip Overhang -->
+    <polygon points="0,220 180,300 180,310 0,230" fill="#1e293b" stroke="#334155" stroke-width="1" />
+    <polygon points="180,300 620,170 620,180 180,310" fill="#0f172a" stroke="#1e293b" stroke-width="1" />
+
+    <!-- Embossed Warning Text on Lid -->
+    <g transform="translate(180, 180) rotate(-16)">
+      <rect x="-15" y="-18" width="220" height="65" rx="6" fill="#1e293b" opacity="0.4" stroke="#475569" stroke-width="0.8" />
+      <text x="0" y="0" font-family="'Outfit', sans-serif" font-weight="900" font-size="11" fill="#94a3b8" letter-spacing="1.5">
+        CONTAINS RODENTICIDE
+      </text>
+      <text x="0" y="16" font-family="'Outfit', sans-serif" font-weight="800" font-size="10" fill="#64748b" letter-spacing="1">
+        DO NOT TOUCH • WARNING POISON
+      </text>
+      <!-- Skull Icon -->
+      <g transform="translate(170, -5) scale(0.7)">
+        <circle cx="10" cy="8" r="8" fill="#94a3b8" />
+        <circle cx="7" cy="7" r="2" fill="#0f172a" />
+        <circle cx="13" cy="7" r="2" fill="#0f172a" />
+        <rect x="7" y="14" width="6" height="5" fill="#94a3b8" />
+      </g>
+    </g>
+  </g>
+
+  <!-- TAMPER-PROOF SECURITY KEY (Bottom Right) -->
+  <g transform="translate(680, 410) rotate(-25)" filter="url(#boxShadow3D)">
+    <!-- Key Ring Handle -->
+    <circle cx="40" cy="40" r="32" fill="url(#keyGrad)" stroke="#94a3b8" stroke-width="2" />
+    <circle cx="40" cy="40" r="16" fill="url(#bgBaitBox)" stroke="#475569" stroke-width="1.5" />
+    <circle cx="40" cy="22" r="3" fill="#ffffff" opacity="0.6" />
+
+    <!-- Key Shaft -->
+    <rect x="34" y="70" width="12" height="65" rx="2" fill="url(#keyGrad)" stroke="#64748b" stroke-width="1.5" />
+
+    <!-- Key Flanges / Prongs -->
+    <rect x="26" y="90" width="28" height="8" rx="2" fill="#475569" stroke="#94a3b8" stroke-width="1" />
+    <polygon points="40,135 28,155 52,155" fill="#334155" stroke="#94a3b8" stroke-width="1.5" />
+    <circle cx="40" cy="158" r="4" fill="#64748b" />
+    
+    <text x="40" y="180" font-family="'Outfit', sans-serif" font-weight="900" font-size="10" fill="#facc15" text-anchor="middle">
+      CHILD-PROOF KEY
+    </text>
+  </g>
+
+  <!-- Badges / Info Overlays -->
+  <g transform="translate(40, 40)">
+    <rect x="0" y="0" width="270" height="46" rx="12" fill="#000000" opacity="0.85" stroke="#eab308" stroke-width="1.5" />
+    <text x="18" y="28" font-family="'Outfit', sans-serif" font-weight="900" font-size="14" fill="#facc15">
+      🔒 TAMPER-PROOF BAIT STATION
+    </text>
+  </g>
+
+  <g transform="translate(710, 40)">
+    <rect x="0" y="0" width="250" height="46" rx="12" fill="#000000" opacity="0.85" stroke="#22c55e" stroke-width="1.5" />
+    <text x="18" y="28" font-family="'Outfit', sans-serif" font-weight="900" font-size="14" fill="#4ade80">
+      🛡️ 100% PET &amp; CHILD SAFE
+    </text>
+  </g>
+</svg>

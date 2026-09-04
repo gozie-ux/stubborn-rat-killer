@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="100%" height="100%">
+  <defs>
+    <!-- Dark High-Tech Extermination Background -->
+    <radialGradient id="bgDarkTech" cx="50%" cy="50%" r="80%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="60%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#020617" />
+    </radialGradient>
+
+    <!-- Blue Extruded Block 3D -->
+    <linearGradient id="blockFacetTop" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+    <linearGradient id="blockFacetLeft" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#0369a1" />
+    </linearGradient>
+    <linearGradient id="blockFacetRight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0369a1" />
+      <stop offset="100%" stop-color="#075985" />
+    </linearGradient>
+
+    <!-- Glowing Blue Filter -->
+    <filter id="neonBlueGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="15" flood-color="#0284c7" flood-opacity="0.4" />
+    </filter>
+  </defs>
+
+  <rect width="1000" height="600" fill="url(#bgDarkTech)" />
+  
+  <!-- Subtle Grid Pattern -->
+  <g opacity="0.08" stroke="#38bdf8" stroke-width="1">
+    <line x1="0" y1="100" x2="1000" y2="100" />
+    <line x1="0" y1="200" x2="1000" y2="200" />
+    <line x1="0" y1="300" x2="1000" y2="300" />
+    <line x1="0" y1="400" x2="1000" y2="400" />
+    <line x1="0" y1="500" x2="1000" y2="500" />
+    <line x1="200" y1="0" x2="200" y2="600" />
+    <line x1="400" y1="0" x2="400" y2="600" />
+    <line x1="600" y1="0" x2="600" y2="600" />
+    <line x1="800" y1="0" x2="800" y2="600" />
+  </g>
+
+  <!-- Left: Macro 3D Extruded Block Presentation -->
+  <g transform="translate(60, 40)" filter="url(#neonBlueGlow)">
+    <!-- Main Center Extruded Wax Block -->
+    <!-- Top Face with Center Securing Hole (for Rodent Bait Station wire rods) -->
+    <polygon points="260,140 400,200 280,260 140,195" fill="url(#blockFacetTop)" stroke="#7dd3fc" stroke-width="2" />
+    
+    <!-- Central Securing Hole for Rodent Station Rod -->
+    <ellipse cx="270" cy="200" rx="22" ry="12" fill="#0369a1" stroke="#082f49" stroke-width="3" />
+    <ellipse cx="270" cy="205" rx="14" ry="7" fill="#020617" />
+
+    <!-- Left Facet with Gnaw Ridge Grooves -->
+    <polygon points="140,195 280,260 280,440 140,360" fill="url(#blockFacetLeft)" stroke="#0284c7" stroke-width="1.5" />
+    
+    <!-- Gnawing Grooves (Encourages Rodent Tooth Wear) -->
+    <path d="M 160,225 L 160,375" stroke="#082f49" stroke-width="3" opacity="0.6" />
+    <path d="M 195,240 L 195,395" stroke="#082f49" stroke-width="3" opacity="0.6" />
+    <path d="M 235,255 L 235,420" stroke="#082f49" stroke-width="3" opacity="0.6" />
+
+    <!-- Right Facet -->
+    <polygon points="280,260 400,200 400,370 280,440" fill="url(#blockFacetRight)" stroke="#0369a1" stroke-width="1.5" />
+    <path d="M 320,245 L 320,415" stroke="#082f49" stroke-width="3" opacity="0.6" />
+    <path d="M 360,230 L 360,395" stroke="#082f49" stroke-width="3" opacity="0.6" />
+
+    <!-- Front Bevel Light Reflection -->
+    <line x1="280" y1="260" x2="280" y2="440" stroke="#bae6fd" stroke-width="3" opacity="0.8" />
+  </g>
+
+  <!-- Surrounding Secondary Blocks -->
+  <g transform="translate(10, 240)" opacity="0.85">
+    <polygon points="80,180 160,210 100,250 20,215" fill="url(#blockFacetTop)" />
+    <polygon points="20,215 100,250 100,310 20,270" fill="url(#blockFacetLeft)" />
+    <polygon points="100,250 160,210 160,270 100,310" fill="url(#blockFacetRight)" />
+  </g>
+  <g transform="translate(380, 280)" opacity="0.85">
+    <polygon points="80,180 170,220 110,260 20,215" fill="url(#blockFacetTop)" />
+    <polygon points="20,215 110,260 110,320 20,275" fill="url(#blockFacetLeft)" />
+    <polygon points="110,260 170,220 170,280 110,320" fill="url(#blockFacetRight)" />
+  </g>
+
+  <!-- Right Technical Spec & Features -->
+  <g transform="translate(560, 60)">
+    <!-- Header -->
+    <rect x="0" y="0" width="220" height="32" rx="8" fill="#16a34a" />
+    <text x="14" y="22" font-family="'Outfit', sans-serif" font-weight="900" font-size="13" fill="#ffffff" letter-spacing="1">
+      HIGH-FOOD GRADE MATRIX
+    </text>
+
+    <text x="0" y="75" font-family="'Outfit', sans-serif" font-weight="900" font-size="34" fill="#ffffff">
+      Extruded Wax Blocks
+    </text>
+    <text x="0" y="110" font-family="'Outfit', sans-serif" font-weight="700" font-size="18" fill="#38bdf8">
+      62 Precision Feeding Blocks • ½kg Pack
+    </text>
+
+    <!-- 4 Key Points matching Description -->
+    <g transform="translate(0, 145)" font-family="'Outfit', sans-serif">
+      <!-- 1 -->
+      <circle cx="15" cy="15" r="14" fill="#1e293b" stroke="#38bdf8" stroke-width="2" />
+      <text x="11" y="20" font-size="14" font-weight="900" fill="#38bdf8">1</text>
+      <text x="40" y="14" font-size="15" font-weight="700" fill="#ffffff">Highly Palatable Attractant</text>
+      <text x="40" y="32" font-size="13" fill="#94a3b8">Appeals strongly to stubborn roof rats and sewer mice</text>
+
+      <!-- 2 -->
+      <g transform="translate(0, 65)">
+        <circle cx="15" cy="15" r="14" fill="#1e293b" stroke="#38bdf8" stroke-width="2" />
+        <text x="10" y="20" font-size="14" font-weight="900" fill="#38bdf8">2</text>
+        <text x="40" y="14" font-size="15" font-weight="700" fill="#ffffff">High Food-Grade Ingredients</text>
+        <text x="40" y="32" font-size="13" fill="#94a3b8">Grain &amp; lipid aroma irresistible even amidst food waste</text>
+      </g>
+
+      <!-- 3 -->
+      <g transform="translate(0, 130)">
+        <circle cx="15" cy="15" r="14" fill="#1e293b" stroke="#38bdf8" stroke-width="2" />
+        <text x="10" y="20" font-size="14" font-weight="900" fill="#38bdf8">3</text>
+        <text x="40" y="14" font-size="15" font-weight="700" fill="#ffffff">Gnaw-Encouraging Ridges</text>
+        <text x="40" y="32" font-size="13" fill="#94a3b8">Extruded multi-edges triggers natural rodent feeding habit</text>
+      </g>
+
+      <!-- 4 -->
+      <g transform="translate(0, 195)">
+        <circle cx="15" cy="15" r="14" fill="#1e293b" stroke="#16a34a" stroke-width="2" />
+        <text x="10" y="20" font-size="14" font-weight="900" fill="#4ade80">4</text>
+        <text x="40" y="14" font-size="15" font-weight="700" fill="#4ade80">Zero Known Resistance</text>
+        <text x="40" y="32" font-size="13" fill="#94a3b8">Potent anticoagulant ensures 100% complete extermination</text>
+      </g>
+    </g>
+
+    <!-- Price Tag -->
+    <g transform="translate(0, 415)">
+      <rect x="0" y="0" width="380" height="55" rx="14" fill="#0f172a" stroke="#facc15" stroke-width="2" />
+      <text x="20" y="36" font-family="'Outfit', sans-serif" font-weight="900" font-size="26" fill="#facc15">
+        ₦20,500.00 <tspan font-size="14" fill="#94a3b8" font-weight="600">/ 62 Blocks (½kg)</tspan>
+      </text>
+    </g>
+  </g>
+</svg>

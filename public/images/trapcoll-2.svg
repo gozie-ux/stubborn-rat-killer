@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bgTrapcoll2" cx="50%" cy="50%" r="75%">
+      <stop offset="0%" stop-color="#1c1917" />
+      <stop offset="100%" stop-color="#0c0a09" />
+    </radialGradient>
+
+    <!-- Box Red Gradient -->
+    <linearGradient id="boxFrontGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#dc2626" />
+      <stop offset="50%" stop-color="#ef4444" />
+      <stop offset="100%" stop-color="#dc2626" />
+    </linearGradient>
+
+    <filter id="boxShadow2" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="20" stdDeviation="18" flood-color="#000000" flood-opacity="0.8" />
+    </filter>
+  </defs>
+
+  <rect width="1000" height="600" fill="url(#bgTrapcoll2)" />
+
+  <!-- The Main Box Front Face Flat Mockup -->
+  <g transform="translate(60, 150)" filter="url(#boxShadow2)">
+    <!-- Box Container -->
+    <rect x="0" y="0" width="880" height="280" rx="8" fill="url(#boxFrontGrad)" stroke="#b91c1c" stroke-width="3" />
+
+    <!-- Left Side: Kenda Farben Diamond Logo & Address -->
+    <g transform="translate(40, 50)">
+      <!-- Diamond Mark -->
+      <g transform="translate(20, 0)">
+        <rect x="0" y="0" width="55" height="55" fill="#ffffff" transform="rotate(45 27.5 27.5)" rx="4" />
+        <polygon points="27.5,6 48,27.5 27.5,49 7,27.5" fill="#dc2626" />
+        <ellipse cx="27.5" cy="27.5" rx="16" ry="7" fill="#facc15" />
+      </g>
+
+      <!-- Company Details text -->
+      <text x="0" y="110" font-family="'Outfit', sans-serif" font-weight="900" font-size="16" fill="#ffffff" letter-spacing="1">
+        KENDA FARBEN S.p.A.
+      </text>
+      <text x="0" y="130" font-family="'Outfit', sans-serif" font-weight="600" font-size="11" fill="#fecaca">
+        27032 FERRERA ERBOGNONE (PV)
+      </text>
+      <text x="0" y="146" font-family="'Outfit', sans-serif" font-weight="500" font-size="10" fill="#fecaca">
+        Via della Resistenza, 1/2
+      </text>
+      <text x="0" y="162" font-family="'Outfit', sans-serif" font-weight="500" font-size="10" fill="#fecaca">
+        Tel. 0382 998902 - Fax 0382 998297
+      </text>
+
+      <text x="0" y="195" font-family="'Outfit', sans-serif" font-weight="800" font-size="13" fill="#ffffff">
+        made in Italy - EU
+      </text>
+    </g>
+
+    <!-- Center: Main TRAPCOLL Typography -->
+    <g transform="translate(240, 45)">
+      <text x="0" y="70" font-family="'Impact', 'Outfit', sans-serif" font-weight="900" font-size="78" fill="#facc15" letter-spacing="4">
+        TRAPCOLL
+      </text>
+      <text x="380" y="25" font-family="'Outfit', sans-serif" font-weight="700" font-size="14" fill="#ffffff">
+        ®
+      </text>
+      
+      <text x="5" y="115" font-family="'Outfit', sans-serif" font-weight="800" font-size="19" fill="#ffffff" letter-spacing="1">
+        Colla topicida non velenosa
+      </text>
+      <text x="5" y="140" font-family="'Outfit', sans-serif" font-weight="700" font-size="14" fill="#fecaca" letter-spacing="0.5">
+        NON POISONOUS GLUE • COLLE NON TOXIQUE
+      </text>
+    </g>
+
+    <!-- Right Side: Weight Badge -->
+    <text x="820" y="70" font-family="'Impact', 'Outfit', sans-serif" font-weight="900" font-size="28" fill="#ffffff" text-anchor="end">
+      135 g
+    </text>
+
+    <!-- Right: Three Cartoon Mice on Glue Graphic -->
+    <g transform="translate(480, 80) scale(0.95)">
+      <!-- White puddle / Glue wave -->
+      <path d="M 40,150 Q 90,130 150,145 Q 220,135 290,150 Q 340,165 180,160 Z" fill="#ffffff" opacity="0.95" />
+      
+      <!-- Mouse 1 (Left - Standing and Pulling with Rope/Tail) -->
+      <g transform="translate(20, 10)">
+        <ellipse cx="60" cy="70" rx="32" ry="22" fill="#d6d3d1" stroke="#44403c" stroke-width="1.5" />
+        <circle cx="35" cy="50" r="14" fill="#d6d3d1" stroke="#44403c" stroke-width="1.5" />
+        <!-- Big Ears -->
+        <circle cx="28" cy="36" r="10" fill="#fbcfe8" stroke="#44403c" stroke-width="1.5" />
+        <circle cx="44" cy="36" r="10" fill="#fbcfe8" stroke="#44403c" stroke-width="1.5" />
+        <!-- Eye & Nose -->
+        <circle cx="30" cy="48" r="3" fill="#000000" />
+        <circle cx="22" cy="54" r="3" fill="#ef4444" />
+        <!-- Mouth Open shouting -->
+        <path d="M 24 58 Q 30 65 36 58" stroke="#000" stroke-width="1.5" fill="#ef4444" />
+        <!-- Legs Straining -->
+        <path d="M 70 88 L 85 130" stroke="#44403c" stroke-width="4" stroke-linecap="round" />
+        <path d="M 50 88 L 45 130" stroke="#44403c" stroke-width="4" stroke-linecap="round" />
+        <!-- Arms pulling stick -->
+        <path d="M 45 68 L 105 105" stroke="#44403c" stroke-width="3.5" stroke-linecap="round" />
+      </g>
+
+      <!-- Mouse 2 (Middle - Trapped in Glue) -->
+      <g transform="translate(140, 50)">
+        <ellipse cx="45" cy="55" rx="26" ry="18" fill="#a8a29e" stroke="#44403c" stroke-width="1.5" />
+        <circle cx="25" cy="40" r="12" fill="#a8a29e" stroke="#44403c" stroke-width="1.5" />
+        <!-- Stunned Eyes -->
+        <circle cx="20" cy="38" r="2.5" fill="#ef4444" />
+        <circle cx="28" cy="38" r="2.5" fill="#ef4444" />
+        <!-- Stuck feet in glue -->
+        <path d="M 35 70 L 30 95" stroke="#44403c" stroke-width="3" stroke-linecap="round" />
+        <path d="M 55 70 L 65 95" stroke="#44403c" stroke-width="3" stroke-linecap="round" />
+      </g>
+
+      <!-- Mouse 3 (Right - Pulling Backwards) -->
+      <g transform="translate(220, 20)">
+        <ellipse cx="50" cy="65" rx="30" ry="20" fill="#d6d3d1" stroke="#44403c" stroke-width="1.5" />
+        <circle cx="75" cy="45" r="14" fill="#d6d3d1" stroke="#44403c" stroke-width="1.5" />
+        <!-- Ears -->
+        <circle cx="70" cy="30" r="10" fill="#fbcfe8" stroke="#44403c" stroke-width="1.5" />
+        <circle cx="85" cy="32" r="10" fill="#fbcfe8" stroke="#44403c" stroke-width="1.5" />
+        <!-- Eye -->
+        <circle cx="78" cy="44" r="3" fill="#000000" />
+        <circle cx="88" cy="48" r="3" fill="#ef4444" />
+        <!-- Legs & Long Tail -->
+        <path d="M 35 80 L 25 125" stroke="#44403c" stroke-width="4" stroke-linecap="round" />
+        <path d="M 60 80 L 75 125" stroke="#44403c" stroke-width="4" stroke-linecap="round" />
+        <path d="M 25 65 Q 0 60 -10 35 Q -15 15 -5 5" stroke="#f472b6" stroke-width="3" fill="none" />
+      </g>
+    </g>
+  </g>
+
+  <!-- Top Banner Feature Badges -->
+  <g transform="translate(60, 50)">
+    <rect x="0" y="0" width="880" height="60" rx="14" fill="#000000" opacity="0.9" stroke="#facc15" stroke-width="1.5" />
+    <text x="30" y="38" font-family="'Outfit', sans-serif" font-weight="900" font-size="16" fill="#facc15">
+      ★ ORIGINAL ITALIAN FORMULA (KENDA FARBEN)
+    </text>
+    <text x="560" y="38" font-family="'Outfit', sans-serif" font-weight="800" font-size="15" fill="#4ade80">
+      ✓ ODOURLESS • NON-DRYING STICKY GLUE
+    </text>
+  </g>
+</svg>

@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bgDeltashiBack" cx="50%" cy="50%" r="75%">
+      <stop offset="0%" stop-color="#1c1917" />
+      <stop offset="100%" stop-color="#0c0a09" />
+    </radialGradient>
+
+    <filter id="cardShadowDeltashi" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#000000" flood-opacity="0.85" />
+    </filter>
+  </defs>
+
+  <rect width="1000" height="600" fill="url(#bgDeltashiBack)" />
+
+  <!-- MAIN TECHNICAL DOSAGE & SAFETY SHEET -->
+  <g transform="translate(80, 35)" filter="url(#cardShadowDeltashi)">
+    <rect x="0" y="0" width="840" height="530" rx="16" fill="#fffbeb" stroke="#fcd34d" stroke-width="2" />
+
+    <!-- Top Orange/Red Header -->
+    <rect x="0" y="0" width="840" height="55" rx="16" fill="#78350f" />
+    <rect x="0" y="30" width="840" height="25" fill="#78350f" />
+    <text x="30" y="36" font-family="'Impact', 'Outfit', sans-serif" font-weight="900" font-size="22" fill="#ffffff" letter-spacing="1">
+      DELTASHI (DELTAMETHRIN 12.5g/L EC) • TECHNICAL SPECIFICATION
+    </text>
+    <text x="810" y="35" font-family="'Outfit', sans-serif" font-weight="800" font-size="13" fill="#facc15" text-anchor="end">
+      TOXICITY CLASS: II (MODERATELY HAZARDOUS)
+    </text>
+
+    <!-- Pre-Harvest Interval & Re-Entry Box -->
+    <g transform="translate(30, 75)">
+      <rect x="0" y="0" width="780" height="60" rx="8" fill="#fef3c7" stroke="#fde68a" stroke-width="1.5" />
+      
+      <text x="20" y="24" font-family="'Outfit', sans-serif" font-weight="900" font-size="12" fill="#92400e">
+        PRE-HARVEST INTERVAL (PHI):
+      </text>
+      <text x="20" y="44" font-family="'Outfit', sans-serif" font-weight="700" font-size="11" fill="#78350f">
+        • 3 Days for Vegetables (Tomato, Pepper, Onion) • 7 Days for Lettuce, Maize &amp; Rice • 21 Days for Leguminous Crops
+      </text>
+
+      <text x="560" y="24" font-family="'Outfit', sans-serif" font-weight="900" font-size="12" fill="#15803d">
+        RE-ENTRY PERIOD:
+      </text>
+      <text x="560" y="44" font-family="'Outfit', sans-serif" font-weight="800" font-size="12" fill="#166534">
+        24 Hours After Spraying
+      </text>
+    </g>
+
+    <!-- Two-Column Specifications Grid -->
+    <g transform="translate(30, 150)">
+      <!-- Left Column: Protective Precautions & Compatibility -->
+      <g transform="translate(0, 0)">
+        <rect x="0" y="0" width="375" height="195" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" />
+        <rect x="0" y="0" width="375" height="30" rx="8" fill="#0f172a" />
+        <rect x="0" y="15" width="375" height="15" fill="#0f172a" />
+        <text x="15" y="20" font-family="'Outfit', sans-serif" font-weight="900" font-size="11" fill="#38bdf8">
+          PROTECTIVE PRECAUTIONS
+        </text>
+
+        <g transform="translate(15, 45)">
+          <text x="0" y="12" font-family="'Outfit', sans-serif" font-weight="600" font-size="10.5" fill="#334155">• Avoid contact with eyes, skin, or clothing.</text>
+          <text x="0" y="30" font-family="'Outfit', sans-serif" font-weight="600" font-size="10.5" fill="#334155">• Avoid breathing vapour or spray mist.</text>
+          <text x="0" y="48" font-family="'Outfit', sans-serif" font-weight="600" font-size="10.5" fill="#334155">• Do not mix with bare hands.</text>
+          <text x="0" y="66" font-family="'Outfit', sans-serif" font-weight="600" font-size="10.5" fill="#334155">• Wear protective clothing, gloves, and eye wear.</text>
+          <text x="0" y="84" font-family="'Outfit', sans-serif" font-weight="600" font-size="10.5" fill="#334155">• Do not eat, drink, or smoke during application.</text>
+          <text x="0" y="102" font-family="'Outfit', sans-serif" font-weight="600" font-size="10.5" fill="#334155">• Bathe or shower immediately after spraying.</text>
+          <text x="0" y="120" font-family="'Outfit', sans-serif" font-weight="700" font-size="10.5" fill="#15803d">✓ Compatibility: Compatible with common insecticides &amp; fungicides.</text>
+        </g>
+      </g>
+
+      <!-- Right Column: First Aid Measures -->
+      <g transform="translate(405, 0)">
+        <rect x="0" y="0" width="375" height="195" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" />
+        <rect x="0" y="0" width="375" height="30" rx="8" fill="#991b1b" />
+        <rect x="0" y="15" width="375" height="15" fill="#991b1b" />
+        <text x="15" y="20" font-family="'Outfit', sans-serif" font-weight="900" font-size="11" fill="#ffffff">
+          FIRST AID PROCEDURES
+        </text>
+
+        <g transform="translate(15, 45)">
+          <text x="0" y="12" font-family="'Outfit', sans-serif" font-weight="700" font-size="10.5" fill="#991b1b">• Do not use atropine (Synthetic Pyrethroid).</text>
+          <text x="0" y="30" font-family="'Outfit', sans-serif" font-weight="600" font-size="10.5" fill="#334155">• Eyes: Flush with plenty of water for at least 15 min.</text>
+          <text x="0" y="48" font-family="'Outfit', sans-serif" font-weight="600" font-size="10.5" fill="#334155">• Skin: Flush skin with plenty of water and soap.</text>
+          <text x="0" y="66" font-family="'Outfit', sans-serif" font-weight="600" font-size="10.5" fill="#334155">• Ingestion: Do NOT induce vomiting; seek medical care.</text>
+          <text x="0" y="84" font-family="'Outfit', sans-serif" font-weight="600" font-size="10.5" fill="#334155">• Inhalation: Keep the patient in fresh open air.</text>
+          <text x="0" y="108" font-family="'Outfit', sans-serif" font-weight="800" font-size="10.5" fill="#78350f">⚠ Dispose empty pesticide containers in approved landfills.</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Red Banner Warning -->
+    <g transform="translate(30, 360)">
+      <rect x="0" y="0" width="780" height="30" rx="6" fill="#dc2626" />
+      <text x="390" y="20" font-family="'Outfit', sans-serif" font-weight="900" font-size="12" fill="#ffffff" text-anchor="middle" letter-spacing="1">
+        CAUTION: KEEP OUT OF REACH OF CHILDREN • 1 LITRE BOTTLE
+      </text>
+    </g>
+
+    <!-- Bottom Marketed By & Manufacturer Info -->
+    <g transform="translate(30, 405)">
+      <rect x="0" y="0" width="780" height="105" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" />
+      
+      <g transform="translate(20, 25)">
+        <text x="0" y="0" font-family="'Outfit', sans-serif" font-weight="900" font-size="12" fill="#1e3a8a">
+          MARKETED BY: ROYAL TEESQUARE TRADE AND INVESTMENTS LTD
+        </text>
+        <text x="0" y="18" font-family="'Outfit', sans-serif" font-weight="600" font-size="10.5" fill="#475569">
+          7, Joseph Ogbeha Street, GRA, Ilorin, Kwara State, Nigeria
+        </text>
+        <text x="0" y="34" font-family="'Outfit', sans-serif" font-weight="700" font-size="10.5" fill="#0f172a">
+          Tel: +234 701 192 0403, +234 805 304 7846 • Email: royalteesquare@nbshunstar.com
+        </text>
+        <text x="0" y="52" font-family="'Outfit', sans-serif" font-weight="600" font-size="10" fill="#64748b">
+          Manufactured By: Anhui Zhongshan Chemical Industry Co. Ltd (Xiangyu Chemical Industry Park)
+        </text>
+      </g>
+
+      <!-- Safety Pictogram Icons representation -->
+      <g transform="translate(560, 25)">
+        <rect x="0" y="0" width="30" height="30" rx="4" fill="#0284c7" />
+        <text x="15" y="20" font-size="16" text-anchor="middle" fill="#fff">🦺</text>
+        
+        <rect x="38" y="0" width="30" height="30" rx="4" fill="#0284c7" />
+        <text x="53" y="20" font-size="16" text-anchor="middle" fill="#fff">🧤</text>
+
+        <rect x="76" y="0" width="30" height="30" rx="4" fill="#0284c7" />
+        <text x="91" y="20" font-size="16" text-anchor="middle" fill="#fff">😷</text>
+
+        <rect x="114" y="0" width="30" height="30" rx="4" fill="#0284c7" />
+        <text x="129" y="20" font-size="16" text-anchor="middle" fill="#fff">🥾</text>
+
+        <rect x="152" y="0" width="30" height="30" rx="4" fill="#dc2626" />
+        <text x="167" y="20" font-size="16" text-anchor="middle" fill="#fff">☠</text>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,212 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" width="100%" height="100%">
+  <defs>
+    <!-- Background Studio Radial Gradient -->
+    <radialGradient id="bgServiceShield" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="60%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#020617" />
+    </radialGradient>
+
+    <!-- 3D Metallic Brushed Crimson Red Shield Gradient -->
+    <linearGradient id="crimsonShieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ef4444" />
+      <stop offset="25%" stop-color="#dc2626" />
+      <stop offset="60%" stop-color="#991b1b" />
+      <stop offset="90%" stop-color="#7f1d1d" />
+      <stop offset="100%" stop-color="#450a0a" />
+    </linearGradient>
+
+    <!-- Metallic Gold Gradient (Lightning & Letters) -->
+    <linearGradient id="goldMetallic" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="30%" stop-color="#facc15" />
+      <stop offset="70%" stop-color="#ca8a04" />
+      <stop offset="100%" stop-color="#854d0e" />
+    </linearGradient>
+
+    <!-- Polished Silver/Chrome Metallic Gradient -->
+    <linearGradient id="silverChrome" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="35%" stop-color="#e2e8f0" />
+      <stop offset="65%" stop-color="#94a3b8" />
+      <stop offset="100%" stop-color="#475569" />
+    </linearGradient>
+
+    <!-- Bedbug Shell Red-Brown Chitin Gradient -->
+    <radialGradient id="chitinGrad" cx="40%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#b45309" />
+      <stop offset="50%" stop-color="#78350f" />
+      <stop offset="85%" stop-color="#451a03" />
+      <stop offset="100%" stop-color="#1c1917" />
+    </radialGradient>
+
+    <!-- 3D Heavy Drop Shadow -->
+    <filter id="heavyShieldShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="28" stdDeviation="24" flood-color="#000000" flood-opacity="0.9" />
+    </filter>
+    
+    <filter id="textGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.8" />
+    </filter>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="900" height="900" fill="url(#bgServiceShield)" />
+
+  <!-- Background Subtle Grid -->
+  <pattern id="shieldGrid" width="45" height="45" patternUnits="userSpaceOnUse">
+    <rect width="45" height="45" fill="none" stroke="#334155" stroke-width="0.75" opacity="0.25" />
+  </pattern>
+  <rect width="900" height="900" fill="url(#shieldGrid)" />
+
+  <!-- Ambient Light Reflection on Floor -->
+  <ellipse cx="450" cy="800" rx="350" ry="40" fill="#dc2626" opacity="0.2" />
+
+  <!-- MAIN 3D EMBLEM CONTAINER -->
+  <g transform="translate(160, 45)" filter="url(#heavyShieldShadow)">
+    
+    <!-- 1. EXTRUDED SHIELD BEVEL BORDER (Chrome Outer Rim) -->
+    <path d="M 50,20 C 180,0 400,0 530,20 C 560,30 570,70 570,120 L 570,480 C 570,620 400,710 290,740 C 180,710 10,620 10,480 L 10,120 C 10,70 20,30 50,20 Z" 
+          fill="url(#silverChrome)" stroke="#1e293b" stroke-width="4" />
+
+    <!-- 2. INNER CRIMSON RED BRUSHED SHIELD FACE -->
+    <path d="M 60,35 C 185,18 395,18 520,35 C 545,45 555,78 555,125 L 555,475 C 555,605 395,690 290,720 C 185,690 25,605 25,475 L 25,125 C 25,78 35,45 60,35 Z" 
+          fill="url(#crimsonShieldGrad)" stroke="#fca5a5" stroke-width="2" />
+
+    <!-- Brushed texture lines across shield -->
+    <line x1="40" y1="180" x2="540" y2="180" stroke="#f87171" stroke-width="0.75" opacity="0.3" />
+    <line x1="40" y1="280" x2="540" y2="280" stroke="#f87171" stroke-width="0.75" opacity="0.3" />
+    <line x1="40" y1="380" x2="540" y2="380" stroke="#f87171" stroke-width="0.75" opacity="0.3" />
+    <line x1="40" y1="480" x2="540" y2="480" stroke="#f87171" stroke-width="0.75" opacity="0.3" />
+
+    <!-- 3. TOP TYPOGRAPHY: "STUBBORN" (3D Polished Chrome / White Block) -->
+    <g transform="translate(290, 140)" filter="url(#textGlow)">
+      <!-- 3D Extrusion behind STUBBORN -->
+      <text x="0" y="8" font-family="'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="78" fill="#1e293b" text-anchor="middle" letter-spacing="4">
+        STUBBORN
+      </text>
+      <text x="0" y="4" font-family="'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="78" fill="#64748b" text-anchor="middle" letter-spacing="4">
+        STUBBORN
+      </text>
+      <!-- Front Chrome Face -->
+      <text x="0" y="0" font-family="'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="78" fill="url(#silverChrome)" text-anchor="middle" letter-spacing="4">
+        STUBBORN
+      </text>
+    </g>
+
+    <!-- 4. SECOND LINE: "BEDBUGS" (3D Solid Polished Gold) -->
+    <g transform="translate(290, 215)" filter="url(#textGlow)">
+      <text x="0" y="6" font-family="'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="64" fill="#451a03" text-anchor="middle" letter-spacing="3">
+        BEDBUGS
+      </text>
+      <text x="0" y="0" font-family="'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="64" fill="url(#goldMetallic)" text-anchor="middle" letter-spacing="3">
+        BEDBUGS
+      </text>
+    </g>
+
+    <!-- 5. THIRD LINE: "KILLER" (Polished Gold / Yellow) -->
+    <g transform="translate(290, 275)" filter="url(#textGlow)">
+      <text x="0" y="5" font-family="'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="52" fill="#451a03" text-anchor="middle" letter-spacing="4">
+        KILLER
+      </text>
+      <text x="0" y="0" font-family="'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="52" fill="url(#goldMetallic)" text-anchor="middle" letter-spacing="4">
+        KILLER
+      </text>
+    </g>
+
+    <!-- 6. GOLDEN LIGHTNING BOLTS (Left & Right Flanking) -->
+    <!-- Left Lightning -->
+    <polygon points="50,110 130,280 100,280 180,410 80,310 110,310 50,110" fill="url(#goldMetallic)" stroke="#78350f" stroke-width="1.5" />
+    <!-- Right Lightning -->
+    <polygon points="530,110 450,280 480,280 400,410 500,310 470,310 530,110" fill="url(#goldMetallic)" stroke="#78350f" stroke-width="1.5" />
+
+    <!-- 7. CENTER OVAL MEDALLION (Bedbug Macro Focus & Eggs) -->
+    <g transform="translate(290, 480)">
+      <!-- Gold Rope Oval Border -->
+      <ellipse cx="0" cy="0" rx="195" ry="115" fill="#ca8a04" stroke="#fef08a" stroke-width="3" />
+      <ellipse cx="0" cy="0" rx="185" ry="105" fill="#0f172a" stroke="#78350f" stroke-width="3" />
+
+      <!-- Specular Oval Shadow -->
+      <ellipse cx="0" cy="0" rx="175" ry="95" fill="#020617" />
+
+      <!-- Center Big Adult Bedbug (Cimex Lectularius) -->
+      <g transform="translate(25, 0) scale(1.1)">
+        <!-- Abdomen Stripes (Segmented) -->
+        <ellipse cx="0" cy="0" rx="42" ry="32" fill="url(#chitinGrad)" stroke="#f59e0b" stroke-width="1.5" />
+        <line x1="-35" y1="-14" x2="35" y2="-14" stroke="#92400e" stroke-width="2" />
+        <line x1="-40" y1="-4" x2="40" y2="-4" stroke="#92400e" stroke-width="2" />
+        <line x1="-40" y1="6" x2="40" y2="6" stroke="#92400e" stroke-width="2" />
+        <line x1="-35" y1="16" x2="35" y2="16" stroke="#92400e" stroke-width="2" />
+
+        <!-- Thorax -->
+        <path d="M -22,-20 C -20,-32 20,-32 22,-20 Z" fill="#78350f" stroke="#b45309" stroke-width="1.5" />
+        <!-- Head & Eyes -->
+        <circle cx="0" cy="-30" r="10" fill="#451a03" />
+        <circle cx="-9" cy="-32" r="3" fill="#dc2626" />
+        <circle cx="9" cy="-32" r="3" fill="#dc2626" />
+
+        <!-- Antennae -->
+        <path d="M -6,-36 Q -18,-50 -28,-45" stroke="#f59e0b" stroke-width="2" fill="none" />
+        <path d="M 6,-36 Q 18,-50 28,-45" stroke="#f59e0b" stroke-width="2" fill="none" />
+
+        <!-- 6 Segmented Legs -->
+        <path d="M -18,-24 Q -45,-30 -55,-15" stroke="#ca8a04" stroke-width="2.5" fill="none" />
+        <path d="M 18,-24 Q 45,-30 55,-15" stroke="#ca8a04" stroke-width="2.5" fill="none" />
+        <path d="M -25,-5 Q -55,-5 -62,15" stroke="#ca8a04" stroke-width="2.5" fill="none" />
+        <path d="M 25,-5 Q 55,-5 62,15" stroke="#ca8a04" stroke-width="2.5" fill="none" />
+        <path d="M -22,18 Q -50,35 -52,50" stroke="#ca8a04" stroke-width="2.5" fill="none" />
+        <path d="M 22,18 Q 50,35 52,50" stroke="#ca8a04" stroke-width="2.5" fill="none" />
+      </g>
+
+      <!-- Smaller Nymph Bedbug (Top Left) -->
+      <g transform="translate(-100, -35) scale(0.65)">
+        <ellipse cx="0" cy="0" rx="35" ry="25" fill="url(#chitinGrad)" stroke="#f59e0b" stroke-width="1.5" />
+        <circle cx="0" cy="-22" r="8" fill="#451a03" />
+        <path d="M -15,-18 Q -38,-22 -45,-10" stroke="#ca8a04" stroke-width="2" fill="none" />
+        <path d="M 15,-18 Q 38,-22 45,-10" stroke="#ca8a04" stroke-width="2" fill="none" />
+      </g>
+
+      <!-- Nymph / Instar (Bottom Left) -->
+      <g transform="translate(-90, 35) scale(0.55)">
+        <ellipse cx="0" cy="0" rx="32" ry="22" fill="#d97706" stroke="#fef08a" stroke-width="1.5" />
+        <circle cx="0" cy="-20" r="7" fill="#78350f" />
+      </g>
+
+      <!-- Translucent Pearl-White Bedbug Eggs Cluster (Left Edge) -->
+      <g transform="translate(-145, 0)">
+        <ellipse cx="-5" cy="-8" rx="8" ry="4.5" fill="#f8fafc" stroke="#94a3b8" stroke-width="1" transform="rotate(-20 -5 -8)" />
+        <ellipse cx="5" cy="-2" rx="8" ry="4.5" fill="#f8fafc" stroke="#94a3b8" stroke-width="1" transform="rotate(15 5 -2)" />
+        <ellipse cx="-2" cy="8" rx="8" ry="4.5" fill="#f8fafc" stroke="#94a3b8" stroke-width="1" transform="rotate(-40 -2 8)" />
+        <ellipse cx="8" cy="12" rx="7.5" ry="4" fill="#ffffff" stroke="#94a3b8" stroke-width="1" transform="rotate(30 8 12)" />
+      </g>
+    </g>
+
+    <!-- 8. BOTTOM "KILLER" BANNER & EMBOSSED TEXT -->
+    <g transform="translate(290, 640)" filter="url(#textGlow)">
+      <text x="0" y="4" font-family="'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="58" fill="#1e293b" text-anchor="middle" letter-spacing="6">
+        KILLER
+      </text>
+      <text x="0" y="0" font-family="'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="58" fill="url(#silverChrome)" text-anchor="middle" letter-spacing="6">
+        KILLER
+      </text>
+    </g>
+
+    <!-- 9. RIGHT SIDE VERTICAL KILLAPEST & WHATSAPP PHONE BANNER -->
+    <g transform="translate(500, 360) rotate(90)">
+      <rect x="-130" y="-14" width="260" height="28" rx="6" fill="#000000" opacity="0.85" stroke="#facc15" stroke-width="1.5" />
+      <text x="0" y="5" font-family="'Outfit', sans-serif" font-weight="900" font-size="12" fill="#ffffff" text-anchor="middle" letter-spacing="1">
+        📞 +234 8089854753 • KILLAPEST
+      </text>
+    </g>
+  </g>
+
+  <!-- 10. SUBTITLE STRIP BELOW SHIELD -->
+  <g transform="translate(450, 835)" filter="url(#textGlow)">
+    <text x="0" y="0" font-family="'Impact', 'Outfit', sans-serif" font-weight="900" font-size="28" fill="url(#silverChrome)" text-anchor="middle" letter-spacing="5">
+      COMPLETE EXTERMINATION SOLUTIONS
+    </text>
+    <text x="0" y="24" font-family="'Outfit', sans-serif" font-weight="800" font-size="13" fill="#facc15" text-anchor="middle" letter-spacing="3">
+      3-DAY PERMANENT BEDBUGS &amp; OVICIDAL ERADICATION PROTOCOL
+    </text>
+  </g>
+</svg>

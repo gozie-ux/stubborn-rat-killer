@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bgBaitBox3" cx="50%" cy="50%" r="75%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#090d16" />
+    </radialGradient>
+
+    <filter id="insetShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#000000" flood-opacity="0.8" />
+    </filter>
+  </defs>
+
+  <rect width="1000" height="600" fill="url(#bgBaitBox3)" />
+
+  <!-- Center Main Open Station Graphic -->
+  <g transform="translate(140, 100) scale(0.85)">
+    <!-- Base Box Body -->
+    <rect x="100" y="160" width="540" height="320" rx="14" fill="#0f172a" stroke="#334155" stroke-width="2" />
+    <!-- Raised Open Lid -->
+    <polygon points="100,160 640,160 580,20 160,20" fill="#1e293b" stroke="#475569" stroke-width="2" />
+    
+    <!-- Runway partition -->
+    <rect x="130" y="240" width="480" height="15" fill="#64748b" />
+    
+    <!-- Metal Bar with Bait Blocks -->
+    <line x1="160" y1="360" x2="580" y2="360" stroke="#e2e8f0" stroke-width="4" />
+    <rect x="220" y="345" width="40" height="30" rx="4" fill="#2563eb" />
+    <rect x="280" y="345" width="40" height="30" rx="4" fill="#2563eb" />
+    <rect x="420" y="345" width="40" height="30" rx="4" fill="#dc2626" />
+    <rect x="480" y="345" width="40" height="30" rx="4" fill="#dc2626" />
+  </g>
+
+  <!-- DETAIL INSET CALLOUT 1: Metal Bait Locking Eyelet & Rod (Top Left) -->
+  <g transform="translate(180, 160)" filter="url(#insetShadow)">
+    <circle cx="0" cy="0" r="110" fill="#0f172a" stroke="#38bdf8" stroke-width="4" />
+    <circle cx="0" cy="0" r="102" fill="#1e293b" />
+    
+    <!-- Tray inside zoom -->
+    <rect x="-70" y="-30" width="140" height="100" fill="#e2e8f0" rx="6" />
+    <!-- Black Eyelet bracket -->
+    <path d="M -50,-10 L 10,-10 C 35,-10 35,25 10,25 L -50,25 Z" fill="#090d16" stroke="#475569" stroke-width="2" />
+    <circle cx="15" cy="7" r="12" fill="#e2e8f0" stroke="#090d16" stroke-width="3" />
+    <!-- Steel rod passing through eyelet -->
+    <line x1="-80" y1="7" x2="80" y2="7" stroke="#94a3b8" stroke-width="8" stroke-linecap="round" />
+    <line x1="-80" y1="5" x2="80" y2="5" stroke="#ffffff" stroke-width="2" />
+
+    <!-- Label Badge -->
+    <rect x="-85" y="65" width="170" height="30" rx="6" fill="#0284c7" />
+    <text x="0" y="85" font-family="'Outfit', sans-serif" font-weight="900" font-size="11" fill="#ffffff" text-anchor="middle">
+      STEEL BAIT SECURING ROD
+    </text>
+  </g>
+
+  <!-- DETAIL INSET CALLOUT 2: Heavy-Duty Compression Springs (Bottom Left) -->
+  <g transform="translate(180, 420)" filter="url(#insetShadow)">
+    <circle cx="0" cy="0" r="110" fill="#0f172a" stroke="#facc15" stroke-width="4" />
+    <circle cx="0" cy="0" r="102" fill="#090d16" />
+
+    <!-- Spring housing cavity -->
+    <polygon points="-50,-60 50,-60 70,60 -70,60" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+    
+    <!-- Metallic compression helical spring -->
+    <g transform="translate(-25, -50)">
+      <ellipse cx="25" cy="15" rx="22" ry="7" fill="none" stroke="#f8fafc" stroke-width="4" />
+      <ellipse cx="25" cy="30" rx="22" ry="7" fill="none" stroke="#f8fafc" stroke-width="4" />
+      <ellipse cx="25" cy="45" rx="22" ry="7" fill="none" stroke="#f8fafc" stroke-width="4" />
+      <ellipse cx="25" cy="60" rx="22" ry="7" fill="none" stroke="#f8fafc" stroke-width="4" />
+      <ellipse cx="25" cy="75" rx="22" ry="7" fill="none" stroke="#f8fafc" stroke-width="4" />
+      <ellipse cx="25" cy="90" rx="22" ry="7" fill="none" stroke="#f8fafc" stroke-width="4" />
+    </g>
+
+    <!-- Label Badge -->
+    <rect x="-85" y="65" width="170" height="30" rx="6" fill="#ca8a04" />
+    <text x="0" y="85" font-family="'Outfit', sans-serif" font-weight="900" font-size="11" fill="#ffffff" text-anchor="middle">
+      AUTO-TENSION SPRINGS
+    </text>
+  </g>
+
+  <!-- Right Side Features Summary Panel -->
+  <g transform="translate(680, 70)">
+    <rect x="0" y="0" width="280" height="460" rx="16" fill="#0f172a" opacity="0.95" stroke="#334155" stroke-width="2" />
+    
+    <!-- Title -->
+    <text x="25" y="45" font-family="'Outfit', sans-serif" font-weight="900" font-size="18" fill="#facc15">
+      ENGINEERING SPECS
+    </text>
+    <text x="25" y="70" font-family="'Outfit', sans-serif" font-weight="700" font-size="12" fill="#94a3b8">
+      Professional Rodent Control Station
+    </text>
+
+    <line x1="25" y1="85" x2="255" y2="85" stroke="#334155" stroke-width="1" />
+
+    <!-- Feature 1 -->
+    <g transform="translate(25, 110)">
+      <circle cx="12" cy="12" r="12" fill="#1e3a8a" />
+      <text x="12" y="17" font-family="'Outfit', sans-serif" font-weight="900" font-size="12" fill="#60a5fa" text-anchor="middle">1</text>
+      <text x="35" y="12" font-family="'Outfit', sans-serif" font-weight="800" font-size="12" fill="#ffffff">Tamper-Proof Lock</text>
+      <text x="35" y="28" font-family="'Outfit', sans-serif" font-weight="500" font-size="10" fill="#94a3b8">Includes double-prong security key</text>
+    </g>
+
+    <!-- Feature 2 -->
+    <g transform="translate(25, 165)">
+      <circle cx="12" cy="12" r="12" fill="#166534" />
+      <text x="12" y="17" font-family="'Outfit', sans-serif" font-weight="900" font-size="12" fill="#4ade80" text-anchor="middle">2</text>
+      <text x="35" y="12" font-family="'Outfit', sans-serif" font-weight="800" font-size="12" fill="#ffffff">Weatherproof Shield</text>
+      <text x="35" y="28" font-family="'Outfit', sans-serif" font-weight="500" font-size="10" fill="#94a3b8">Protects bait from rain &amp; dust</text>
+    </g>
+
+    <!-- Feature 3 -->
+    <g transform="translate(25, 220)">
+      <circle cx="12" cy="12" r="12" fill="#854d0e" />
+      <text x="12" y="17" font-family="'Outfit', sans-serif" font-weight="900" font-size="12" fill="#facc15" text-anchor="middle">3</text>
+      <text x="35" y="12" font-family="'Outfit', sans-serif" font-weight="800" font-size="12" fill="#ffffff">Bait Securing Rod</text>
+      <text x="35" y="28" font-family="'Outfit', sans-serif" font-weight="500" font-size="10" fill="#94a3b8">Prevents rats carrying poison away</text>
+    </g>
+
+    <!-- Feature 4 -->
+    <g transform="translate(25, 275)">
+      <circle cx="12" cy="12" r="12" fill="#1e293b" />
+      <text x="12" y="17" font-family="'Outfit', sans-serif" font-weight="900" font-size="12" fill="#e2e8f0" text-anchor="middle">4</text>
+      <text x="35" y="12" font-family="'Outfit', sans-serif" font-weight="800" font-size="12" fill="#ffffff">Safe Near Children &amp; Pets</text>
+      <text x="35" y="28" font-family="'Outfit', sans-serif" font-weight="500" font-size="10" fill="#94a3b8">Only rodents can enter tunnel</text>
+    </g>
+
+    <!-- Feature 5 -->
+    <g transform="translate(25, 330)">
+      <circle cx="12" cy="12" r="12" fill="#7f1d1d" />
+      <text x="12" y="17" font-family="'Outfit', sans-serif" font-weight="900" font-size="12" fill="#f87171" text-anchor="middle">5</text>
+      <text x="35" y="12" font-family="'Outfit', sans-serif" font-weight="800" font-size="12" fill="#ffffff">Easy 24h Inspection</text>
+      <text x="35" y="28" font-family="'Outfit', sans-serif" font-weight="500" font-size="10" fill="#94a3b8">Quick-open key mechanism</text>
+    </g>
+
+    <!-- Bottom Purchase Badge -->
+    <g transform="translate(25, 395)">
+      <rect x="0" y="0" width="230" height="40" rx="8" fill="#1e3a8a" />
+      <text x="115" y="25" font-family="'Outfit', sans-serif" font-weight="900" font-size="11" fill="#ffffff" text-anchor="middle">
+        1x BAIT BOX + 1x SECURITY KEY
+      </text>
+    </g>
+  </g>
+</svg>

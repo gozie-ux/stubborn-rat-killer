@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bgDeltaBack" cx="50%" cy="50%" r="75%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </radialGradient>
+
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#000000" flood-opacity="0.75" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="600" fill="url(#bgDeltaBack)" />
+
+  <!-- MAIN BACK SPECIFICATIONS SHEET CARD -->
+  <g transform="translate(80, 40)" filter="url(#cardShadow)">
+    <rect x="0" y="0" width="840" height="520" rx="16" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" />
+
+    <!-- Top Blue Header -->
+    <rect x="0" y="0" width="840" height="55" rx="16" fill="#1e3a8a" />
+    <rect x="0" y="30" width="840" height="25" fill="#1e3a8a" />
+    <text x="30" y="36" font-family="'Impact', 'Outfit', sans-serif" font-weight="900" font-size="22" fill="#ffffff" letter-spacing="1">
+      DELTAFORCE • TECHNICAL SPECIFICATION &amp; APPLICATION GUIDE
+    </text>
+    <text x="810" y="35" font-family="'Outfit', sans-serif" font-weight="800" font-size="13" fill="#facc15" text-anchor="end">
+      NAFDAC REG. NO: A5-0922
+    </text>
+
+    <!-- General Information & Principle of Uses -->
+    <g transform="translate(30, 75)">
+      <text x="0" y="16" font-family="'Outfit', sans-serif" font-weight="900" font-size="13" fill="#1e3a8a">
+        GENERAL INFORMATION:
+      </text>
+      <text x="0" y="34" font-family="'Outfit', sans-serif" font-weight="600" font-size="11" fill="#334155">
+        DeltaForce is a synthetic pyrethroid agricultural &amp; public health insecticide. It is a non-systemic insecticide with rapid contact
+      </text>
+      <text x="0" y="50" font-family="'Outfit', sans-serif" font-weight="600" font-size="11" fill="#334155">
+        and stomach action, fast acting. It kills insects on direct contact and through digestion. DeltaForce is an effective termite killer.
+      </text>
+
+      <text x="0" y="76" font-family="'Outfit', sans-serif" font-weight="900" font-size="13" fill="#1e3a8a">
+        DIRECTION OF USES:
+      </text>
+      <text x="0" y="94" font-family="'Outfit', sans-serif" font-weight="600" font-size="11" fill="#334155">
+        Ensure sprayer is calibrated before use. Half fill with clean water, add recommended dosage of DeltaForce, and agitate during filling.
+      </text>
+    </g>
+
+    <!-- DOSAGE TABLE (Recreating back bottle table) -->
+    <g transform="translate(30, 195)">
+      <!-- Table Header -->
+      <rect x="0" y="0" width="780" height="30" fill="#0f172a" rx="4" />
+      <text x="15" y="20" font-family="'Outfit', sans-serif" font-weight="800" font-size="11" fill="#ffffff">
+        TARGET / CROP / SITUATION
+      </text>
+      <text x="420" y="20" font-family="'Outfit', sans-serif" font-weight="800" font-size="11" fill="#facc15">
+        RATE OF USE / HA
+      </text>
+      <text x="610" y="20" font-family="'Outfit', sans-serif" font-weight="800" font-size="11" fill="#38bdf8">
+        DOSAGE / 15L SPRAYER
+      </text>
+
+      <!-- Row 1: Vegetables & Crawling Insects -->
+      <rect x="0" y="32" width="780" height="26" fill="#f8fafc" />
+      <text x="15" y="49" font-family="'Outfit', sans-serif" font-weight="600" font-size="11" fill="#1e293b">
+        Vegetables (Tomato, pepper, onion, cucumber, cabbage, etc.)
+      </text>
+      <text x="420" y="49" font-family="'Outfit', sans-serif" font-weight="700" font-size="11" fill="#0f172a">
+        0.5 – 1.0 Litre
+      </text>
+      <text x="610" y="49" font-family="'Outfit', sans-serif" font-weight="800" font-size="11" fill="#16a34a">
+        20 – 40 ml
+      </text>
+
+      <!-- Row 2: Termites & Foundation Barriers -->
+      <rect x="0" y="60" width="780" height="26" fill="#f1f5f9" />
+      <text x="15" y="77" font-family="'Outfit', sans-serif" font-weight="700" font-size="11" fill="#991b1b">
+        Termite Control (Soil drench, wood treatment, foundation runways)
+      </text>
+      <text x="420" y="77" font-family="'Outfit', sans-serif" font-weight="700" font-size="11" fill="#0f172a">
+        Soil barrier spray
+      </text>
+      <text x="610" y="77" font-family="'Outfit', sans-serif" font-weight="800" font-size="11" fill="#dc2626">
+        40 – 60 ml
+      </text>
+
+      <!-- Row 3: Cereals / Maize / Sorghum -->
+      <rect x="0" y="88" width="780" height="26" fill="#f8fafc" />
+      <text x="15" y="105" font-family="'Outfit', sans-serif" font-weight="600" font-size="11" fill="#1e293b">
+        Cereals (Wheat, maize, millet, sorghum, rice) &amp; Locusts
+      </text>
+      <text x="420" y="105" font-family="'Outfit', sans-serif" font-weight="700" font-size="11" fill="#0f172a">
+        0.5 – 1.0 Litre
+      </text>
+      <text x="610" y="105" font-family="'Outfit', sans-serif" font-weight="800" font-size="11" fill="#16a34a">
+        20 – 40 ml
+      </text>
+
+      <!-- Row 4: Pests of Stored Grains -->
+      <rect x="0" y="116" width="780" height="26" fill="#f1f5f9" />
+      <text x="15" y="133" font-family="'Outfit', sans-serif" font-weight="600" font-size="11" fill="#1e293b">
+        Pests of Stored Grains &amp; Warehouses (Weevils, Beetles)
+      </text>
+      <text x="420" y="133" font-family="'Outfit', sans-serif" font-weight="700" font-size="10" fill="#0f172a">
+        Dilute in 2L water &amp; spray external bag perimeter
+      </text>
+      <text x="610" y="133" font-family="'Outfit', sans-serif" font-weight="800" font-size="11" fill="#16a34a">
+        25 – 35 ml
+      </text>
+    </g>
+
+    <!-- Red Caution Warning Box -->
+    <g transform="translate(30, 360)">
+      <rect x="0" y="0" width="780" height="32" rx="6" fill="#dc2626" />
+      <text x="390" y="21" font-family="'Outfit', sans-serif" font-weight="900" font-size="13" fill="#ffffff" text-anchor="middle" letter-spacing="1">
+        ⚠ KEEP AWAY FROM CHILDREN • STORE IN COOL DRY PLACE
+      </text>
+    </g>
+
+    <!-- Bottom Distributor / Jubaili Agrotec Details -->
+    <g transform="translate(30, 410)">
+      <rect x="0" y="0" width="780" height="90" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" />
+      
+      <!-- Company name -->
+      <text x="20" y="30" font-family="'Impact', 'Outfit', sans-serif" font-weight="900" font-size="20" fill="#15803d">
+        Jubaili AGROTEC
+      </text>
+      <text x="20" y="48" font-family="'Outfit', sans-serif" font-weight="700" font-size="11" fill="#0f172a">
+        Let's Grow Together • Technical Consultancies: 08036299160
+      </text>
+      <text x="20" y="65" font-family="'Outfit', sans-serif" font-weight="500" font-size="10" fill="#64748b">
+        Kano: 08128600088 • Ibadan: 08128600062 • Abuja: 08128600001
+      </text>
+
+      <!-- Safety Pictograms Icons representation -->
+      <g transform="translate(560, 20)">
+        <rect x="0" y="0" width="30" height="30" rx="4" fill="#0284c7" />
+        <text x="15" y="20" font-size="16" text-anchor="middle" fill="#fff">🦺</text>
+        
+        <rect x="38" y="0" width="30" height="30" rx="4" fill="#0284c7" />
+        <text x="53" y="20" font-size="16" text-anchor="middle" fill="#fff">🧤</text>
+
+        <rect x="76" y="0" width="30" height="30" rx="4" fill="#0284c7" />
+        <text x="91" y="20" font-size="16" text-anchor="middle" fill="#fff">😷</text>
+
+        <rect x="114" y="0" width="30" height="30" rx="4" fill="#0284c7" />
+        <text x="129" y="20" font-size="16" text-anchor="middle" fill="#fff">🥾</text>
+
+        <rect x="152" y="0" width="30" height="30" rx="4" fill="#eab308" />
+        <text x="167" y="20" font-size="16" text-anchor="middle" fill="#000">⚠</text>
+      </g>
+
+      <text x="560" y="70" font-family="'Outfit', sans-serif" font-weight="700" font-size="10" fill="#475569">
+        Batch No: DM-1 25 EC | NAFDAC Reg: A5-0922
+      </text>
+    </g>
+  </g>
+</svg>

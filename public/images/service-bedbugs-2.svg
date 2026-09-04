@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" width="100%" height="100%">
+  <defs>
+    <!-- Dark Warehouse Interior Gradient -->
+    <linearGradient id="warehouseInterior" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="60%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#090d16" />
+    </linearGradient>
+
+    <!-- Volumetric Thermal Fog Gradients -->
+    <radialGradient id="fogCore" cx="45%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9" />
+      <stop offset="40%" stop-color="#f1f5f9" stop-opacity="0.7" />
+      <stop offset="75%" stop-color="#cbd5e1" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#94a3b8" stop-opacity="0" />
+    </radialGradient>
+
+    <linearGradient id="fogDrift" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.8" />
+      <stop offset="60%" stop-color="#e2e8f0" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#94a3b8" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Warehouse Metal Shelves & Bags -->
+    <linearGradient id="metalRackGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#475569" />
+      <stop offset="50%" stop-color="#64748b" />
+      <stop offset="100%" stop-color="#334155" />
+    </linearGradient>
+
+    <!-- Industrial Fogger Gun Metallic Red -->
+    <linearGradient id="foggerMachineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ef4444" />
+      <stop offset="60%" stop-color="#dc2626" />
+      <stop offset="100%" stop-color="#7f1d1d" />
+    </linearGradient>
+
+    <filter id="sceneGlow">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Warehouse Dark Atmosphere -->
+  <rect width="900" height="900" fill="url(#warehouseInterior)" />
+
+  <!-- High Bay Industrial Ceiling Lights -->
+  <circle cx="720" cy="80" r="30" fill="#fef08a" opacity="0.85" filter="url(#sceneGlow)" />
+  <polygon points="690,80 750,80 840,400 600,400" fill="#fef08a" opacity="0.08" />
+
+  <!-- LEFT WAREHOUSE PALLET STACKS (Grain / Flour Sack Rows with Red Bands) -->
+  <g transform="translate(10, 30)">
+    <!-- Steel Racks Vertical Uprights -->
+    <rect x="20" y="50" width="12" height="750" fill="url(#metalRackGrad)" />
+    <rect x="180" y="50" width="12" height="750" fill="url(#metalRackGrad)" />
+    <rect x="340" y="50" width="12" height="750" fill="url(#metalRackGrad)" />
+    <rect x="480" y="50" width="12" height="750" fill="url(#metalRackGrad)" />
+
+    <!-- Stacked Commodity Bags with Red Printing (Tier 1 to Tier 4) -->
+    <!-- Tier 1 (Top) -->
+    <g transform="translate(0, 70)">
+      <rect x="30" y="0" width="140" height="70" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" />
+      <rect x="40" y="15" width="120" height="25" fill="#ef4444" opacity="0.75" />
+      <rect x="190" y="0" width="140" height="70" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" />
+      <rect x="200" y="15" width="120" height="25" fill="#ef4444" opacity="0.75" />
+      <rect x="350" y="0" width="120" height="70" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" />
+    </g>
+
+    <!-- Tier 2 -->
+    <g transform="translate(0, 160)">
+      <rect x="30" y="0" width="140" height="70" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" />
+      <rect x="40" y="20" width="120" height="22" fill="#ef4444" opacity="0.75" />
+      <rect x="190" y="0" width="140" height="70" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" />
+      <rect x="200" y="20" width="120" height="22" fill="#ef4444" opacity="0.75" />
+      <rect x="350" y="0" width="120" height="70" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" />
+    </g>
+
+    <!-- Tier 3 -->
+    <g transform="translate(0, 250)">
+      <rect x="30" y="0" width="140" height="70" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" />
+      <rect x="40" y="20" width="120" height="22" fill="#ef4444" opacity="0.75" />
+      <rect x="190" y="0" width="140" height="70" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" />
+      <rect x="200" y="20" width="120" height="22" fill="#ef4444" opacity="0.75" />
+    </g>
+
+    <!-- Tier 4 -->
+    <g transform="translate(0, 340)">
+      <rect x="30" y="0" width="140" height="70" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" />
+      <rect x="40" y="20" width="120" height="22" fill="#ef4444" opacity="0.75" />
+      <rect x="190" y="0" width="140" height="70" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" />
+    </g>
+  </g>
+
+  <!-- MASSIVE DENSE THERMAL FOG CLOUDS (Filling Warehouse Aisles) -->
+  <g transform="translate(100, 250)">
+    <circle cx="550" cy="180" r="180" fill="url(#fogCore)" />
+    <circle cx="680" cy="120" r="220" fill="url(#fogCore)" />
+    <circle cx="380" cy="240" r="160" fill="url(#fogCore)" />
+    <circle cx="200" cy="300" r="190" fill="url(#fogCore)" />
+    <ellipse cx="450" cy="360" rx="400" ry="160" fill="url(#fogDrift)" />
+    <ellipse cx="600" cy="280" rx="300" ry="140" fill="url(#fogDrift)" />
+  </g>
+
+  <!-- PEST CONTROL TECHNICIAN (Operating Thermal Fogger from Behind) -->
+  <g transform="translate(470, 370)">
+    <!-- Shadow beneath Operator -->
+    <ellipse cx="60" cy="480" rx="90" ry="18" fill="#000000" opacity="0.85" />
+
+    <!-- Legs in Dark Blue Navy Coveralls / Work Pants -->
+    <!-- Left Leg -->
+    <path d="M 45,260 L 25,440 L 55,445 L 65,260 Z" fill="#0f172a" stroke="#1e293b" stroke-width="2" />
+    <!-- Right Leg -->
+    <path d="M 75,260 L 105,430 L 135,430 L 95,260 Z" fill="#0f172a" stroke="#1e293b" stroke-width="2" />
+    
+    <!-- Safety Boots -->
+    <polygon points="10,440 60,440 65,465 15,465" fill="#334155" stroke="#000000" stroke-width="1.5" />
+    <polygon points="100,430 150,430 155,455 105,455" fill="#334155" stroke="#000000" stroke-width="1.5" />
+
+    <!-- Torso in Industrial Dark Boiler-Suit / Heavy Coverall -->
+    <path d="M 20,70 Q 60,50 100,70 L 110,260 L 30,260 Z" fill="#1e293b" stroke="#0f172a" stroke-width="2" />
+    
+    <!-- Head in Black Cap & Respirator Straps (Seen from Back/Side) -->
+    <circle cx="60" cy="30" r="28" fill="#0f172a" />
+    <!-- Cap Peak Forward -->
+    <polygon points="70,18 105,25 90,36 70,30" fill="#020617" />
+    <!-- Filter Mask Straps around Head -->
+    <line x1="40" y1="35" x2="80" y2="48" stroke="#ffffff" stroke-width="2" opacity="0.8" />
+    <circle cx="85" cy="50" r="8" fill="#94a3b8" />
+
+    <!-- Right Arm Carrying Heavy Pulse-Jet Thermal Fogger -->
+    <path d="M 85,90 Q 120,150 135,210" stroke="#1e293b" stroke-width="26" stroke-linecap="round" fill="none" />
+    
+    <!-- HEAVY INDUSTRIAL PULSE-JET THERMAL FOGGER CANNON -->
+    <g transform="translate(90, 180) rotate(15)">
+      <!-- Chemical Tank (Red/Silver Cylinder) -->
+      <rect x="0" y="0" width="80" height="50" rx="10" fill="url(#foggerMachineGrad)" stroke="#ffffff" stroke-width="1" />
+      <rect x="15" y="-12" width="25" height="12" rx="3" fill="#ca8a04" />
+      
+      <!-- Engine / Carburetor Block -->
+      <rect x="75" y="5" width="45" height="40" rx="4" fill="#334155" stroke="#94a3b8" stroke-width="1" />
+      
+      <!-- Long Thermal Blast Barrel Tube -->
+      <rect x="115" y="14" width="130" height="22" rx="4" fill="#475569" stroke="#cbd5e1" stroke-width="1.5" />
+      <!-- Perforated Cooling Shield Grill around barrel -->
+      <rect x="130" y="8" width="90" height="34" rx="4" fill="none" stroke="#dc2626" stroke-width="2" stroke-dasharray="4,4" />
+
+      <!-- Jet Blast Nozzle Tip -->
+      <polygon points="245,10 270,16 270,34 245,40" fill="#94a3b8" stroke="#ffffff" stroke-width="1.5" />
+
+      <!-- High-Velocity Thermal Dense Fog Jet Stream from Nozzle -->
+      <path d="M 270,25 C 330,0 450,-50 560,-20 C 660,10 700,90 580,120 C 480,150 360,70 270,35 Z" 
+            fill="url(#fogCore)" opacity="0.95" />
+    </g>
+  </g>
+
+  <!-- FOREGROUND TOP & BOTTOM OVERLAY BANNERS -->
+  <g transform="translate(50, 50)">
+    <rect x="0" y="0" width="380" height="55" rx="14" fill="#000000" opacity="0.9" stroke="#ef4444" stroke-width="2" />
+    <text x="24" y="34" font-family="'Outfit', sans-serif" font-weight="900" font-size="16" fill="#f87171">
+      🏭 INDUSTRIAL THERMAL FOGGING
+    </text>
+  </g>
+
+  <g transform="translate(50, 770)">
+    <rect x="0" y="0" width="800" height="85" rx="16" fill="#000000" opacity="0.92" stroke="#eab308" stroke-width="2" />
+    <text x="28" y="34" font-family="'Outfit', sans-serif" font-weight="900" font-size="16" fill="#facc15">
+      DEEP PENETRATION MICRON-FOG TECHNOLOGY
+    </text>
+    <text x="28" y="62" font-family="'Outfit', sans-serif" font-weight="600" font-size="13" fill="#e2e8f0">
+      Gas and micro-mist penetrate deep into wall cracks, mattress seams, wooden crevices &amp; high ceilings.
+    </text>
+  </g>
+</svg>

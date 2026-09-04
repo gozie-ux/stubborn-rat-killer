@@ -1,0 +1,8 @@
+{
+  "name": "STUBBORN RAT KILLER",
+  "description": "Official Nigerian store for STUBBORN RAT KILLER — fast-acting premix rodenticide bait with zero known resistance, 45m to 2h knockdown, odorless mummification, free dosing scoop spoon, and nationwide dispatch.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
