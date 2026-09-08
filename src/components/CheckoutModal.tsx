@@ -163,11 +163,11 @@ export const CheckoutModal: React.FC = () => {
             </div>
             <div>
               <h2 className="text-base font-black text-slate-950 font-['Outfit'] tracking-wide">
-                {step === 'details' && '1. DELIVERY DESTINATION & DETAILS'}
-                {step === 'payment' && '2. SECURE PAYMENT GATEWAY'}
-                {step === 'success' && '3. ORDER CONFIRMED & DISPATCH RECEIPT'}
+                {step === 'details' && '1. YOUR ADDRESS & PHONE NUMBER'}
+                {step === 'payment' && '2. HOW DO YOU WANT TO PAY?'}
+                {step === 'success' && '3. ORDER SUCCESSFUL!'}
               </h2>
-              <span className="text-xs text-amber-700 font-mono font-bold">256-Bit SSL Secured Order Portal</span>
+              <span className="text-xs text-amber-700 font-mono font-bold">Safe & Easy Checkout</span>
             </div>
           </div>
 
@@ -191,14 +191,14 @@ export const CheckoutModal: React.FC = () => {
                 <span className="text-slate-600">Subtotal: <strong className="text-slate-900 font-mono">{formatPrice(cartSubtotal)}</strong></span>
               </div>
               <span className="text-slate-950 font-black font-mono text-sm bg-white px-3 py-1 rounded-xl border border-amber-300 shadow-xs">
-                Est. Total: {formatPrice(grandTotal)}
+                Total: {formatPrice(grandTotal)}
               </span>
             </div>
 
             <div className="space-y-4">
               <h3 className="text-xs font-black text-slate-900 uppercase tracking-wider flex items-center gap-2">
                 <Truck className="w-4 h-4 text-red-600" />
-                Delivery Address & Contact Point
+                Where Should We Deliver To?
               </h3>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
@@ -218,7 +218,7 @@ export const CheckoutModal: React.FC = () => {
 
                 <div>
                   <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">
-                    Phone Number (WhatsApp Active) <span className="text-red-600">*</span>
+                    Phone Number (WhatsApp Number) <span className="text-red-600">*</span>
                   </label>
                   <input
                     type="tel"
@@ -232,7 +232,7 @@ export const CheckoutModal: React.FC = () => {
 
                 <div>
                   <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">
-                    Email Address (For Waybill Receipt)
+                    Email Address (Optional)
                   </label>
                   <input
                     type="email"
@@ -245,7 +245,7 @@ export const CheckoutModal: React.FC = () => {
 
                 <div>
                   <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">
-                    Alternate Emergency Line
+                    Second Phone Number (Optional)
                   </label>
                   <input
                     type="tel"
@@ -261,7 +261,7 @@ export const CheckoutModal: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1">
                 <div>
                   <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">
-                    State of Dispatch <span className="text-red-600">*</span>
+                    Your State <span className="text-red-600">*</span>
                   </label>
                   <select
                     value={customer.state}
@@ -278,7 +278,7 @@ export const CheckoutModal: React.FC = () => {
 
                 <div>
                   <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">
-                    LGA / Town Area <span className="text-red-600">*</span>
+                    LGA / Area <span className="text-red-600">*</span>
                   </label>
                   {selectedStateObj.lgas.length > 0 ? (
                     <select
@@ -307,12 +307,12 @@ export const CheckoutModal: React.FC = () => {
 
               <div>
                 <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">
-                  Full Street Address & Building Details <span className="text-red-600">*</span>
+                  Street Address & House Number <span className="text-red-600">*</span>
                 </label>
                 <input
                   type="text"
                   required
-                  placeholder="e.g. Flat 4B, Plot 12 Olufemi Street, off Adeniran Ogunsanya"
+                  placeholder="e.g. No 12 Olufemi Street, off Adeniran Ogunsanya"
                   value={customer.deliveryAddress}
                   onChange={(e) => setCustomer({ ...customer, deliveryAddress: e.target.value })}
                   className="w-full bg-slate-50 border border-slate-300 rounded-2xl px-4 py-3 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white font-medium shadow-xs"
@@ -321,11 +321,11 @@ export const CheckoutModal: React.FC = () => {
 
               <div>
                 <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">
-                  Nearest Landmark or Special Rider Instruction
+                  Bus Stop, Landmark or Note for Rider
                 </label>
                 <input
                   type="text"
-                  placeholder="e.g. Beside Total Energy Station, or Please deliver in discreet packaging"
+                  placeholder="e.g. Near Total Filling Station, or call when you reach the gate"
                   value={customer.landmark}
                   onChange={(e) => setCustomer({ ...customer, landmark: e.target.value })}
                   className="w-full bg-slate-50 border border-slate-300 rounded-2xl px-4 py-3 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white font-medium shadow-xs"
@@ -335,7 +335,7 @@ export const CheckoutModal: React.FC = () => {
 
             <div className="pt-4 border-t border-slate-200 flex items-center justify-between">
               <span className="text-xs text-slate-600">
-                Guaranteed transit: <strong className="text-amber-700 font-bold">{selectedStateObj.days}</strong>
+                Delivery time: <strong className="text-amber-700 font-bold">{selectedStateObj.days}</strong>
               </span>
 
               <button
@@ -343,7 +343,7 @@ export const CheckoutModal: React.FC = () => {
                 id="checkout-next-payment-btn"
                 className="px-6 py-3 btn-3d-yellow text-slate-950 font-black text-xs sm:text-sm rounded-2xl flex items-center gap-2 shadow-sm"
               >
-                <span>Continue to Secure Payment</span>
+                <span>Next: Choose How to Pay</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>
@@ -356,12 +356,12 @@ export const CheckoutModal: React.FC = () => {
             {/* Amount Banner */}
             <div className="p-5 rounded-3xl bg-slate-50 border border-slate-200 flex items-center justify-between shadow-xs">
               <div>
-                <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block">Total Payable Amount</span>
+                <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block">Total Amount to Pay</span>
                 <div className="text-2xl sm:text-3xl font-black text-red-600 font-mono mt-0.5">
                   {formatPrice(grandTotal)}
                 </div>
                 <span className="text-[11px] text-slate-500 font-medium">
-                  Includes {deliveryFee === 0 ? 'Free Nationwide Delivery' : `${formatPrice(deliveryFee)} Dispatch Courier Fee`}
+                  Includes {deliveryFee === 0 ? 'Free Delivery' : `${formatPrice(deliveryFee)} Delivery Fee`}
                 </span>
               </div>
 
@@ -369,14 +369,14 @@ export const CheckoutModal: React.FC = () => {
                 onClick={() => setStep('details')}
                 className="text-xs font-bold text-amber-700 hover:text-amber-900 underline uppercase tracking-wider"
               >
-                ← Edit Address
+                ← Change Address
               </button>
             </div>
 
             {/* Payment Method Selector Tabs */}
             <div className="space-y-3">
               <span className="text-xs font-bold text-slate-800 uppercase tracking-wider block">
-                Select Payment Channel:
+                How do you want to pay?
               </span>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -393,8 +393,8 @@ export const CheckoutModal: React.FC = () => {
                     <Building2 className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-xs font-black block text-slate-950">Direct Bank Transfer</span>
-                    <span className="text-[10px] text-slate-500 font-medium">Instant Account Verification</span>
+                    <span className="text-xs font-black block text-slate-950">Bank Transfer</span>
+                    <span className="text-[10px] text-slate-500 font-medium">Pay with bank app / USSD</span>
                   </div>
                 </button>
 
@@ -411,7 +411,7 @@ export const CheckoutModal: React.FC = () => {
                     <CreditCard className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-xs font-black block text-slate-950">Debit / ATM Card</span>
+                    <span className="text-xs font-black block text-slate-950">ATM Card</span>
                     <span className="text-[10px] text-slate-500 font-medium">MasterCard / Verve / Visa</span>
                   </div>
                 </button>
@@ -430,7 +430,7 @@ export const CheckoutModal: React.FC = () => {
                   </div>
                   <div>
                     <span className="text-xs font-black block text-slate-950">Pay on Delivery</span>
-                    <span className="text-[10px] text-slate-500 font-medium">Cash / POS on Arrival</span>
+                    <span className="text-[10px] text-slate-500 font-medium">Pay cash or POS to rider</span>
                   </div>
                 </button>
               </div>
@@ -440,9 +440,9 @@ export const CheckoutModal: React.FC = () => {
             {paymentMethod === 'bank_transfer' && (
               <div className="p-5 rounded-3xl bg-slate-50 border border-slate-200 space-y-4 text-xs shadow-xs">
                 <div className="flex items-center justify-between pb-3 border-b border-slate-200">
-                  <span className="font-bold text-slate-900 uppercase tracking-wider">Official Moniepoint Account:</span>
+                  <span className="font-bold text-slate-900 uppercase tracking-wider">Pay to this Bank Account:</span>
                   <span className="text-amber-800 font-mono text-xs font-bold bg-amber-100 px-2.5 py-1 rounded-lg border border-amber-200">
-                    Active & Instant Reconciled
+                    Official Company Account
                   </span>
                 </div>
 
@@ -452,7 +452,7 @@ export const CheckoutModal: React.FC = () => {
                     <strong className="text-slate-900 text-xs font-bold">Moniepoint Microfinance Bank</strong>
                   </div>
                   <div>
-                    <span className="text-slate-500 block text-[10px] uppercase font-bold">Beneficiary:</span>
+                    <span className="text-slate-500 block text-[10px] uppercase font-bold">Account Name:</span>
                     <strong className="text-slate-900 text-xs font-bold">STUBBORN RAT KILLER LTD</strong>
                   </div>
                 </div>
@@ -476,11 +476,11 @@ export const CheckoutModal: React.FC = () => {
 
                 <div>
                   <label className="block text-[11px] font-bold text-slate-700 mb-1.5 uppercase">
-                    Sender Name or Reference Note:
+                    Your Name or Transfer Note:
                   </label>
                   <input
                     type="text"
-                    placeholder="e.g. Paid via GTBank mobile app by Emeka"
+                    placeholder="e.g. Paid by Emeka via GTBank"
                     value={proofNote}
                     onChange={(e) => setProofNote(e.target.value)}
                     className="w-full bg-white border border-slate-300 rounded-xl px-4 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-amber-500 font-medium shadow-xs"
@@ -492,7 +492,7 @@ export const CheckoutModal: React.FC = () => {
             {paymentMethod === 'debit_card' && (
               <div className="p-5 rounded-3xl bg-slate-50 border border-slate-200 space-y-3.5 text-xs shadow-xs">
                 <div className="flex items-center justify-between pb-2 border-b border-slate-200">
-                  <span className="font-bold text-slate-900 uppercase tracking-wider">Paystack / Interswitch Secured</span>
+                  <span className="font-bold text-slate-900 uppercase tracking-wider">Pay Securely With Card</span>
                   <div className="flex gap-1.5 text-slate-700 font-mono text-[10px] font-bold">
                     <span>VISA</span> • <span>MASTERCARD</span> • <span>VERVE</span>
                   </div>
@@ -510,7 +510,7 @@ export const CheckoutModal: React.FC = () => {
 
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-slate-700 font-bold text-[11px] mb-1 uppercase">Expiry Date</label>
+                    <label className="block text-slate-700 font-bold text-[11px] mb-1 uppercase">Card Expiry</label>
                     <input
                       type="text"
                       value={cardData.expiry}
@@ -519,7 +519,7 @@ export const CheckoutModal: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-slate-700 font-bold text-[11px] mb-1 uppercase">CVV / Security Code</label>
+                    <label className="block text-slate-700 font-bold text-[11px] mb-1 uppercase">3 Numbers Behind Card (CVV)</label>
                     <input
                       type="password"
                       maxLength={4}
@@ -536,10 +536,10 @@ export const CheckoutModal: React.FC = () => {
               <div className="p-5 rounded-3xl bg-amber-50/70 border border-amber-200 text-xs space-y-2.5 text-slate-700 shadow-xs">
                 <div className="flex items-center gap-2 text-amber-900 font-black text-sm">
                   <CheckCircle2 className="w-5 h-5 text-emerald-600" />
-                  <span>Pay on Delivery Terms:</span>
+                  <span>How Pay on Delivery Works:</span>
                 </div>
                 <p className="leading-relaxed text-slate-700">
-                  Our regional courier will deliver to your designated address in <strong className="text-slate-950">{customer.state}</strong>. Please ensure cash (<strong>{formatPrice(grandTotal)}</strong>) or an active ATM card is ready for the rider.
+                  Our dispatch rider will bring your package to your address in <strong className="text-slate-950">{customer.state}</strong>. Please have your cash (<strong>{formatPrice(grandTotal)}</strong>) or ATM card ready to pay the rider upon delivery.
                 </p>
               </div>
             )}
@@ -564,12 +564,12 @@ export const CheckoutModal: React.FC = () => {
                 {isProcessingPayment ? (
                   <span className="flex items-center gap-2">
                     <Clock className="w-4 h-4 animate-spin" />
-                    <span>Authorizing Dispatch Order...</span>
+                    <span>Placing Your Order...</span>
                   </span>
                 ) : (
                   <span className="flex items-center gap-2">
                     <Check className="w-4 h-4 stroke-[3]" />
-                    <span>Confirm & Dispatch Order ({formatPrice(grandTotal)})</span>
+                    <span>Complete Order ({formatPrice(grandTotal)})</span>
                   </span>
                 )}
               </button>
@@ -586,13 +586,13 @@ export const CheckoutModal: React.FC = () => {
 
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-slate-950 bg-amber-300 px-3 py-1 rounded-md shadow-xs">
-                ORDER DISPATCH INITIATED!
+                ORDER SUCCESSFUL!
               </span>
               <h2 className="text-2xl sm:text-3xl font-black text-slate-950 mt-3 font-['Outfit']">
-                Order Received, {completedOrder.customer.fullName}!
+                Thank You, {completedOrder.customer.fullName}!
               </h2>
               <p className="text-xs text-slate-600 mt-1 max-w-md mx-auto font-normal">
-                Your Stubborn Rat Killer order is being prepared for immediate dispatch.
+                We have received your order. We are packing your Stubborn Rat Killer now for delivery.
               </p>
             </div>
 
@@ -600,36 +600,36 @@ export const CheckoutModal: React.FC = () => {
             <div className="p-6 rounded-3xl bg-slate-50 border border-slate-200 text-left space-y-4 text-xs shadow-xs">
               <div className="flex items-center justify-between pb-3 border-b border-slate-200">
                 <div>
-                  <span className="text-slate-500 block text-[10px] uppercase font-bold">Order ID:</span>
+                  <span className="text-slate-500 block text-[10px] uppercase font-bold">Order Number:</span>
                   <span className="font-mono font-black text-slate-900 text-sm">{completedOrder.orderNumber}</span>
                 </div>
                 <div className="text-right">
-                  <span className="text-slate-500 block text-[10px] uppercase font-bold">Waybill Tracking:</span>
+                  <span className="text-slate-500 block text-[10px] uppercase font-bold">Tracking Code:</span>
                   <span className="font-mono font-black text-amber-700 text-sm">{completedOrder.trackingNumber}</span>
                 </div>
               </div>
 
               <div className="space-y-2 text-slate-700">
                 <div className="flex justify-between">
-                  <span className="text-slate-500">Recipient:</span>
+                  <span className="text-slate-500">Sent To:</span>
                   <strong className="text-slate-900 font-bold">{completedOrder.customer.fullName} ({completedOrder.customer.phone})</strong>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-500">Destination:</span>
+                  <span className="text-slate-500">Delivery Address:</span>
                   <span className="text-slate-800 font-medium">{completedOrder.customer.deliveryAddress}, {completedOrder.customer.cityOrLga}, {completedOrder.customer.state}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-500">Estimated Transit:</span>
+                  <span className="text-slate-500">Expected Delivery:</span>
                   <span className="text-amber-700 font-bold">{completedOrder.estimatedDeliveryDate}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-500">Payment Mode:</span>
+                  <span className="text-slate-500">Payment:</span>
                   <span className="uppercase text-slate-900 font-bold">{completedOrder.paymentMethod.replace('_', ' ')}</span>
                 </div>
               </div>
 
               <div className="pt-3 border-t border-slate-200 flex justify-between items-center text-sm font-black text-slate-950">
-                <span>Total Amount:</span>
+                <span>Total:</span>
                 <span className="font-mono text-red-600 text-lg font-black">{formatPrice(completedOrder.total)}</span>
               </div>
             </div>
@@ -641,7 +641,7 @@ export const CheckoutModal: React.FC = () => {
                 className="px-5 py-3 rounded-2xl bg-white border border-slate-300 text-slate-700 hover:bg-slate-50 font-bold text-xs flex items-center gap-2 shadow-xs"
               >
                 <Printer className="w-4 h-4" />
-                <span>Print Official Waybill</span>
+                <span>Print Receipt</span>
               </button>
 
               <button
@@ -652,7 +652,7 @@ export const CheckoutModal: React.FC = () => {
                 className="px-6 py-3 rounded-2xl btn-3d-yellow text-slate-950 font-black text-xs flex items-center gap-2 shadow-sm"
               >
                 <Truck className="w-4 h-4" />
-                <span>Track Live Delivery Status</span>
+                <span>Track Where It Is</span>
               </button>
             </div>
           </div>

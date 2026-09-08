@@ -4,7 +4,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: 'spk-rat-001',
     name: 'STUBBORN RAT KILLER',
-    subtitle: 'Fast-Acting Premix Rodenticide Bait (100g Jar + Free Dosing Scoop Spoon)',
+    subtitle: 'Strong Rat Poison Powder (100g Bottle + Free Measuring Spoon Inside)',
     slug: 'stubborn-rat-killer-premix-bait',
     category: 'Rodents & Mice',
     price: 5800,
@@ -14,45 +14,45 @@ export const INITIAL_PRODUCTS: Product[] = [
     rating: 5.0,
     reviewCount: 38,
     knockdownSpeed: 'Kills Within 45 Mins – 2 Hours',
-    residualDuration: 'High Potency – Zero Known Resistance',
-    targetPests: ['Rats', 'Mice', 'Sewer Rats (Giant Pouched)', 'Roof Rats', 'House Mice', 'Field Rodents'],
-    formType: 'Powder / Dusting Formula',
-    toxicityRating: 'Industrial / High Potency (PPE Required)',
-    activeIngredients: 'Fast-acting Premix Rodenticide Attractant Matrix (Zero Resistance)',
-    packagingSize: '100g Sealed Jar + Scoop Spoon',
+    residualDuration: 'Very Strong – Kills Even Stubborn Rats',
+    targetPests: ['Big Gutter Rats', 'Ceiling Rats', 'Kitchen Mice', 'Store & Farm Rats'],
+    formType: 'Powder Formula',
+    toxicityRating: 'Strong Poison (Keep Away From Children)',
+    activeIngredients: 'Fast-Acting Rat Killer Bait (Rats Love Eating It)',
+    packagingSize: '100g Sealed Bottle + Free Spoon',
     images: [
       '/images/rat-killer-1.jpg',
       '/images/rat-killer-2.jpg',
       '/images/rat-killer-3.jpg'
     ],
-    description: 'The stubborn rat killer bait is a fast acting premix rodenticide. It kills any kind of rat or mice within 45 minutes to 2 hours after the rat feeds on the bait. The stubborn rat killer bait is a highly potent bait with no known resistance in rats and mice.\n\nJust one visit from us to you, your rodent nightmare is gone! For over 8+ years, we have helped owners and managers (just like you) of residential, commercial and industrial facilities get rid of rats, mice and other rodents. We are enthusiastic about making your property rodents free.\n\nCall or Chat us on WhatsApp now (+234 8089854753).',
+    description: 'Stubborn Rat Killer is a very strong rat poison powder. It kills any kind of rat or mouse within 45 minutes to 2 hours after they eat it. Even big gutter rats and ceiling mice that refused to die with other market poisons will die once they eat this.\n\nFor over 8 years, we have helped homeowners, shops, poultry farmers, and warehouse owners across Nigeria get rid of rats completely.\n\nCall or Chat with us on WhatsApp now (+234 808 985 4753) to order.',
     howToUse: [
-      'Simply scoop a spoon full of the stubborn rat killer bait.',
-      'Put the scooped stubborn rat killer bait on the edge of your wall.',
-      'Place it preferably at the corners of the walls where you have previously seen the rats, mice, etc run through.',
-      'Place it preferably at the darkest corners where no lighting gets to.'
+      'Use the free spoon inside the bottle to scoop one full spoon of the powder.',
+      'Pour the powder on a small piece of paper or carton on the floor near the wall.',
+      'Put it in dark corners where rats like to pass (like behind the fridge, under kitchen cupboards, or in the ceiling).',
+      'Put it down between 5:00 PM and 7:00 PM in the evening for best results. By morning, you will see dead rats.'
     ],
     packageContents: [
-      '1x One Stubborn Rat Killer (100g Jar)',
-      '1x One Precision Dosing Scoop Spoon'
+      '1x Stubborn Rat Killer (100g Bottle)',
+      '1x Free Measuring Spoon'
     ],
     safetyPrecautions: [
-      'Keep away from direct contact with children and domestic pets.',
-      'Always use the provided scoop spoon for dispensing; avoid touching directly with bare hands.',
-      'Wash hands thoroughly with soap and clean water after application.',
-      'Store in a cool, dry place tightly sealed in its original container.'
+      'Keep far away from children and pets (dogs, cats, chickens).',
+      'Always use the free spoon to put the powder; do not touch with bare hands.',
+      'Wash your hands with soap and clean water after using it.',
+      'Keep the bottle tightly closed in a cool, safe place.'
     ],
     companyName: 'KILLAPEST RESOURCES',
-    workExperience: 'More than 5 years (8+ years specialized commercial & residential facility eradication)',
-    serviceArea: 'Residential, Industrial, Commercial',
-    frequency: 'Biweekly',
-    nightExterminationNotice: 'P.S: Rats and mice are best exterminated at night. This is because they are most active at night. Our solution to your rats problem will be effected mostly from 5pm - 7pm for best results. You will wake up to a rat free area in the morning after.',
+    workExperience: 'Over 8 years helping people kill stubborn rats in Nigeria',
+    serviceArea: 'Homes, Offices, Shops, Poultry Farms & Stores',
+    frequency: 'As Needed',
+    nightExterminationNotice: 'Note: Rats move around and look for food at night. For best results, put the powder down between 5:00 PM and 7:00 PM in the evening. You will see dead rats by morning.',
     jijiUrl: 'https://jiji.ng/lekki/household-chemicals/fastest-stubborn-rat-killer-bait-ciSv9nnA3SA4DqoFGySRvkDg.html',
     isFeatured: true,
     isBestSeller: true,
     isFlashSale: true,
     flashSaleDiscountPercent: 23,
-    badge: '100% Death in 45m - 2h',
+    badge: 'Kills in 45 Mins – 2 Hours',
     createdAt: '2026-08-19',
     reviews: [
       {
@@ -61,9 +61,9 @@ export const INITIAL_PRODUCTS: Product[] = [
         userLocation: 'Wuse 2, Abuja',
         rating: 5,
         date: 'Yesterday',
-        pestEliminated: 'Roof Rats & Kitchen Mice',
+        pestEliminated: 'Ceiling Rats & Kitchen Mice',
         title: 'Dead within 1 hour as promised!',
-        comment: 'I scooped 2 spoonfuls in my kitchen corner by 6pm. By 8pm I already found two big rats dead beside the wall. No smell, fast knockdown!',
+        comment: 'I put 2 spoons in my kitchen corner around 6pm. By 8pm I already found two big rats dead beside the wall. Very fast and powerful!',
         verifiedPurchase: true
       },
       {
@@ -72,9 +72,9 @@ export const INITIAL_PRODUCTS: Product[] = [
         userLocation: 'Gbagada, Lagos',
         rating: 5,
         date: '3 days ago',
-        pestEliminated: 'Giant Sewer Rats in Warehouse',
-        title: 'Finally something that works without resistance',
-        comment: 'All the market poison was useless because the rats were resistant. This Stubborn Rat Killer wiped out the entire warehouse population in 2 nights.',
+        pestEliminated: 'Big Gutter Rats in Store',
+        title: 'Finally something that kills stubborn rats',
+        comment: 'Market poisons were useless because the rats in my store were used to them. This Stubborn Rat Killer killed all the rats in just 2 nights.',
         verifiedPurchase: true
       }
     ]
@@ -164,7 +164,7 @@ export const NIGERIAN_STATES: NigerianStateDelivery[] = [
 ];
 
 export const DISCOUNT_COUPONS: Record<string, { percent: number; minSpend: number; description: string }> = {
-  STUBBORN10: { percent: 10, minSpend: 5000, description: '10% Off First Eradication Order' },
-  KILLAPEST20: { percent: 20, minSpend: 15000, description: '20% Killapest Resources Bulk Eradication Rebate' },
-  FIRSTKILL20: { percent: 20, minSpend: 10000, description: '20% Off Commercial Rodent Protocol' }
+  STUBBORN10: { percent: 10, minSpend: 5000, description: '10% Off Your First Order' },
+  KILLAPEST20: { percent: 20, minSpend: 15000, description: '20% Off Bulk Order' },
+  FIRSTKILL20: { percent: 20, minSpend: 10000, description: '20% Off When You Buy Up to ₦10,000' }
 };

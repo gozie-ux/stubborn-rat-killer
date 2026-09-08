@@ -136,7 +136,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, onOpenDetails
           <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-3.5 flex items-center justify-between gap-3">
             <div>
               <div className="text-[10px] font-mono text-neutral-400 uppercase tracking-wider font-bold">
-                Direct Dispatch Hotline
+                Call Us Directly
               </div>
               <a 
                 href={`tel:${service.phone.replace(/[^0-9+]/g, '')}`}
@@ -176,7 +176,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, onOpenDetails
                 <AlertTriangle className="w-6 h-6 text-yellow-400 shrink-0 mt-0.5 animate-bounce" />
                 <div>
                   <h4 className="text-sm sm:text-base font-black text-yellow-300 tracking-wide">
-                    ⚠️ MANDATORY REQUIREMENT:
+                    ⚠️ IMPORTANT RULE:
                   </h4>
                   <p className="text-xs sm:text-sm font-black text-white mt-1 leading-relaxed">
                     "{service.requirementNotice}"
@@ -212,8 +212,8 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, onOpenDetails
                   <span className="text-[10px] font-mono font-bold text-red-400 uppercase bg-red-950/80 px-2 py-0.5 rounded">
                     DAY 1 • FRIDAY
                   </span>
-                  <div className="text-xs font-black text-white">Technician Fogging</div>
-                  <div className="text-[11px] text-neutral-400">Depart apartment / premises</div>
+                  <div className="text-xs font-black text-white">Smoking the House</div>
+                  <div className="text-[11px] text-neutral-400">Leave the house</div>
                 </div>
 
                 {/* Step 2: Saturday */}
@@ -221,8 +221,8 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, onOpenDetails
                   <span className="text-[10px] font-mono font-bold text-yellow-400 uppercase bg-yellow-950/80 px-2 py-0.5 rounded">
                     DAY 2 • SATURDAY
                   </span>
-                  <div className="text-xs font-black text-white">Deep Ovicidal Action</div>
-                  <div className="text-[11px] text-neutral-400">Premises remain sealed</div>
+                  <div className="text-xs font-black text-white">Smoke Kills Bugs &amp; Eggs</div>
+                  <div className="text-[11px] text-neutral-400">Keep doors &amp; windows closed</div>
                 </div>
 
                 {/* Step 3: Sunday */}
@@ -230,8 +230,8 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, onOpenDetails
                   <span className="text-[10px] font-mono font-bold text-green-400 uppercase bg-green-950/80 px-2 py-0.5 rounded">
                     DAY 3 • SUNDAY (4PM)
                   </span>
-                  <div className="text-xs font-black text-green-300">Re-Enter Apartment</div>
-                  <div className="text-[11px] text-neutral-400">100% Pest &amp; Egg Free!</div>
+                  <div className="text-xs font-black text-green-300">Return to Your House</div>
+                  <div className="text-[11px] text-neutral-400">100% Free of All Bugs &amp; Eggs!</div>
                 </div>
               </div>
 
@@ -246,7 +246,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, onOpenDetails
               <div className="bg-black/60 border border-neutral-800 rounded-2xl p-3.5 space-y-2">
                 <div className="text-xs font-black text-red-400 flex items-center gap-1.5">
                   <Bug className="w-4 h-4 text-red-500" />
-                  Also Simultaneously Wipes Out:
+                  Also Clears Out:
                 </div>
                 <ul className="text-xs text-neutral-300 space-y-1 font-medium">
                   {service.additionalPestsEliminated.slice(1).map((pest, idx) => (
@@ -262,7 +262,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, onOpenDetails
               <div className="bg-black/60 border border-neutral-800 rounded-2xl p-3.5 space-y-2">
                 <div className="text-xs font-black text-yellow-400 flex items-center gap-1.5">
                   <Building2 className="w-4 h-4 text-yellow-400" />
-                  Facilities We Clean Permanently:
+                  Places We Fumigate:
                 </div>
                 <div className="flex flex-wrap gap-1.5">
                   {service.facilitiesTreated.map((facility, idx) => (
@@ -288,7 +288,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, onOpenDetails
               className="w-full sm:flex-1 py-3.5 px-4 btn-3d-yellow text-black font-black text-xs sm:text-sm rounded-2xl flex items-center justify-center gap-2 text-center"
             >
               <MessageSquare className="w-4 h-4 fill-black shrink-0" />
-              <span>WhatsApp Booking</span>
+              <span>Book on WhatsApp</span>
             </a>
 
             {/* Direct Call & Details Buttons */}

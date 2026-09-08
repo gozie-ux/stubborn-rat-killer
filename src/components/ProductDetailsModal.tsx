@@ -123,7 +123,7 @@ export const ProductDetailsModal: React.FC = () => {
     product.reviewCount += 1;
     setShowReviewForm(false);
     setNewReview({ name: '', location: '', rating: 5, comment: '', pest: '' });
-    showToast('Thank you! Verified extermination review posted.', 'success');
+    showToast('Thank you! Your review has been posted.', 'success');
   };
 
   return (
@@ -271,7 +271,7 @@ export const ProductDetailsModal: React.FC = () => {
               <div className="p-4 rounded-2xl bg-neutral-900/90 border-2 border-yellow-500/40 space-y-2 text-xs shadow-md">
                 <div className="flex items-center gap-2 text-yellow-400 font-black uppercase tracking-wider text-[11px]">
                   <PackageCheck className="w-4 h-4 text-yellow-400" />
-                  <span>What You Get on Item Purchase:</span>
+                  <span>What Is Inside The Box:</span>
                 </div>
                 <ul className="space-y-1.5 pl-1">
                   {product.packageContents.map((contentItem, idx) => (
@@ -289,14 +289,14 @@ export const ProductDetailsModal: React.FC = () => {
             {/* 3D Key Specs Card */}
             <div className="p-4 rounded-2xl bg-black border-2 border-neutral-900 space-y-2.5 text-xs font-bold shadow-md">
               <div className="flex items-center justify-between text-neutral-300">
-                <span className="text-neutral-400">Knockdown Speed:</span>
+                <span className="text-neutral-400">How Fast It Works:</span>
                 <span className="text-yellow-400 flex items-center gap-1 font-mono">
                   <Zap className="w-3.5 h-3.5 fill-yellow-400" /> {product.knockdownSpeed}
                 </span>
               </div>
               <div className="flex items-center justify-between text-neutral-300">
-                <span className="text-neutral-400">Potency:</span>
-                <span className="text-red-400 font-mono">Zero Known Resistance</span>
+                <span className="text-neutral-400">Strength:</span>
+                <span className="text-red-400 font-mono">100% Effective on Stubborn Rats</span>
               </div>
               <div className="flex items-center justify-between text-neutral-300">
                 <span className="text-neutral-400">Packaging Size:</span>
@@ -316,7 +316,7 @@ export const ProductDetailsModal: React.FC = () => {
                 <div className="flex items-center gap-1 text-yellow-400 text-xs font-black bg-black px-2.5 py-1 rounded-lg border border-neutral-800">
                   <Star className="w-3.5 h-3.5 fill-yellow-400" />
                   <span>{product.rating}</span>
-                  <span className="text-neutral-400">({product.reviewCount} verified reviews)</span>
+                  <span className="text-neutral-400">({product.reviewCount} customer reviews)</span>
                 </div>
                 <span className="text-xs text-yellow-400 font-black bg-black px-2.5 py-1 rounded-lg border border-yellow-500/50">
                   KILLAPEST RESOURCES
@@ -335,7 +335,7 @@ export const ProductDetailsModal: React.FC = () => {
             {/* Target Pests list */}
             <div>
               <span className="text-xs font-black text-neutral-400 uppercase tracking-wider block mb-2">
-                TARGETS & ERADICATES:
+                KILLS AND CLEARS:
               </span>
               <div className="flex flex-wrap gap-1.5">
                 {product.targetPests.map((pest, idx) => (
@@ -353,7 +353,7 @@ export const ProductDetailsModal: React.FC = () => {
             <div className="p-4.5 rounded-2xl bg-black border-2 border-yellow-500/40 flex items-center justify-between shadow-[0_8px_20px_rgba(0,0,0,0.8)]">
               <div>
                 <span className="text-xs text-yellow-400 block mb-0.5 font-black uppercase tracking-wider">
-                  Fixed Direct Depot Price
+                  Best Direct Price
                 </span>
                 <div className="flex items-baseline gap-3">
                   <span className="text-2xl sm:text-3xl font-black text-white font-['Outfit']">
@@ -369,7 +369,7 @@ export const ProductDetailsModal: React.FC = () => {
 
               <div className="text-right">
                 <span className="text-xs text-yellow-400 font-black block">
-                  {product.stock > 0 ? `● In Stock (${product.stock} units available)` : '● Out of Stock'}
+                  {product.stock > 0 ? `● In Stock (${product.stock} available)` : '● Out of Stock'}
                 </span>
                 <span className="text-[11px] text-neutral-400 font-medium">Fast delivery across Nigeria</span>
               </div>
@@ -382,8 +382,8 @@ export const ProductDetailsModal: React.FC = () => {
                   <Moon className="w-4 h-4 text-yellow-400" />
                   <span>
                     {product.category.includes('Snake') || product.category.includes('Reptile')
-                      ? 'Perimeter Barrier & Application Protocol'
-                      : 'Night Extermination Protocol (5pm – 7pm)'}
+                      ? 'How to Apply Around The House'
+                      : 'Best Time to Set Bait (5pm – 7pm Evening)'}
                   </span>
                 </div>
                 <p className="text-xs text-neutral-300 font-medium leading-relaxed">
@@ -439,7 +439,7 @@ export const ProductDetailsModal: React.FC = () => {
                   className="w-full py-3.5 px-4 rounded-2xl btn-3d-yellow text-black font-black text-xs sm:text-sm flex items-center justify-center gap-2 transition-all"
                 >
                   <Zap className="w-4 h-4 fill-black" />
-                  <span>Instant Checkout</span>
+                  <span>Buy Now</span>
                 </button>
               </div>
 
@@ -502,11 +502,11 @@ export const ProductDetailsModal: React.FC = () => {
             <div className="grid grid-cols-2 gap-2 text-[11px] text-neutral-300 bg-black p-3.5 rounded-2xl border border-neutral-900 font-bold">
               <div className="flex items-center gap-2">
                 <Flame className="w-4 h-4 text-red-500 shrink-0" />
-                <span className="text-yellow-400">100% Death within 45m - 2h</span>
+                <span className="text-yellow-400">Kills rats within 45m - 2h</span>
               </div>
               <div className="flex items-center gap-2">
                 <Truck className="w-4 h-4 text-yellow-400 shrink-0" />
-                <span>Discrete Secure Delivery</span>
+                <span>Clean, Safe & Fast Delivery</span>
               </div>
             </div>
           </div>
@@ -523,7 +523,7 @@ export const ProductDetailsModal: React.FC = () => {
                   : 'btn-3d-black text-neutral-400 hover:text-white'
               }`}
             >
-              How to Use for Best Results
+              How to Use
             </button>
             <button
               onClick={() => setActiveTab('company')}
@@ -533,7 +533,7 @@ export const ProductDetailsModal: React.FC = () => {
                   : 'btn-3d-black text-neutral-400 hover:text-white'
               }`}
             >
-              Company & Eradication Service
+              About Our Company
             </button>
             <button
               onClick={() => setActiveTab('specs')}
@@ -543,7 +543,7 @@ export const ProductDetailsModal: React.FC = () => {
                   : 'btn-3d-black text-neutral-400 hover:text-white'
               }`}
             >
-              Chemical Formula & Specs
+              Product Details
             </button>
             <button
               onClick={() => setActiveTab('safety')}
@@ -553,7 +553,7 @@ export const ProductDetailsModal: React.FC = () => {
                   : 'btn-3d-black text-neutral-400 hover:text-white'
               }`}
             >
-              Safety Precautions
+              Safety Rules
             </button>
             <button
               onClick={() => setActiveTab('reviews')}
@@ -563,7 +563,7 @@ export const ProductDetailsModal: React.FC = () => {
                   : 'btn-3d-black text-neutral-400 hover:text-white'
               }`}
             >
-              <span>Verified Reviews</span>
+              <span>Customer Reviews</span>
               <span className="text-[10px] bg-red-600 text-white px-1.5 py-0.5 rounded font-black">
                 {product.reviews.length}
               </span>
@@ -580,7 +580,7 @@ export const ProductDetailsModal: React.FC = () => {
               <div className="space-y-3 pt-2">
                 <h4 className="font-black text-white text-sm flex items-center gap-2 font-['Outfit']">
                   <CheckCircle2 className="w-4 h-4 text-yellow-400" />
-                  How to Use for Best Results:
+                  How to Use:
                 </h4>
                 <ol className="space-y-2.5 pl-1">
                   {product.howToUse.map((step, idx) => (
@@ -597,7 +597,7 @@ export const ProductDetailsModal: React.FC = () => {
               {/* Purchase Package Breakdown */}
               {product.packageContents && product.packageContents.length > 0 && (
                 <div className="p-4 rounded-2xl bg-black border border-yellow-500/30 space-y-2">
-                  <h5 className="font-black text-yellow-400 text-xs uppercase tracking-wider">What You Get on Item Purchase:</h5>
+                  <h5 className="font-black text-yellow-400 text-xs uppercase tracking-wider">What Is Inside The Box:</h5>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-bold text-white">
                     {product.packageContents.map((item, idx) => (
                       <div key={idx} className="flex items-center gap-2 bg-neutral-900 p-2.5 rounded-xl border border-neutral-800">
@@ -630,15 +630,15 @@ export const ProductDetailsModal: React.FC = () => {
                     <Award className="w-3.5 h-3.5 text-red-500" />
                     <span>Work Experience</span>
                   </div>
-                  <p className="text-base font-black text-yellow-400">{product.workExperience || 'More than 5 years (8+ years field mastery)'}</p>
+                  <p className="text-base font-black text-yellow-400">{product.workExperience || 'Over 8 years in Nigeria'}</p>
                 </div>
 
                 <div className="p-4 rounded-2xl bg-black border-2 border-neutral-900 space-y-1.5">
                   <div className="flex items-center gap-2 text-neutral-400 text-[10px] font-black uppercase">
                     <Check className="w-3.5 h-3.5 text-yellow-400" />
-                    <span>Service Area</span>
+                    <span>Where We Serve</span>
                   </div>
-                  <p className="text-sm font-black text-white">{product.serviceArea || 'Residential, Industrial, Commercial'}</p>
+                  <p className="text-sm font-black text-white">{product.serviceArea || 'Homes, Offices, Shops, Warehouses'}</p>
                 </div>
 
                 <div className="p-4 rounded-2xl bg-black border-2 border-neutral-900 space-y-1.5">
@@ -646,26 +646,26 @@ export const ProductDetailsModal: React.FC = () => {
                     <Calendar className="w-3.5 h-3.5 text-yellow-400" />
                     <span>Treatment Frequency</span>
                   </div>
-                  <p className="text-sm font-black text-white">{product.frequency || 'Biweekly'}</p>
+                  <p className="text-sm font-black text-white">{product.frequency || 'Every 2 Weeks'}</p>
                 </div>
               </div>
 
               <div className="p-5 rounded-2xl bg-neutral-900 border-2 border-red-600/50 space-y-3">
                 <h4 className="font-black text-white text-base font-['Outfit']">
-                  "Just one visit from us to you, your rodent nightmare is gone!"
+                  "Just one visit from us to you, your rat nightmare is gone!"
                 </h4>
                 <p className="text-neutral-300 leading-relaxed font-medium">
-                  For over 8+ years, we have helped owners and managers (just like you) of residential, commercial and industrial facilities get rid of rats, mice and other rodents. We are enthusiastic about making your property rodents free.
+                  For over 8 years, we have helped home owners, shop keepers, and factory owners get rid of stubborn rats and mice. We make sure rats leave your property completely.
                 </p>
                 <div className="pt-2 flex flex-wrap items-center gap-3">
                   <a
-                    href="https://wa.me/2348089854753?text=Hello%20Killapest%20Resources,%20I%20need%20rodent%20eradication%20assistance."
+                    href="https://wa.me/2348089854753?text=Hello%20Killapest%20Resources,%20I%20need%20help%20killing%20rats."
                     target="_blank"
                     rel="noreferrer"
                     className="px-5 py-2.5 rounded-xl btn-3d-yellow text-black font-black text-xs flex items-center gap-2"
                   >
                     <MessageCircle className="w-4 h-4" />
-                    <span>Chat with Exterminator on WhatsApp</span>
+                    <span>Chat on WhatsApp</span>
                   </a>
                   <a
                     href="tel:+2348089854753"
@@ -683,19 +683,19 @@ export const ProductDetailsModal: React.FC = () => {
           {activeTab === 'specs' && (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
               <div className="p-4 rounded-2xl bg-black border-2 border-neutral-900 space-y-1.5">
-                <span className="text-neutral-400 font-black block uppercase tracking-wider text-[10px]">Active Formulation</span>
+                <span className="text-neutral-400 font-black block uppercase tracking-wider text-[10px]">Active Medicine</span>
                 <p className="text-sm font-black text-white">{product.activeIngredients}</p>
               </div>
               <div className="p-4 rounded-2xl bg-black border-2 border-neutral-900 space-y-1.5">
-                <span className="text-neutral-400 font-black block uppercase tracking-wider text-[10px]">Form Type</span>
+                <span className="text-neutral-400 font-black block uppercase tracking-wider text-[10px]">Type</span>
                 <p className="text-sm font-black text-white">{product.formType}</p>
               </div>
               <div className="p-4 rounded-2xl bg-black border-2 border-neutral-900 space-y-1.5">
-                <span className="text-neutral-400 font-black block uppercase tracking-wider text-[10px]">Lethal Knockdown Time</span>
+                <span className="text-neutral-400 font-black block uppercase tracking-wider text-[10px]">How Fast It Kills</span>
                 <p className="text-sm font-black text-yellow-400 font-mono">{product.knockdownSpeed}</p>
               </div>
               <div className="p-4 rounded-2xl bg-black border-2 border-neutral-900 space-y-1.5">
-                <span className="text-neutral-400 font-black block uppercase tracking-wider text-[10px]">Resistance Profile</span>
+                <span className="text-neutral-400 font-black block uppercase tracking-wider text-[10px]">Effectiveness</span>
                 <p className="text-sm font-black text-red-400 font-mono">{product.residualDuration}</p>
               </div>
             </div>
@@ -706,7 +706,7 @@ export const ProductDetailsModal: React.FC = () => {
             <div className="p-5 rounded-2xl bg-red-950/40 border-2 border-red-600/50 text-xs sm:text-sm space-y-3">
               <div className="flex items-center gap-2 text-yellow-400 font-black">
                 <AlertTriangle className="w-5 h-5 text-red-500 animate-bounce" />
-                <span className="uppercase tracking-wide">Handling & Safety Protocol:</span>
+                <span className="uppercase tracking-wide">Important Safety Rules:</span>
               </div>
               <ul className="space-y-2.5 pl-4 list-disc text-neutral-200 font-medium">
                 {product.safetyPrecautions.map((prec, idx) => (
@@ -721,21 +721,21 @@ export const ProductDetailsModal: React.FC = () => {
             <div className="space-y-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <h4 className="font-black text-white text-sm font-['Outfit']">Verified Extermination Feedback</h4>
-                  <p className="text-xs text-neutral-400">Reports from Nigerian homes, hotels & warehouses</p>
+                  <h4 className="font-black text-white text-sm font-['Outfit']">What Customers Are Saying</h4>
+                  <p className="text-xs text-neutral-400">Feedback from homes, shops and hotels across Nigeria</p>
                 </div>
                 <button
                   onClick={() => setShowReviewForm(!showReviewForm)}
                   className="px-4 py-2 btn-3d-yellow text-black font-black text-xs rounded-xl transition-all"
                 >
-                  {showReviewForm ? 'Cancel' : '+ Submit Feedback'}
+                  {showReviewForm ? 'Cancel' : '+ Write a Review'}
                 </button>
               </div>
 
               {/* Review Form */}
               {showReviewForm && (
                 <form onSubmit={handleAddReview} className="p-5 rounded-2xl bg-black border-2 border-yellow-500/40 space-y-3.5">
-                  <h5 className="text-xs font-black text-white uppercase tracking-wider">Leave Verified Performance Review</h5>
+                  <h5 className="text-xs font-black text-white uppercase tracking-wider">Write Your Review</h5>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                     <input
                       type="text"
@@ -757,13 +757,13 @@ export const ProductDetailsModal: React.FC = () => {
                       onChange={(e) => setNewReview({ ...newReview, rating: Number(e.target.value) })}
                       className="bg-neutral-900 border border-neutral-700 rounded-xl px-3 py-2.5 text-xs text-white"
                     >
-                      <option value="5">⭐⭐⭐⭐⭐ (5/5 Deadly in 45m)</option>
-                      <option value="4">⭐⭐⭐⭐ (4/5 Effective)</option>
-                      <option value="3">⭐⭐⭐ (3/5 Moderate)</option>
+                      <option value="5">⭐⭐⭐⭐⭐ (5/5 Kills very fast)</option>
+                      <option value="4">⭐⭐⭐⭐ (4/5 Works well)</option>
+                      <option value="3">⭐⭐⭐ (3/5 Okay)</option>
                     </select>
                   </div>
                   <textarea
-                    placeholder="Describe how quickly this eliminated your rats..."
+                    placeholder="Tell us how quickly it killed your rats..."
                     value={newReview.comment}
                     onChange={(e) => setNewReview({ ...newReview, comment: e.target.value })}
                     className="w-full bg-neutral-900 border border-neutral-700 rounded-xl px-3 py-2.5 text-xs text-white h-20 placeholder:text-neutral-500"
@@ -773,7 +773,7 @@ export const ProductDetailsModal: React.FC = () => {
                     type="submit"
                     className="px-5 py-2.5 btn-3d-red text-white font-black text-xs rounded-xl"
                   >
-                    Publish Verified Review
+                    Submit Review
                   </button>
                 </form>
               )}
@@ -799,7 +799,7 @@ export const ProductDetailsModal: React.FC = () => {
                     </div>
                     <div className="flex items-center gap-2">
                       <span className="text-[10px] bg-red-950 text-red-300 font-bold px-2 py-0.5 rounded border border-red-800/40">
-                        ✓ Eradicated: {rev.pestEliminated}
+                        ✓ Killed: {rev.pestEliminated}
                       </span>
                       <span className="text-[10px] text-neutral-500 font-mono">{rev.date}</span>
                     </div>

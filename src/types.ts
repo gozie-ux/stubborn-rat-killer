@@ -11,6 +11,7 @@ export type PestCategory =
   | 'Pet-Safe & Organic';
 
 export type ApplicationForm = 
+  | 'Powder Formula'
   | 'Concentrated Liquid / Emulsion'
   | 'Micro-Encapsulated Spray'
   | 'Syringe Gel Bait'
@@ -20,14 +21,17 @@ export type ApplicationForm =
   | 'Heavy Duty Glue Board'
   | 'Viscous Adhesive Glue / Sticky Trap'
   | 'Tamper-Proof Bait Station / Lockable Box'
-  | 'PPE & Application Gear';
+  | 'PPE & Application Gear'
+  | (string & {});
 
 export type ToxicityRating = 
+  | 'Strong Poison (Keep Away From Children)'
   | 'Industrial / High Potency (PPE Required)'
   | 'Standard Household Caution'
   | 'Low Toxicity / Food-Area Safe'
-  | 'Non-Poisonous / 100% Non-Toxic & Odourless'
-  | 'Organic / Pet & Plant Safe';
+  | 'Non-Poisonous / 100% Non-Toxic'
+  | 'Organic / Pet & Plant Safe'
+  | (string & {});
 
 export interface Review {
   id: string;

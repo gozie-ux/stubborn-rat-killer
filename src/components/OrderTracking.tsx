@@ -51,13 +51,13 @@ export const OrderTracking: React.FC = () => {
       <div className="text-center space-y-3">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-50 border border-red-200 text-red-700 text-xs font-black uppercase tracking-wider shadow-xs">
           <Truck className="w-4 h-4 text-red-600" />
-          <span>Real-Time Express Logistics Tracker</span>
+          <span>Easy Order Tracker</span>
         </div>
         <h1 className="text-2xl sm:text-4xl font-black text-slate-950 font-['Outfit'] tracking-tight">
-          TRACK YOUR DISPATCH ORDER
+          TRACK YOUR ORDER
         </h1>
         <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto font-normal">
-          Enter your Order Reference Number (e.g. <strong className="text-red-600 font-mono">SPK-98421</strong>), Tracking Code, or Phone Number.
+          Type your Order Number (like <strong className="text-red-600 font-mono">SPK-98421</strong>) or your Phone Number below to check where your order is.
         </p>
       </div>
 
@@ -67,15 +67,15 @@ export const OrderTracking: React.FC = () => {
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="e.g. SPK-98421 or TRK-LG-77892 or 0808..."
-          className="w-full bg-slate-50 border border-slate-300 rounded-2xl pl-12 pr-32 py-4 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white shadow-sm font-medium"
+          placeholder="e.g. SPK-98421 or 0808..."
+          className="w-full bg-slate-50 border border-slate-300 rounded-2xl pl-12 pr-36 py-4 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white shadow-sm font-medium"
         />
         <Search className="w-5 h-5 text-amber-500 absolute left-4 pointer-events-none" />
         <button
           type="submit"
           className="absolute right-2 px-6 py-2.5 btn-3d-yellow text-slate-950 font-black text-xs rounded-xl shadow-xs"
         >
-          TRACK ORDER
+          CHECK STATUS
         </button>
       </form>
 
@@ -108,7 +108,7 @@ export const OrderTracking: React.FC = () => {
             </div>
 
             <div className="text-right">
-              <span className="text-xs text-slate-500 block font-bold">Waybill / Tracking Code:</span>
+              <span className="text-xs text-slate-500 block font-bold">Tracking Code:</span>
               <span className="text-base font-black text-red-600 font-mono">
                 {foundOrder.trackingNumber}
               </span>
@@ -118,15 +118,15 @@ export const OrderTracking: React.FC = () => {
           {/* Timeline Milestones */}
           <div className="space-y-4">
             <h4 className="text-xs font-black uppercase tracking-wider text-slate-900 font-['Outfit']">
-              Dispatch & Delivery Milestones
+              Delivery Steps
             </h4>
 
             <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 relative">
               {[
-                { title: 'Order Received', desc: 'Payment & address verified', icon: Package },
-                { title: 'Security Inspection', desc: 'Sealed in leak-proof packaging', icon: ShieldCheck },
-                { title: 'Dispatched with Courier', desc: `Express delivery to ${foundOrder.customer.state}`, icon: Truck },
-                { title: 'Delivered', desc: 'Signed & confirmed by customer', icon: CheckCircle2 }
+                { title: 'Order Received', desc: 'We got your order details', icon: Package },
+                { title: 'Package Packed', desc: 'Sealed tight in clean bottle', icon: ShieldCheck },
+                { title: 'On The Way', desc: `Sent out with rider to ${foundOrder.customer.state}`, icon: Truck },
+                { title: 'Delivered', desc: 'Received and confirmed by you', icon: CheckCircle2 }
               ].map((stepItem, idx) => {
                 const status = getStepStatus(foundOrder.orderStatus, idx);
                 let badgeClass = 'bg-slate-50 border border-slate-200 text-slate-500';
@@ -166,21 +166,21 @@ export const OrderTracking: React.FC = () => {
             {/* Delivery Info */}
             <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 shadow-xs">
               <span className="font-black text-slate-900 uppercase tracking-wider block text-[11px]">
-                Delivery Destination
+                Where It Is Going
               </span>
               <p className="text-slate-900 font-bold">{foundOrder.customer.fullName}</p>
               <p className="text-slate-600 font-normal">{foundOrder.customer.deliveryAddress}, {foundOrder.customer.cityOrLga}, {foundOrder.customer.state}</p>
               <p className="text-slate-500 font-mono">Phone: {foundOrder.customer.phone}</p>
               <div className="pt-2 flex items-center gap-1.5 text-amber-700 font-bold">
                 <Clock className="w-4 h-4 text-amber-600" />
-                <span>Estimated Arrival: {foundOrder.estimatedDeliveryDate}</span>
+                <span>Expected Delivery: {foundOrder.estimatedDeliveryDate}</span>
               </div>
             </div>
 
             {/* Items Purchased */}
             <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 shadow-xs">
               <span className="font-black text-slate-900 uppercase tracking-wider block text-[11px]">
-                Items in Package
+                Items in Your Order
               </span>
               <div className="space-y-1.5 max-h-32 overflow-y-auto divide-y divide-slate-200">
                 {foundOrder.items.map((it, i) => (
@@ -205,7 +205,7 @@ export const OrderTracking: React.FC = () => {
           <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex flex-wrap items-center justify-between gap-3 text-xs">
             <div className="flex items-center gap-2 text-slate-700 font-medium">
               <PhoneCall className="w-4 h-4 text-amber-600" />
-              <span>Need delivery acceleration or guidance on placement?</span>
+              <span>Have questions about your delivery or how to use it?</span>
             </div>
             <a
               href={`https://wa.me/2348089854753?text=Hello%20Stubborn%20Rat%20Killer%20Support,%20I%20am%20tracking%20order%20${encodeURIComponent(foundOrder.orderNumber)}`}
@@ -214,7 +214,7 @@ export const OrderTracking: React.FC = () => {
               className="px-4 py-2.5 btn-3d-yellow text-slate-950 font-black rounded-xl flex items-center gap-1.5 shadow-xs"
             >
               <MessageCircle className="w-4 h-4 text-emerald-600" />
-              <span>WhatsApp Dispatch Desk (+234 808 985 4753)</span>
+              <span>Chat on WhatsApp (+234 808 985 4753)</span>
             </a>
           </div>
         </div>
@@ -223,7 +223,7 @@ export const OrderTracking: React.FC = () => {
           <AlertCircle className="w-10 h-10 text-red-500 mx-auto" />
           <h3 className="text-base font-black text-slate-950">No Order Found</h3>
           <p className="text-xs text-slate-600 font-normal">
-            We could not find an order matching "{query}". Please check your order reference number in your WhatsApp dispatch confirmation or invoice.
+            We could not find any order with "{query}". Please check your order number or chat with us on WhatsApp.
           </p>
           <button
             onClick={() => setActiveView('shop')}
@@ -237,9 +237,9 @@ export const OrderTracking: React.FC = () => {
           <div className="w-12 h-12 rounded-2xl bg-white border border-slate-200 flex items-center justify-center mx-auto text-amber-600 shadow-xs">
             <Truck className="w-6 h-6" />
           </div>
-          <h3 className="text-base font-black text-slate-950">Live Customer Order Tracking</h3>
+          <h3 className="text-base font-black text-slate-950">Check Where Your Order Is</h3>
           <p className="text-xs text-slate-600 leading-relaxed font-normal">
-            Enter the Order Reference (e.g. <span className="text-amber-700 font-mono font-bold">SPK-...</span>) or your delivery phone number above to view real-time dispatch milestones, courier handover status, and delivery timelines.
+            Type your Order Number (like <span className="text-amber-700 font-mono font-bold">SPK-...</span>) or your phone number in the box above to see if your order is packed, on the road, or delivered.
           </p>
         </div>
       )}

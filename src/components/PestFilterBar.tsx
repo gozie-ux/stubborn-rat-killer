@@ -20,19 +20,19 @@ export const PestFilterBar: React.FC<{ totalCount: number }> = ({ totalCount }) 
   } = useStore();
 
   const categories: { label: string; value: string }[] = [
-    { label: 'All Catalog', value: 'All' },
+    { label: 'All Products', value: 'All' },
     { label: 'Bedbugs', value: 'Bedbugs' },
     { label: 'Cockroaches', value: 'Cockroaches' },
-    { label: 'Termites & Woodborers', value: 'Termites & Woodborers' },
+    { label: 'Termites', value: 'Termites & Woodborers' },
     { label: 'Rodents & Mice', value: 'Rodents & Mice' },
     { label: 'Traps & Adhesives', value: 'Traps & Adhesives' },
     { label: 'Mosquitoes & Flies', value: 'Mosquitoes & Flies' },
     { label: 'Snakes & Reptiles', value: 'Snakes & Reptiles' },
-    { label: 'Safety Equipment', value: 'Safety Equipment & Sprayers' },
+    { label: 'Sprayers & Gear', value: 'Safety Equipment & Sprayers' },
   ];
 
   const forms: { label: string; value: string }[] = [
-    { label: 'All Formats', value: 'All' },
+    { label: 'All Types', value: 'All' },
     { label: 'Syringe Gel Bait', value: 'Syringe Gel Bait' },
     { label: 'Liquid Concentrate / Spray', value: 'Concentrated Liquid / Emulsion' },
     { label: 'Micro-Encapsulated', value: 'Micro-Encapsulated Spray' },
@@ -70,14 +70,14 @@ export const PestFilterBar: React.FC<{ totalCount: number }> = ({ totalCount }) 
             <Filter className="w-4 h-4" />
           </div>
           <span className="text-sm font-black text-white uppercase tracking-wider font-['Outfit']">
-            CATALOG FORMULATIONS <span className="text-yellow-400 font-mono">({totalCount})</span>
+            ALL PRODUCTS <span className="text-yellow-400 font-mono">({totalCount})</span>
           </span>
           {hasActiveFilters && (
             <button
               onClick={resetFilters}
               className="text-xs text-red-400 hover:text-white font-black flex items-center gap-1 ml-2 bg-red-950/80 px-2.5 py-1 rounded-xl border-2 border-red-700/60 transition-colors"
             >
-              <X className="w-3.5 h-3.5" /> RESET FILTERS
+              <X className="w-3.5 h-3.5" /> CLEAR FILTERS
             </button>
           )}
         </div>

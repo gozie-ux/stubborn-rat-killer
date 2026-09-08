@@ -38,16 +38,16 @@ export const ServicesSection: React.FC = () => {
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-red-600/30 border border-red-500/50 rounded-2xl">
               <Flame className="w-4 h-4 text-yellow-300 animate-pulse" />
               <span className="text-xs font-black text-white uppercase tracking-wider font-mono">
-                PROFESSIONAL EXTERMINATION SERVICES
+                FUMIGATION & PEST CONTROL SERVICES
               </span>
             </div>
 
             <h2 className="text-2xl sm:text-4xl font-black text-white font-['Outfit'] tracking-tight">
-              On-Site Facility Fumigation &amp; <span className="text-yellow-400">Bedbug Eradication</span>
+              Complete Fumigation &amp; <span className="text-yellow-400">Bedbug Clearing</span>
             </h2>
 
             <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
-              When standard retail sprays and DIY remedies fail, our specialized team at <strong className="text-white">KILLAPEST RESOURCES</strong> deploys heavy-duty industrial thermal pulse-jet foggers to achieve complete, permanent elimination.
+              When normal sprays do not work, our team at <strong className="text-white">KILLAPEST RESOURCES</strong> comes to your place with powerful smoke machines to clear out every single pest.
             </p>
           </div>
 
@@ -59,7 +59,7 @@ export const ServicesSection: React.FC = () => {
             </div>
             <div className="bg-black/70 border border-neutral-800 rounded-2xl p-3 sm:p-3.5 text-center w-full sm:min-w-[160px]">
               <div className="text-xl sm:text-2xl font-black text-red-400 font-mono">100%</div>
-              <div className="text-[10px] sm:text-[11px] font-bold text-neutral-300">Eradication Rate</div>
+              <div className="text-[10px] sm:text-[11px] font-bold text-neutral-300">Success Rate</div>
             </div>
           </div>
         </div>
@@ -83,8 +83,8 @@ export const ServicesSection: React.FC = () => {
             <Clock className="w-5 h-5 text-yellow-400" />
           </div>
           <div>
-            <h4 className="text-xs font-black text-white uppercase font-mono">3-Day Deep Action</h4>
-            <p className="text-[11px] text-neutral-400 mt-0.5">Vacate Friday, re-enter Sunday 4pm for total pest extinction.</p>
+            <h4 className="text-xs font-black text-white uppercase font-mono">3-Day Deep Treatment</h4>
+            <p className="text-[11px] text-neutral-400 mt-0.5">Leave on Friday, come back on Sunday 4pm to a house completely free of pests.</p>
           </div>
         </div>
 
@@ -93,8 +93,8 @@ export const ServicesSection: React.FC = () => {
             <Zap className="w-5 h-5 text-yellow-400" />
           </div>
           <div>
-            <h4 className="text-xs font-black text-white uppercase font-mono">Ovicidal Gas Penetration</h4>
-            <p className="text-[11px] text-neutral-400 mt-0.5">Thermal micron-fog vaporizes bedbug eggs inside mattress seams.</p>
+            <h4 className="text-xs font-black text-white uppercase font-mono">Smoke Reaches Every Corner</h4>
+            <p className="text-[11px] text-neutral-400 mt-0.5">Hot smoke reaches inside mattresses and wall cracks to destroy bedbug eggs.</p>
           </div>
         </div>
 
@@ -103,8 +103,8 @@ export const ServicesSection: React.FC = () => {
             <Building2 className="w-5 h-5 text-yellow-400" />
           </div>
           <div>
-            <h4 className="text-xs font-black text-white uppercase font-mono">Any Facility Scale</h4>
-            <p className="text-[11px] text-neutral-400 mt-0.5">Apartments, student hostels, offices, buses, schools &amp; mosques.</p>
+            <h4 className="text-xs font-black text-white uppercase font-mono">Any Building Size</h4>
+            <p className="text-[11px] text-neutral-400 mt-0.5">Flats, hostels, offices, buses, schools, and worship centers.</p>
           </div>
         </div>
 
@@ -113,8 +113,8 @@ export const ServicesSection: React.FC = () => {
             <Award className="w-5 h-5 text-yellow-400" />
           </div>
           <div>
-            <h4 className="text-xs font-black text-white uppercase font-mono">All Pests Wiped Out</h4>
-            <p className="text-[11px] text-neutral-400 mt-0.5">Simultaneously kills roaches, rats, lizards, and wall geckos.</p>
+            <h4 className="text-xs font-black text-white uppercase font-mono">All Pests Cleared Out</h4>
+            <p className="text-[11px] text-neutral-400 mt-0.5">Also clears out cockroaches, rats, lizards, and wall geckos at the same time.</p>
           </div>
         </div>
       </div>

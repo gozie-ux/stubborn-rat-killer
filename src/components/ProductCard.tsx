@@ -282,7 +282,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
               </span>
             ) : isLowStock ? (
               <span className="text-yellow-400 font-black flex items-center gap-1 animate-pulse">
-                <Clock className="w-3.5 h-3.5" /> Only {product.stock} left in depot!
+                <Clock className="w-3.5 h-3.5" /> Only {product.stock} left in stock!
               </span>
             ) : (
               <span className="text-neutral-300 font-bold flex items-center gap-1">
@@ -317,7 +317,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
               onClick={handleWhatsAppBuy}
               id={`whatsapp-buy-btn-${product.id}`}
               className="w-full py-2.5 px-2.5 rounded-xl font-black text-xs btn-3d-black text-yellow-400 hover:text-white flex items-center justify-center gap-1.5 transition-all"
-              title="Order directly with our sales chemist on WhatsApp"
+              title="Order directly on WhatsApp"
             >
               <MessageCircle className="w-3.5 h-3.5 text-green-500" />
               <span>WhatsApp</span>
@@ -332,10 +332,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
               rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}
               className="mt-2 w-full py-2 px-2.5 rounded-xl bg-emerald-950/80 hover:bg-emerald-900 border border-emerald-500/40 hover:border-emerald-400 text-emerald-300 hover:text-white text-[11px] font-black flex items-center justify-center gap-1.5 transition-all shadow-sm"
-              title="Buy this product on our official Jiji.ng verified store"
+              title="Buy this product on Jiji.ng"
             >
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              <span>Shop / Buy on Jiji.ng</span>
+              <span>Buy on Jiji.ng</span>
               <ExternalLink className="w-3 h-3 text-emerald-400" />
             </a>
           )}

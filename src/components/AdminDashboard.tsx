@@ -84,7 +84,7 @@ export const AdminDashboard: React.FC = () => {
     const origin = window.location.origin;
     const pathname = window.location.pathname.replace(/\/oliver\/?$/, '') || '/';
     const cleanPath = pathname === '/' ? '' : pathname;
-    return `${origin}${cleanPath}#oliver`;
+    return `${origin}${cleanPath}/oliver`;
   };
 
   const handleCopyAdminUrl = async () => {
@@ -302,10 +302,10 @@ export const AdminDashboard: React.FC = () => {
               RESTRICTED • OWNER ACCESS ONLY
             </span>
             <h2 className="text-2xl sm:text-3xl font-black text-white font-['Outfit']">
-              Owner Security Gate
+              Owner Sign In
             </h2>
             <p className="text-xs text-neutral-400 leading-relaxed max-w-md mx-auto">
-              This restricted administrative control room contains confidential customer transactions, financial metrics, dispatch manifests, and database controls.
+              This page is only for the shop owner to see customer orders, sales, and products.
             </p>
           </div>
 
@@ -314,9 +314,9 @@ export const AdminDashboard: React.FC = () => {
               <label className="block text-xs font-black text-neutral-300 uppercase tracking-wider mb-1.5 flex items-center justify-between">
                 <span className="flex items-center gap-1.5">
                   <KeyRound className="w-3.5 h-3.5 text-yellow-400" />
-                  <span>Enter Owner Passcode</span>
+                  <span>Enter Passcode</span>
                 </span>
-                <span className="text-[10px] text-neutral-500 font-mono">256-Bit Protected</span>
+                <span className="text-[10px] text-neutral-500 font-mono">Safe &amp; Secure</span>
               </label>
 
               <div className="relative">
@@ -327,7 +327,7 @@ export const AdminDashboard: React.FC = () => {
                     setGatePasscode(e.target.value);
                     if (gateError) setGateError('');
                   }}
-                  placeholder="Owner Security Key..."
+                  placeholder="Enter passcode..."
                   autoFocus
                   className="w-full bg-black border-2 border-neutral-800 focus:border-yellow-400 rounded-2xl px-4 py-3 text-sm text-white placeholder:text-neutral-600 focus:outline-none transition-colors font-mono"
                 />
@@ -355,7 +355,7 @@ export const AdminDashboard: React.FC = () => {
                 Store Owner Notice:
               </span>
               <p>
-                Default Master Key: <code className="text-white font-mono bg-black px-1 py-0.5 rounded border border-neutral-700">KILLAPEST#2026</code> (or <code className="text-white font-mono bg-black px-1 py-0.5 rounded border border-neutral-700">7453</code>). You can customize your passcode inside the dashboard settings.
+                Default Passcode: <code className="text-white font-mono bg-black px-1 py-0.5 rounded border border-neutral-700">KILLAPEST#2026</code> (or <code className="text-white font-mono bg-black px-1 py-0.5 rounded border border-neutral-700">7453</code>). You can change this passcode inside.
               </p>
             </div>
 
@@ -366,11 +366,11 @@ export const AdminDashboard: React.FC = () => {
                 className="w-full py-3.5 px-4 rounded-2xl btn-3d-yellow text-black font-black text-sm uppercase tracking-wide flex items-center justify-center gap-2 shadow-lg disabled:opacity-50"
               >
                 {isVerifyingGate ? (
-                  <span>Verifying Key...</span>
+                  <span>Checking Passcode...</span>
                 ) : (
                   <>
                     <Lock className="w-4 h-4" />
-                    <span>Unlock Owner Console</span>
+                    <span>Log In to Admin</span>
                   </>
                 )}
               </button>
@@ -380,7 +380,7 @@ export const AdminDashboard: React.FC = () => {
                 onClick={returnToStorefront}
                 className="w-full py-2.5 text-xs font-bold text-neutral-400 hover:text-white transition-colors text-center block"
               >
-                ← Return to Public Storefront
+                ← Back to Shop
               </button>
             </div>
           </form>
@@ -398,7 +398,7 @@ export const AdminDashboard: React.FC = () => {
           <div>
             <div className="flex items-center gap-2">
               <span className="text-[10px] font-black uppercase tracking-widest bg-yellow-400 text-black px-2 py-0.5 rounded shadow-sm">
-                COMMAND HQ • OWNER AUTHENTICATED
+                OWNER PORTAL • LOGGED IN
               </span>
               <span className="text-xs text-red-500 font-mono font-bold">+234 808 985 4753 • KILLAPEST RESOURCES</span>
             </div>
@@ -406,7 +406,7 @@ export const AdminDashboard: React.FC = () => {
               STUBBORN RAT KILLER • OWNER DASHBOARD
             </h1>
             <p className="text-xs text-neutral-400 font-medium">
-              Private Inventory Management, Customer Orders & Dispatch Logistics Desk
+              Manage Products, Customer Orders &amp; Deliveries
             </p>
           </div>
         </div>
@@ -417,13 +417,13 @@ export const AdminDashboard: React.FC = () => {
             className="px-4 py-2.5 btn-3d-black text-yellow-400 font-black text-xs rounded-xl flex items-center gap-2"
           >
             <ArrowUpRight className="w-4 h-4" />
-            <span>Storefront Live View</span>
+            <span>View Shop</span>
           </button>
           
           <button
             onClick={resetToDefaultProducts}
             className="p-2.5 btn-3d-black text-neutral-400 hover:text-white rounded-xl"
-            title="Reset to factory catalog demo data"
+            title="Reset products to default"
           >
             <RefreshCw className="w-4 h-4" />
           </button>
@@ -431,10 +431,10 @@ export const AdminDashboard: React.FC = () => {
           <button
             onClick={logoutAdmin}
             className="px-4 py-2.5 btn-3d-red text-white font-black text-xs rounded-xl flex items-center gap-1.5"
-            title="Lock Console & Log Out"
+            title="Log Out"
           >
             <LogOut className="w-4 h-4" />
-            <span>Lock & Log Out</span>
+            <span>Log Out</span>
           </button>
         </div>
       </div>
@@ -444,12 +444,12 @@ export const AdminDashboard: React.FC = () => {
         <div className="p-5 rounded-2xl bg-neutral-950 border-2 border-yellow-500/40 card-3d flex items-center justify-between shadow-xl">
           <div>
             <span className="text-[11px] font-black text-neutral-400 uppercase tracking-wider block">
-              Gross Sales (Paid)
+              Money Received
             </span>
             <div className="text-2xl font-black text-yellow-400 font-mono mt-1">
               {formatPrice(totalRevenue)}
             </div>
-            <span className="text-[10px] text-neutral-500 mt-1 block font-bold">Confirmed customer receipts</span>
+            <span className="text-[10px] text-neutral-500 mt-1 block font-bold">From paid orders</span>
           </div>
           <div className="w-12 h-12 bg-black rounded-2xl border border-yellow-500/30 flex items-center justify-center text-yellow-400 shadow-inner">
             <DollarSign className="w-6 h-6" />
@@ -465,7 +465,7 @@ export const AdminDashboard: React.FC = () => {
               {orders.length}
             </div>
             <span className="text-[10px] text-red-400 mt-1 block font-black">
-              {orders.filter((o) => o.orderStatus === 'Processing' || o.orderStatus === 'Confirmed').length} pending dispatch
+              {orders.filter((o) => o.orderStatus === 'Processing' || o.orderStatus === 'Confirmed').length} waiting for delivery
             </span>
           </div>
           <div className="w-12 h-12 bg-black rounded-2xl border border-red-600/40 flex items-center justify-center text-red-500 shadow-inner">
@@ -476,12 +476,12 @@ export const AdminDashboard: React.FC = () => {
         <div className="p-5 rounded-2xl bg-neutral-950 border-2 border-neutral-800 card-3d flex items-center justify-between shadow-xl">
           <div>
             <span className="text-[11px] font-black text-neutral-400 uppercase tracking-wider block">
-              Active Inventory Formulations
+              Products in Store
             </span>
             <div className="text-2xl font-black text-white font-mono mt-1">
               {products.length} Items
             </div>
-            <span className="text-[10px] text-neutral-500 mt-1 block font-bold">Live in store inventory</span>
+            <span className="text-[10px] text-neutral-500 mt-1 block font-bold">Available to buy</span>
           </div>
           <div className="w-12 h-12 bg-black rounded-2xl border border-neutral-800 flex items-center justify-center text-yellow-400 shadow-inner">
             <Package className="w-6 h-6" />
@@ -491,12 +491,12 @@ export const AdminDashboard: React.FC = () => {
         <div className="p-5 rounded-2xl bg-neutral-950 border-2 border-red-600 card-3d flex items-center justify-between shadow-xl">
           <div>
             <span className="text-[11px] font-black text-red-400 uppercase tracking-wider block">
-              Low Depot Stock
+              Low Stock Alert
             </span>
             <div className="text-2xl font-black text-red-500 font-mono mt-1 animate-pulse">
               {totalLowStock}
             </div>
-            <span className="text-[10px] text-neutral-400 mt-1 block font-bold">Items ≤ 5 units in warehouse</span>
+            <span className="text-[10px] text-neutral-400 mt-1 block font-bold">Items with 5 or fewer left</span>
           </div>
           <div className="w-12 h-12 bg-red-950/60 rounded-2xl border border-red-600 flex items-center justify-center text-red-500 shadow-inner">
             <AlertTriangle className="w-6 h-6" />
@@ -515,7 +515,7 @@ export const AdminDashboard: React.FC = () => {
           }`}
         >
           <Package className="w-4 h-4" />
-          <span>Depot Inventory ({products.length})</span>
+          <span>Products ({products.length})</span>
         </button>
 
         <button
@@ -528,7 +528,7 @@ export const AdminDashboard: React.FC = () => {
           }`}
         >
           <PlusCircle className="w-4 h-4 text-yellow-300" />
-          <span>+ Post Product Manually</span>
+          <span>+ Add New Product</span>
         </button>
 
         <button
@@ -541,7 +541,7 @@ export const AdminDashboard: React.FC = () => {
           }`}
         >
           <Truck className="w-4 h-4" />
-          <span>Customer Orders & Dispatch ({orders.length})</span>
+          <span>Customer Orders &amp; Deliveries ({orders.length})</span>
         </button>
 
         <button
@@ -554,7 +554,7 @@ export const AdminDashboard: React.FC = () => {
           }`}
         >
           <KeyRound className="w-4 h-4" />
-          <span>🔐 Owner Security & Passcode</span>
+          <span>🔐 Change Passcode</span>
         </button>
       </div>
 
@@ -565,7 +565,7 @@ export const AdminDashboard: React.FC = () => {
             <div className="relative max-w-sm w-full">
               <input
                 type="text"
-                placeholder="Search by chemical name, SKU, or pest..."
+                placeholder="Search by product name, code, or pest..."
                 value={productSearch}
                 onChange={(e) => setProductSearch(e.target.value)}
                 className="w-full bg-black border-2 border-neutral-800 rounded-2xl pl-10 pr-4 py-2.5 text-xs text-white placeholder:text-neutral-500 focus:outline-none focus:border-yellow-400"
@@ -578,7 +578,7 @@ export const AdminDashboard: React.FC = () => {
               className="px-5 py-2.5 btn-3d-yellow text-black font-black text-xs rounded-2xl flex items-center gap-2"
             >
               <PlusCircle className="w-4 h-4" />
-              <span>Post New Formulation</span>
+              <span>Add New Product</span>
             </button>
           </div>
 
@@ -588,11 +588,11 @@ export const AdminDashboard: React.FC = () => {
               <table className="w-full text-left text-xs text-neutral-300 divide-y-2 divide-neutral-900">
                 <thead className="bg-black text-neutral-400 uppercase font-mono text-[10px] font-black">
                   <tr>
-                    <th className="p-4">Chemical Formulation</th>
+                    <th className="p-4">Product Name</th>
                     <th className="p-4">Category</th>
                     <th className="p-4">Price (NGN)</th>
-                    <th className="p-4">Depot Stock</th>
-                    <th className="p-4">Badges & Flags</th>
+                    <th className="p-4">Stock Left</th>
+                    <th className="p-4">Badges &amp; Flags</th>
                     <th className="p-4 text-right">Actions</th>
                   </tr>
                 </thead>
@@ -690,13 +690,13 @@ export const AdminDashboard: React.FC = () => {
           <div className="flex items-center justify-between pb-4 border-b-2 border-neutral-900">
             <div>
               <span className="text-xs font-black text-yellow-400 uppercase tracking-widest block">
-                MANUAL CHEMICAL ENTRY PORTAL
+                ADD PRODUCT
               </span>
               <h2 className="text-xl sm:text-2xl font-black text-white mt-1 font-['Outfit']">
-                Publish New Extermination Formulation
+                Add New Product to Store
               </h2>
               <p className="text-xs text-neutral-400 mt-0.5 font-medium">
-                Specify active lethal ingredients, dilution ratio, pricing, and high-impact badges.
+                Enter product details, price, and picture.
               </p>
             </div>
             <div className="w-12 h-12 rounded-2xl bg-red-600 flex items-center justify-center text-yellow-300 font-black shadow-[0_3px_0_#991b1b]">
@@ -708,12 +708,12 @@ export const AdminDashboard: React.FC = () => {
             {/* Title */}
             <div className="lg:col-span-2">
               <label className="block text-xs font-black text-neutral-300 mb-1.5 uppercase tracking-wider">
-                Product Formulation Name <span className="text-red-500">*</span>
+                Product Name <span className="text-red-500">*</span>
               </label>
               <input
                 type="text"
                 required
-                placeholder="e.g. Bedbug Annihilator Pro Max Concentrate"
+                placeholder="e.g. Bedbug Killer 1 Litre"
                 value={newProd.name}
                 onChange={(e) => setNewProd({ ...newProd, name: e.target.value })}
                 className="w-full bg-black border-2 border-neutral-800 rounded-2xl px-4 py-3 text-xs text-white focus:outline-none focus:border-yellow-400 font-bold"
@@ -723,7 +723,7 @@ export const AdminDashboard: React.FC = () => {
             {/* Category */}
             <div>
               <label className="block text-xs font-black text-neutral-300 mb-1.5 uppercase tracking-wider">
-                Target Category <span className="text-red-500">*</span>
+                Category <span className="text-red-500">*</span>
               </label>
               <select
                 value={newProd.category}
@@ -748,11 +748,11 @@ export const AdminDashboard: React.FC = () => {
             {/* Subtitle */}
             <div className="lg:col-span-3">
               <label className="block text-xs font-black text-neutral-300 mb-1.5 uppercase tracking-wider">
-                Commercial Subtitle / Hook
+                Short Description / Subtitle
               </label>
               <input
                 type="text"
-                placeholder="e.g. Triple Action Ovicidal & Adult Bed Bug Annihilator with 6-Month Residual Barrier"
+                placeholder="e.g. Fast acting killer for tough bedbugs and eggs"
                 value={newProd.subtitle}
                 onChange={(e) => setNewProd({ ...newProd, subtitle: e.target.value })}
                 className="w-full bg-black border-2 border-neutral-800 rounded-2xl px-4 py-3 text-xs text-white focus:outline-none focus:border-yellow-400"
@@ -789,7 +789,7 @@ export const AdminDashboard: React.FC = () => {
 
             <div>
               <label className="block text-xs font-black text-neutral-300 mb-1.5 uppercase tracking-wider">
-                Initial Depot Stock <span className="text-red-500">*</span>
+                How Many in Stock <span className="text-red-500">*</span>
               </label>
               <input
                 type="number"
@@ -804,7 +804,7 @@ export const AdminDashboard: React.FC = () => {
             {/* Technical Parameters */}
             <div>
               <label className="block text-xs font-black text-neutral-300 mb-1.5 uppercase tracking-wider">
-                Active Chemical Ingredients <span className="text-red-500">*</span>
+                Active Ingredients <span className="text-red-500">*</span>
               </label>
               <input
                 type="text"
@@ -818,11 +818,11 @@ export const AdminDashboard: React.FC = () => {
 
             <div>
               <label className="block text-xs font-black text-neutral-300 mb-1.5 uppercase tracking-wider">
-                Knockdown Speed Speed
+                How Fast It Works
               </label>
               <input
                 type="text"
-                placeholder="e.g. Deadly in 15 Minutes"
+                placeholder="e.g. Kills in 15 Minutes"
                 value={newProd.knockdownSpeed}
                 onChange={(e) => setNewProd({ ...newProd, knockdownSpeed: e.target.value })}
                 className="w-full bg-black border-2 border-neutral-800 rounded-2xl px-4 py-3 text-xs text-white focus:outline-none focus:border-yellow-400"
@@ -831,11 +831,11 @@ export const AdminDashboard: React.FC = () => {
 
             <div>
               <label className="block text-xs font-black text-neutral-300 mb-1.5 uppercase tracking-wider">
-                Residual Duration
+                How Long It Protects
               </label>
               <input
                 type="text"
-                placeholder="e.g. Active for 180 Days"
+                placeholder="e.g. Protects for 6 Months"
                 value={newProd.residualDuration}
                 onChange={(e) => setNewProd({ ...newProd, residualDuration: e.target.value })}
                 className="w-full bg-black border-2 border-neutral-800 rounded-2xl px-4 py-3 text-xs text-white focus:outline-none focus:border-yellow-400"
@@ -845,7 +845,7 @@ export const AdminDashboard: React.FC = () => {
             {/* Target Pests */}
             <div className="lg:col-span-2">
               <label className="block text-xs font-black text-neutral-300 mb-1.5 uppercase tracking-wider">
-                Target Pests (Comma separated)
+                Pests it kills (separate with commas)
               </label>
               <input
                 type="text"
@@ -858,11 +858,11 @@ export const AdminDashboard: React.FC = () => {
 
             <div>
               <label className="block text-xs font-black text-neutral-300 mb-1.5 uppercase tracking-wider">
-                Packaging Size / Format
+                Bottle Size / Weight
               </label>
               <input
                 type="text"
-                placeholder="e.g. 1000ml Concentrated Jug"
+                placeholder="e.g. 1000ml Bottle"
                 value={newProd.packagingSize}
                 onChange={(e) => setNewProd({ ...newProd, packagingSize: e.target.value })}
                 className="w-full bg-black border-2 border-neutral-800 rounded-2xl px-4 py-3 text-xs text-white focus:outline-none focus:border-yellow-400"
@@ -872,7 +872,7 @@ export const AdminDashboard: React.FC = () => {
             {/* Image URLs & Preset Selector */}
             <div className="lg:col-span-3 space-y-2">
               <label className="block text-xs font-black text-neutral-300 uppercase tracking-wider">
-                Product Image URL (or select an official depot preset)
+                Product Image Link (or pick a picture below)
               </label>
               <input
                 type="text"
@@ -881,7 +881,7 @@ export const AdminDashboard: React.FC = () => {
                 className="w-full bg-black border-2 border-neutral-800 rounded-2xl px-4 py-3 text-xs text-white focus:outline-none focus:border-yellow-400"
               />
               <div className="flex flex-wrap gap-2 pt-1">
-                <span className="text-[11px] text-neutral-500 font-bold">Depot Presets:</span>
+                <span className="text-[11px] text-neutral-500 font-bold">Presets:</span>
                 {presetImages.map((img) => (
                   <button
                     key={img.label}
@@ -898,7 +898,7 @@ export const AdminDashboard: React.FC = () => {
             {/* Jiji Shopping Link */}
             <div className="lg:col-span-3">
               <label className="block text-xs font-black text-emerald-400 mb-1.5 uppercase tracking-wider">
-                Official Jiji.ng Store Link (Optional)
+                Jiji.ng Link (Optional)
               </label>
               <input
                 type="url"
@@ -912,7 +912,7 @@ export const AdminDashboard: React.FC = () => {
             {/* How to use */}
             <div className="lg:col-span-3">
               <label className="block text-xs font-black text-neutral-300 mb-1.5 uppercase tracking-wider">
-                Step-by-Step Extermination Guide (One step per line)
+                How to Use (One step per line)
               </label>
               <textarea
                 rows={3}
@@ -937,7 +937,7 @@ export const AdminDashboard: React.FC = () => {
               className="px-6 py-3 btn-3d-yellow text-black font-black text-xs rounded-2xl flex items-center gap-2"
             >
               <PlusCircle className="w-4 h-4" />
-              <span>Publish Product to Store</span>
+              <span>Save &amp; Add Product</span>
             </button>
           </div>
         </form>
@@ -974,7 +974,7 @@ export const AdminDashboard: React.FC = () => {
                 </div>
                 <h4 className="text-base font-black text-white">No Customer Orders Yet</h4>
                 <p className="text-xs text-neutral-400 max-w-md mx-auto">
-                  Only authentic orders placed by customers through the checkout desk will appear here with genuine delivery addresses, contact numbers, and payment verification notes.
+                  When customers place an order, it will show here with their address and phone number.
                 </p>
               </div>
             ) : (
@@ -1031,7 +1031,7 @@ export const AdminDashboard: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
                   {/* Customer Info */}
                   <div className="space-y-1">
-                    <span className="font-black text-yellow-400 uppercase text-[10px] tracking-wider">Recipient & Address:</span>
+                    <span className="font-black text-yellow-400 uppercase text-[10px] tracking-wider">Customer Name &amp; Address:</span>
                     <p className="text-white font-black">{ord.customer.fullName}</p>
                     <p className="text-neutral-300 font-mono">{ord.customer.phone} {ord.customer.email && `• ${ord.customer.email}`}</p>
                     <p className="text-neutral-400">{ord.customer.deliveryAddress}, {ord.customer.cityOrLga}, {ord.customer.state}</p>
@@ -1042,7 +1042,7 @@ export const AdminDashboard: React.FC = () => {
 
                   {/* Purchased Items */}
                   <div className="space-y-1">
-                    <span className="font-black text-yellow-400 uppercase text-[10px] tracking-wider">Chemical Items ({ord.items.length}):</span>
+                    <span className="font-black text-yellow-400 uppercase text-[10px] tracking-wider">Items Ordered ({ord.items.length}):</span>
                     <div className="space-y-1.5 max-h-28 overflow-y-auto">
                       {ord.items.map((it, i) => (
                         <div key={i} className="flex justify-between text-neutral-300 bg-black p-2 rounded-xl border border-neutral-900">
@@ -1086,10 +1086,10 @@ export const AdminDashboard: React.FC = () => {
               </div>
               <div>
                 <h3 className="text-lg font-black text-white font-['Outfit']">
-                  Change Owner Security Passcode
+                  Change Passcode
                 </h3>
                 <p className="text-xs text-neutral-400">
-                  Update the master PIN/passcode required to unlock this administration console.
+                  Change the passcode used to open this admin page.
                 </p>
               </div>
             </div>
@@ -1097,7 +1097,7 @@ export const AdminDashboard: React.FC = () => {
             <form onSubmit={handleChangePasscodeSubmit} className="space-y-4">
               <div>
                 <label className="block text-xs font-black text-neutral-300 uppercase tracking-wider mb-1.5">
-                  Current Master Passcode
+                  Current Passcode
                 </label>
                 <input
                   type="password"
@@ -1112,7 +1112,7 @@ export const AdminDashboard: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-black text-neutral-300 uppercase tracking-wider mb-1.5">
-                    New Security Passcode
+                    New Passcode
                   </label>
                   <input
                     type="password"
@@ -1162,7 +1162,7 @@ export const AdminDashboard: React.FC = () => {
                   className="px-6 py-3.5 btn-3d-yellow text-black font-black text-xs rounded-2xl flex items-center gap-2"
                 >
                   <KeyRound className="w-4 h-4" />
-                  <span>Update & Save New Passcode</span>
+                  <span>Update &amp; Save New Passcode</span>
                 </button>
               </div>
             </form>
@@ -1181,21 +1181,21 @@ export const AdminDashboard: React.FC = () => {
                   </span>
                 </div>
                 <h3 className="text-lg font-black text-white font-['Outfit'] mt-1">
-                  Private Admin Direct Link & Shortcut
+                  Secret Admin Link
                 </h3>
                 <p className="text-xs text-neutral-400">
-                  The public website has zero visible links to this control room. Bookmark this direct URL to access your store privately.
+                  There is no visible admin button on the website. Bookmark this link to visit your admin page.
                 </p>
               </div>
             </div>
 
             <div className="space-y-3">
               <label className="block text-xs font-black text-yellow-400 uppercase tracking-wider">
-                Your Direct Private Access URL
+                Your Admin Link
               </label>
               <div className="flex flex-col sm:flex-row items-stretch gap-2">
                 <div className="flex-1 bg-black border-2 border-neutral-800 rounded-2xl px-4 py-3 text-xs text-neutral-200 font-mono flex items-center overflow-x-auto select-all">
-                  {typeof window !== 'undefined' ? getPrivateAdminUrl() : 'https://yourwebsite.com/#oliver'}
+                  {typeof window !== 'undefined' ? getPrivateAdminUrl() : 'https://yourwebsite.com/oliver'}
                 </div>
                 <button
                   type="button"
@@ -1216,14 +1216,14 @@ export const AdminDashboard: React.FC = () => {
                 </button>
               </div>
               <p className="text-[11px] text-neutral-500">
-                Tip: Save this link in your browser bookmarks bar (e.g. <em>"Rat Killer Admin HQ"</em>). When opened, it takes you directly into this secure control room.
+                Tip: Save this link on your phone or computer so you can easily open your admin page anytime.
               </p>
             </div>
 
             <div className="p-4 rounded-2xl bg-black border border-neutral-800 flex items-center justify-between gap-3">
               <div>
                 <span className="text-xs font-black text-white block">Secret Keyboard Shortcut</span>
-                <span className="text-[11px] text-neutral-400">Press on any page to open this management desk</span>
+                <span className="text-[11px] text-neutral-400">Press these keys on your computer to open this admin page</span>
               </div>
               <div className="flex items-center gap-1 font-mono text-xs font-black bg-neutral-900 border border-neutral-700 px-3 py-1.5 rounded-xl text-yellow-400">
                 <span>Ctrl</span> + <span>Shift</span> + <span>A</span>
@@ -1235,21 +1235,21 @@ export const AdminDashboard: React.FC = () => {
           <div className="bg-neutral-950 border-2 border-neutral-800 rounded-3xl p-6 space-y-4 card-3d">
             <div className="flex items-center gap-2 text-xs font-black text-yellow-400 uppercase tracking-wider">
               <ShieldAlert className="w-4 h-4" />
-              <span>Owner Data Protection & Isolation</span>
+              <span>Owner Protection</span>
             </div>
 
             <ul className="space-y-2.5 text-xs text-neutral-300 font-medium">
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="w-4 h-4 text-green-400 shrink-0 mt-0.5" />
-                <span><strong>Visitor Protection:</strong> Regular website visitors and customers cannot see or open the admin console, customer phone numbers, or revenue metrics.</span>
+                <span><strong>Visitor Protection:</strong> Regular visitors cannot see or open your admin page or customer records.</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="w-4 h-4 text-green-400 shrink-0 mt-0.5" />
-                <span><strong>Instant Session Lock:</strong> Clicking "Lock & Log Out" instantly terminates the owner session and returns back to the store.</span>
+                <span><strong>Instant Log Out:</strong> Clicking "Log Out" locks the admin page immediately.</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="w-4 h-4 text-green-400 shrink-0 mt-0.5" />
-                <span><strong>WhatsApp Dispatch Integration:</strong> Orders placed on the website are dispatched directly to your private WhatsApp line <code className="text-yellow-400 font-mono font-bold">+234 808 985 4753</code>.</span>
+                <span><strong>WhatsApp Notification:</strong> Orders placed on the website are also sent directly to your WhatsApp <code className="text-yellow-400 font-mono font-bold">+234 808 985 4753</code>.</span>
               </li>
             </ul>
           </div>

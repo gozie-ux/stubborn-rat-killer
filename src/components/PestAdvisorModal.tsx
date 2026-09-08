@@ -36,47 +36,47 @@ export const PestAdvisorModal: React.FC = () => {
     {
       id: 'bedbugs',
       icon: '🛏️',
-      title: 'Itchy bites upon waking + black dots on mattress seams',
-      pest: 'Resistant Bedbugs',
+      title: 'Itchy bites on your body when you wake up + black dirt on your mattress',
+      pest: 'Bedbugs',
       recommendedId: 'spk-001',
-      severity: 'Severe (Immediate Fumigation Needed)',
-      advice: 'Do NOT use regular supermarket aerosol sprays as they cause bedbugs to scatter into deep wall cracks. You need a micro-encapsulated ovicide spray that kills both adult bugs and unhatched eggs.'
+      severity: 'Biting You in Bed',
+      advice: 'Ordinary market sprays do not kill bedbugs because bedbugs and their eggs hide deep inside cracks. You need a strong bedbug spray that kills both adult bugs and their eggs.'
     },
     {
       id: 'roaches',
       icon: '🪳',
-      title: 'Small roaches living inside kitchen sockets, microwaves & cupboards',
-      pest: 'German Cockroaches (Blattella germanica)',
+      title: 'Small cockroaches running inside kitchen sockets, microwaves & cupboards',
+      pest: 'Small Kitchen Cockroaches',
       recommendedId: 'spk-002',
-      severity: 'Colony Nesting in Appliances',
-      advice: 'Spraying liquid chemicals on electrical appliances causes short-circuits and misses the queen nest. Apply precision syringe gel bait dots. Roaches consume the gel, share it inside the colony, causing total collapse.'
+      severity: 'Living Inside Sockets & Cupboards',
+      advice: 'Spraying liquid chemicals on electrical appliances can spoil them. Use cockroach gel bait dots instead. Cockroaches eat the gel, carry it to their nest, and all of them die.'
     },
     {
       id: 'termites',
       icon: '🪵',
-      title: 'Mud tunnels on walls, powdery wood dust & hollow ceiling rafters',
-      pest: 'Subterranean Termites',
+      title: 'Mud lines on walls, wood powder on floor & hollow ceiling wood',
+      pest: 'Termites',
       recommendedId: 'spk-003',
-      severity: 'Critical Structural Hazard',
-      advice: 'Termites consume building timber from the inside out. Use an Imidacloprid non-repellent chemical barrier that workers carry back to eliminate the subterranean Queen.'
+      severity: 'Eating Wood & Walls',
+      advice: 'Termites eat your doors and ceiling wood from the inside until it breaks. You need a strong termite poison that workers carry back to kill the queen termite.'
     },
     {
       id: 'rats',
       icon: '🐀',
-      title: 'Scratching noises in ceiling, chewed food packages & dark droppings',
-      pest: 'Giant Sewer Rats & Roof Mice',
-      recommendedId: 'spk-004',
-      severity: 'Destructive Rodent Infestation',
-      advice: 'Standard poisons cause rats to die inside ceilings and decompose with terrible odor. Use our mummifying weather-resistant wax blocks that force rodents outdoors before drying them completely odorless.'
+      title: 'Scratching noise in ceiling, chewed clothes/food & black rat poop',
+      pest: 'Stubborn Rats & Mice',
+      recommendedId: 'spk-rat-001',
+      severity: 'Rats Damaging Property',
+      advice: 'Ordinary market poisons do not work because rats are now used to them. Use STUBBORN RAT KILLER powder. Put it in dark wall corners between 5:00 PM and 7:00 PM in the evening. Rats eat it greedily and die within 45 minutes to 2 hours.'
     },
     {
       id: 'snakes',
       icon: '🐍',
-      title: 'Overgrown plots / compound proximity to bushes & reptiles',
-      pest: 'Snakes, Scorpions & Venomous Centipedes',
-      recommendedId: 'spk-006',
-      severity: 'Perimeter Hazard',
-      advice: 'Create an impenetrable 20cm perimeter chemical barrier using our sulphur-cedarwood granules to disrupt their sensory organs and prevent compound entry.'
+      title: 'Bushy compound with snakes, scorpions or dangerous crawling insects',
+      pest: 'Snakes & Scorpions',
+      recommendedId: 'spk-rat-001',
+      severity: 'Crawling Around Compound',
+      advice: 'Pour repellent powder or granules around your fence, doors, and compound edges to stop snakes and scorpions from crawling into your compound.'
     }
   ];
 
@@ -120,9 +120,9 @@ export const PestAdvisorModal: React.FC = () => {
             </div>
             <div>
               <h2 className="text-base font-black text-white font-['Outfit'] tracking-wide">
-                AI CHEMICAL MATCHER & PEST DIAGNOSIS
+                PEST HELP & PRODUCT GUIDE
               </h2>
-              <span className="text-xs text-yellow-400 font-mono font-bold">Identify species & match commercial extermination formulations</span>
+              <span className="text-xs text-yellow-400 font-mono font-bold">Tell us what pest is disturbing you to find the right solution</span>
             </div>
           </div>
 
@@ -141,10 +141,10 @@ export const PestAdvisorModal: React.FC = () => {
             <div className="space-y-4">
               <div>
                 <h3 className="text-xs font-black text-yellow-400 uppercase tracking-widest font-['Outfit']">
-                  STEP 1: SELECT YOUR PROPERTY'S SYMPTOMS
+                  STEP 1: WHAT PROBLEM ARE YOU SEEING?
                 </h3>
                 <p className="text-xs text-neutral-400 mt-1 font-medium">
-                  Tap the primary symptom or damage pattern observed in your space:
+                  Click on the problem you have in your house or shop:
                 </p>
               </div>
 
@@ -162,7 +162,7 @@ export const PestAdvisorModal: React.FC = () => {
                           {s.pest}
                         </span>
                         <span className="text-[10px] bg-red-600 text-yellow-300 px-2 py-0.5 rounded-lg font-black uppercase shadow-[0_2px_0_#991b1b]">
-                          Commercial Knockdown
+                          Kills Fast
                         </span>
                       </div>
                       <p className="text-xs text-neutral-300 mt-1 leading-snug font-medium">
@@ -181,13 +181,13 @@ export const PestAdvisorModal: React.FC = () => {
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-black uppercase tracking-wider text-yellow-400 flex items-center gap-1.5 font-['Outfit']">
                     <CheckCircle2 className="w-4 h-4 text-yellow-400" />
-                    Target Identified: {currentMatch?.pest}
+                    Problem Identified: {currentMatch?.pest}
                   </span>
                   <button
                     onClick={() => setSelectedSymptom(null)}
                     className="text-xs text-neutral-300 hover:text-white font-bold flex items-center gap-1 underline"
                   >
-                    <RotateCcw className="w-3 h-3" /> Change Symptoms
+                    <RotateCcw className="w-3 h-3" /> Choose Another Problem
                   </button>
                 </div>
                 <p className="text-xs text-neutral-200 leading-relaxed font-medium">
@@ -199,7 +199,7 @@ export const PestAdvisorModal: React.FC = () => {
               {recommendedProduct && (
                 <div className="p-5 rounded-2xl bg-black border-2 border-neutral-800 space-y-4 card-3d">
                   <span className="text-xs font-black text-yellow-400 uppercase tracking-widest block font-['Outfit']">
-                    RECOMMENDED CHEMICAL FORMULATION:
+                    BEST PRODUCT FOR YOU:
                   </span>
 
                   <div className="flex gap-4 items-center">
@@ -232,7 +232,7 @@ export const PestAdvisorModal: React.FC = () => {
                       onClick={handleInspect}
                       className="py-3 px-4 rounded-2xl btn-3d-black text-neutral-200 font-black text-xs flex items-center justify-center gap-1.5"
                     >
-                      <span>Inspect Application Dosage</span>
+                      <span>Read Product Details</span>
                     </button>
 
                     <button
@@ -240,7 +240,7 @@ export const PestAdvisorModal: React.FC = () => {
                       className="py-3 px-4 rounded-2xl btn-3d-yellow text-black font-black text-xs flex items-center justify-center gap-1.5"
                     >
                       <ShoppingCart className="w-4 h-4" />
-                      <span>Add to Cart & Order</span>
+                      <span>Add to Cart & Buy</span>
                     </button>
                   </div>
                 </div>

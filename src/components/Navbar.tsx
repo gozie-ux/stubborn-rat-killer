@@ -82,34 +82,34 @@ export const Navbar: React.FC = () => {
               onClick={() => scrollToAnchor('product-overview')}
               className="px-3 py-2 rounded-xl hover:text-red-600 hover:bg-slate-100 transition-colors"
             >
-              Order Jar (₦5,800)
+              Buy Rat Killer (₦5,800)
             </button>
             <button
               onClick={() => scrollToAnchor('how-to-use')}
               className="px-3 py-2 rounded-xl hover:text-red-600 hover:bg-slate-100 transition-colors flex items-center gap-1"
             >
               <Clock className="w-3.5 h-3.5 text-amber-500" />
-              <span>Night Protocol</span>
+              <span>How to Use</span>
             </button>
             <button
               onClick={() => scrollToAnchor('reviews')}
               className="px-3 py-2 rounded-xl hover:text-red-600 hover:bg-slate-100 transition-colors flex items-center gap-1"
             >
               <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-500" />
-              <span>Verified Proof</span>
+              <span>Customer Reviews</span>
             </button>
             <button
               onClick={() => scrollToAnchor('dispatch-schedule')}
               className="px-3 py-2 rounded-xl hover:text-red-600 hover:bg-slate-100 transition-colors flex items-center gap-1"
             >
               <Truck className="w-3.5 h-3.5 text-amber-500" />
-              <span>Nationwide Dispatch</span>
+              <span>Delivery Info</span>
             </button>
             <button
               onClick={() => scrollToAnchor('faqs')}
               className="px-3 py-2 rounded-xl hover:text-red-600 hover:bg-slate-100 transition-colors"
             >
-              FAQ
+              Questions & Answers
             </button>
             <a
               href="https://jiji.ng/lekki/household-chemicals/fastest-stubborn-rat-killer-bait-ciSv9nnA3SA4DqoFGySRvkDg.html"
@@ -147,7 +147,7 @@ export const Navbar: React.FC = () => {
               title="Track your order delivery"
             >
               <Truck className="w-4 h-4 text-amber-600" />
-              <span className="hidden xl:inline">Track Dispatch</span>
+              <span className="hidden xl:inline">Track Order</span>
             </button>
 
             {/* Wishlist Button */}
@@ -219,27 +219,27 @@ export const Navbar: React.FC = () => {
           <div className="flex items-center gap-6">
             <span className="flex items-center gap-1.5 text-red-600">
               <Zap className="w-3.5 h-3.5 fill-red-500" />
-              <span>100% Death in 45m – 2h</span>
+              <span>Kills Rats in 45 Mins – 2 Hours</span>
             </span>
             <span className="text-slate-700">
-              🐀 Giant Sewer Rats & Ceiling Mice
+              🐀 Kills Big Bush Rats & Ceiling Mice
             </span>
             <span className="text-slate-700">
-              🥄 Free Precision Dosing Spoon Inside
+              🥄 Free Measuring Spoon Inside
             </span>
           </div>
 
           <div className="flex items-center gap-4 text-[11px] font-mono">
             <span className="text-emerald-600 flex items-center gap-1 font-bold">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              250 Jars Ready for Same-Day Dispatch
+              In Stock for Same-Day Delivery in Lagos
             </span>
             <span className="text-slate-300">|</span>
             <a
               href="tel:+2348089854753"
               className="text-slate-600 hover:text-red-600 transition-colors"
             >
-              Hotline: +234 808 985 4753
+              Call: +234 808 985 4753
             </a>
           </div>
         </div>
@@ -263,25 +263,25 @@ export const Navbar: React.FC = () => {
               onClick={() => scrollToAnchor('product-overview')}
               className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-left text-xs font-black text-slate-800 hover:border-amber-400"
             >
-              🛒 Order Jar (₦5,800)
+              🛒 Buy Bottle (₦5,800)
             </button>
             <button
               onClick={() => scrollToAnchor('how-to-use')}
               className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-left text-xs font-black text-slate-800 hover:border-amber-400"
             >
-              🌙 Night Protocol
+              🌙 How to Use
             </button>
             <button
               onClick={() => scrollToAnchor('reviews')}
               className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-left text-xs font-black text-slate-800 hover:border-amber-400"
             >
-              ⭐ Customer Proof
+              ⭐ Customer Reviews
             </button>
             <button
               onClick={() => scrollToAnchor('dispatch-schedule')}
               className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-left text-xs font-black text-slate-800 hover:border-amber-400"
             >
-              🚚 Delivery Fees
+              🚚 Delivery Info
             </button>
           </div>
 

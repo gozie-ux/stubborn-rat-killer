@@ -43,8 +43,8 @@ export const WishlistDrawer: React.FC = () => {
               <Heart className="w-5 h-5 fill-yellow-400 text-yellow-400" />
             </div>
             <div>
-              <h2 className="text-base font-black text-white font-['Outfit'] tracking-wide">SAVED CHEMICALS</h2>
-              <span className="text-xs text-yellow-400 font-mono font-bold">{wishlistCount} Formulations Watchlisted</span>
+              <h2 className="text-base font-black text-white font-['Outfit'] tracking-wide">SAVED ITEMS</h2>
+              <span className="text-xs text-yellow-400 font-mono font-bold">{wishlistCount} saved items</span>
             </div>
           </div>
 
@@ -75,16 +75,16 @@ export const WishlistDrawer: React.FC = () => {
                 <Heart className="w-8 h-8" />
               </div>
               <div>
-                <h3 className="text-base font-black text-white">Your Saved Wishlist is Empty</h3>
+                <h3 className="text-base font-black text-white">Your Wishlist is Empty</h3>
                 <p className="text-xs text-neutral-400 mt-1 max-w-xs font-medium">
-                  Tap the heart icon on any chemical or equipment product to bookmark it for rapid dispatch ordering.
+                  Tap the heart icon on any product to save it here for later.
                 </p>
               </div>
               <button
                 onClick={() => setIsWishlistDrawerOpen(false)}
                 className="px-6 py-3 btn-3d-yellow text-black font-black text-xs rounded-2xl"
               >
-                Explore High Potency Catalog
+                Browse Products
               </button>
             </div>
           ) : (
@@ -129,7 +129,7 @@ export const WishlistDrawer: React.FC = () => {
                     </div>
 
                     <span className="text-[10px] text-neutral-400 font-bold block mt-0.5">
-                      Target: {p.targetPests.join(', ')}
+                      Kills: {p.targetPests.join(', ')}
                     </span>
 
                     <div className="flex items-center justify-between mt-2">
@@ -162,7 +162,7 @@ export const WishlistDrawer: React.FC = () => {
               className="w-full py-3.5 px-4 rounded-2xl btn-3d-yellow text-black font-black text-xs sm:text-sm flex items-center justify-center gap-2"
             >
               <ShoppingCart className="w-4 h-4" />
-              <span>Move All In-Stock to Cart</span>
+              <span>Move All to Cart</span>
             </button>
           </div>
         )}

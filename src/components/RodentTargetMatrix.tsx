@@ -15,34 +15,34 @@ export const RodentTargetMatrix: React.FC = () => {
 
   const rodentTargets = [
     { 
-      name: 'Giant Sewer Rats', 
-      alias: 'Cricetomys / Brown Rats', 
+      name: 'Giant Gutter Rats', 
+      alias: 'Big Sewer & Street Rats', 
       icon: '🐀', 
-      tag: '45m Knockdown', 
+      tag: 'Kills in 45 Mins', 
       border: 'border-red-500/40', 
       badge: 'bg-red-600 text-white' 
     },
     { 
       name: 'Ceiling & Roof Rats', 
-      alias: 'Scratching in Attic / Rafters', 
+      alias: 'Making Noise in Ceiling & Rafters', 
       icon: '🏠', 
-      tag: 'Zero Rot Smell', 
+      tag: 'Kills Fast', 
       border: 'border-amber-500/40', 
       badge: 'bg-amber-400 text-black' 
     },
     { 
-      name: 'Kitchen & Store Mice', 
-      alias: 'Chewing Sockets & Food', 
+      name: 'Kitchen & Room Mice', 
+      alias: 'Eating Food & Chewing Wires', 
       icon: '🧀', 
-      tag: 'Instant Death', 
+      tag: 'Kills Quickly', 
       border: 'border-red-500/40', 
       badge: 'bg-red-600 text-white' 
     },
     { 
-      name: 'Poultry & Farm Rodents', 
-      alias: 'Feed Stealers & Disease', 
+      name: 'Poultry & Farm Rats', 
+      alias: 'Eating Bird Feed in Farms & Stores', 
       icon: '🌾', 
-      tag: 'Zero Resistance', 
+      tag: 'Very Powerful', 
       border: 'border-amber-500/40', 
       badge: 'bg-amber-400 text-black' 
     },
@@ -57,17 +57,17 @@ export const RodentTargetMatrix: React.FC = () => {
               <AlertOctagon className="w-5 h-5 fill-red-100" />
             </span>
             <h3 className="text-lg sm:text-xl font-black text-slate-950 uppercase tracking-tight font-['Outfit']">
-              LETHAL TARGET SPECIES MATRIX
+              RATS AND MICE THIS BAIT KILLS
             </h3>
           </div>
           <p className="text-xs sm:text-sm text-slate-600 mt-1">
-            Engineered specifically to eradicate all persistent rodent breeds in Nigerian homes, stores, and farms
+            Made specially to kill all stubborn rats and mice disturbing homes, shops, and poultry farms in Nigeria
           </p>
         </div>
 
         <div className="flex items-center gap-2">
           <span className="text-xs font-black text-slate-950 bg-amber-400 px-3 py-1.5 rounded-xl shadow-xs">
-            100% LETHALITY GUARANTEE
+            100% MONEY-BACK GUARANTEE
           </span>
         </div>
       </div>
@@ -99,13 +99,13 @@ export const RodentTargetMatrix: React.FC = () => {
       <div className="mt-6 pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-600">
         <span className="flex items-center gap-2">
           <Clock className="w-4 h-4 text-amber-500" />
-          <span>Optimal Application Window: <strong className="text-slate-950 font-bold">5:00 PM – 7:00 PM</strong> (Nocturnal Baiting)</span>
+          <span>Best Time to Put Down: <strong className="text-slate-950 font-bold">5:00 PM – 7:00 PM in the Evening</strong></span>
         </span>
         <button
           onClick={handleOrder}
           className="text-red-600 hover:text-red-700 font-black flex items-center gap-1 cursor-pointer"
         >
-          <span>Order Bait For Immediate Dispatch</span>
+          <span>Order Now For Fast Delivery</span>
           <ArrowRight className="w-3.5 h-3.5" />
         </button>
       </div>

@@ -56,27 +56,27 @@ export const Footer: React.FC = () => {
                   KILLAPEST RESOURCES • +234 808 985 4753
                 </span>
                 <span className="text-[11px] text-slate-500 font-bold uppercase tracking-wider mt-0.5">
-                  Permanent Knockdown Solutions
+                  Fast & Strong Rat Solutions
                 </span>
               </div>
             </div>
 
             <p className="text-slate-600 text-xs leading-relaxed max-w-sm font-normal">
-              Nigeria’s direct-to-consumer store for high-potency pest and rodent eradication. Trusted by hotels, poultry farms, restaurants, estate managers, and homeowners nationwide.
+              Official store for STUBBORN RAT KILLER in Nigeria. Trusted by homes, poultry farms, hotels, and shops across Nigeria.
             </p>
 
             <div className="space-y-2.5 pt-1 text-slate-700">
               <div className="flex items-center gap-2.5 bg-white p-2.5 rounded-xl border border-slate-200 shadow-xs">
                 <PhoneCall className="w-4 h-4 text-amber-600 shrink-0" />
-                <span>Exterminator Hotlines: <strong className="text-slate-900 font-mono">+234 808 985 4753</strong></span>
+                <span>Call Us on Phone: <strong className="text-slate-900 font-mono">+234 808 985 4753</strong></span>
               </div>
               <div className="flex items-center gap-2.5 bg-white p-2.5 rounded-xl border border-slate-200 shadow-xs">
                 <MessageCircle className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>WhatsApp Dispatch Desk: <strong className="text-slate-900 font-mono">+234 808 985 4753</strong></span>
+                <span>WhatsApp Chat / Order: <strong className="text-slate-900 font-mono">+234 808 985 4753</strong></span>
               </div>
               <div className="flex items-center gap-2.5 bg-white p-2.5 rounded-xl border border-slate-200 shadow-xs">
                 <MapPin className="w-4 h-4 text-red-600 shrink-0" />
-                <span>Logistics & Chemical Depot: <strong className="text-slate-900">Killapest Resources, Ikeja / Lagos</strong></span>
+                <span>Our Lagos Office: <strong className="text-slate-900">Killapest Resources, Ikeja, Lagos</strong></span>
               </div>
             </div>
           </div>
@@ -84,26 +84,26 @@ export const Footer: React.FC = () => {
           {/* Col 2: Product Specifications */}
           <div className="space-y-3">
             <h4 className="font-black text-slate-900 text-xs uppercase tracking-wider font-['Outfit']">
-              Product Specifications
+              Product Details
             </h4>
             <ul className="space-y-2 font-medium text-slate-600">
               <li className="flex items-center gap-1.5">
-                <span className="text-amber-500">⚡</span> <span>45m - 2h Knockdown Action</span>
+                <span className="text-amber-500">⚡</span> <span>Kills in 45 Mins – 2 Hours</span>
               </li>
               <li className="flex items-center gap-1.5">
-                <span className="text-emerald-600">✓</span> <span>Zero Known Resistance</span>
+                <span className="text-emerald-600">✓</span> <span>Kills Even Stubborn Rats</span>
               </li>
               <li className="flex items-center gap-1.5">
-                <span className="text-emerald-600">✓</span> <span>Odorless Mummifier Formula</span>
+                <span className="text-emerald-600">✓</span> <span>Kills on First Eating</span>
               </li>
               <li className="flex items-center gap-1.5">
-                <span className="text-amber-600">🥄</span> <span>Free Dosing Spoon Included</span>
+                <span className="text-amber-600">🥄</span> <span>Free Measuring Spoon Inside</span>
               </li>
               <li className="flex items-center gap-1.5">
-                <span className="text-indigo-600">🌙</span> <span>Night Placement Protocol</span>
+                <span className="text-indigo-600">🌙</span> <span>Put Down Between 5pm - 7pm</span>
               </li>
               <li className="flex items-center gap-1.5">
-                <span className="text-slate-700">📦</span> <span>100g Sealed Security Jar</span>
+                <span className="text-slate-700">📦</span> <span>100g Sealed Bottle</span>
               </li>
             </ul>
           </div>
@@ -111,12 +111,12 @@ export const Footer: React.FC = () => {
           {/* Col 3: Customer Care & Operations */}
           <div className="space-y-3">
             <h4 className="font-black text-slate-900 text-xs uppercase tracking-wider font-['Outfit']">
-              Customer Support & Dispatch
+              Help & Delivery
             </h4>
             <ul className="space-y-2 font-medium text-slate-600">
               <li>
                 <a
-                  href="https://wa.me/2348089854753?text=Hello%20Stubborn%20Rat%20Killer,%20I%20want%20to%20order%20the%20rat%20killer%20bait."
+                  href="https://wa.me/2348089854753?text=Hello%20Stubborn%20Rat%20Killer,%20I%20want%20to%20buy%20the%20rat%20killer%20bait."
                   target="_blank"
                   rel="noreferrer"
                   className="hover:text-emerald-700 text-emerald-600 flex items-center gap-1 font-bold"
@@ -126,20 +126,20 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <button onClick={() => setActiveView('order-tracking')} className="hover:text-amber-600">
-                  • Track Dispatch Order
+                  • Track Your Order
                 </button>
               </li>
               <li>
-                <span className="text-slate-500">• Same-Day Dispatch (Lagos & Ogun)</span>
+                <span className="text-slate-500">• Same-Day Delivery in Lagos</span>
               </li>
               <li>
-                <span className="text-slate-500">• Interstate Delivery (24-48hrs)</span>
+                <span className="text-slate-500">• Delivery to All States (1-2 Days)</span>
               </li>
               <li>
-                <span className="text-slate-500">• Commercial Bulk Wholesale</span>
+                <span className="text-slate-500">• Bulk / Wholesale Cartons Available</span>
               </li>
               <li>
-                <span className="text-slate-500">• Moniepoint / Card / Transfer</span>
+                <span className="text-slate-500">• Pay by Card or Bank Transfer</span>
               </li>
               <li className="pt-2 border-t border-slate-200">
                 <a
@@ -158,10 +158,10 @@ export const Footer: React.FC = () => {
           {/* Col 4: Newsletter Subscription */}
           <div className="space-y-3">
             <h4 className="font-black text-slate-900 text-xs uppercase tracking-wider font-['Outfit']">
-              Seasonal Pest Alerts
+              Get Rat Advice & Offers
             </h4>
             <p className="text-slate-500 text-xs font-normal">
-              Subscribe for pest prevention tips, seasonal discounts, and rodent control updates.
+              Drop your email to get tips on how to keep rats away from your home and get discount offers.
             </p>
             <form onSubmit={handleSubscribe} className="space-y-2.5">
               <input
@@ -177,7 +177,7 @@ export const Footer: React.FC = () => {
                 className="w-full py-2.5 btn-3d-yellow text-slate-950 font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-xs"
               >
                 <Send className="w-3.5 h-3.5" />
-                <span>SUBSCRIBE FOR ALERTS</span>
+                <span>SUBSCRIBE NOW</span>
               </button>
             </form>
           </div>

@@ -32,7 +32,7 @@ export const PromoBanner: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-1 text-slate-300 bg-slate-900 border border-slate-800 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-lg text-[10px] sm:text-xs shrink-0">
-            <span className="text-amber-400 font-bold hidden xs:inline">DEAL EXPIRES:</span>
+            <span className="text-amber-400 font-bold hidden xs:inline">OFFER ENDS:</span>
             <span className="font-mono text-red-400 font-black bg-slate-950 px-1.5 py-0.5 rounded border border-red-500/30">
               {String(timeLeft.hours).padStart(2, '0')}:{String(timeLeft.minutes).padStart(2, '0')}:{String(timeLeft.seconds).padStart(2, '0')}
             </span>
@@ -40,7 +40,7 @@ export const PromoBanner: React.FC = () => {
 
           <span className="hidden md:inline-flex items-center gap-1.5 text-amber-400 font-bold text-xs">
             <Truck className="w-3.5 h-3.5 text-amber-400" />
-            <span>SAME-DAY LAGOS DISPATCH</span>
+            <span>SAME-DAY LAGOS DELIVERY</span>
           </span>
         </div>
 
@@ -51,7 +51,7 @@ export const PromoBanner: React.FC = () => {
             className="flex items-center gap-1.5 text-slate-300 hover:text-amber-400 transition-colors bg-slate-900 px-2.5 py-1 rounded-lg border border-slate-800 text-[10px] sm:text-xs"
           >
             <PhoneCall className="w-3 h-3 text-red-400 shrink-0" />
-            <span className="hidden md:inline font-bold text-amber-400">Direct Order:</span>
+            <span className="hidden md:inline font-bold text-amber-400">Call to Order:</span>
             <span className="font-extrabold text-white font-mono">+234 808 985 4753</span>
           </a>
 

@@ -74,13 +74,13 @@ export const OwnerLoginModal: React.FC = () => {
 
           <div>
             <span className="text-[10px] font-black uppercase tracking-widest text-red-500 bg-red-950/60 border border-red-500/30 px-2.5 py-0.5 rounded-full">
-              RESTRICTED ACCESS
+              OWNER ONLY
             </span>
             <h2 className="text-xl font-black text-white font-['Outfit'] mt-1.5 tracking-tight">
-              Website Owner Portal
+              Admin & Owner Login
             </h2>
             <p className="text-xs text-neutral-400 mt-1 leading-relaxed">
-              This console contains financial revenue, confidential customer orders, dispatch manifests, and inventory controls.
+              Enter your passcode to manage customer orders, view sales, and update stock.
             </p>
           </div>
         </div>
@@ -91,9 +91,9 @@ export const OwnerLoginModal: React.FC = () => {
             <label className="block text-xs font-black text-neutral-300 uppercase tracking-wider mb-1.5 flex items-center justify-between">
               <span className="flex items-center gap-1.5">
                 <KeyRound className="w-3.5 h-3.5 text-yellow-400" />
-                <span>Owner Master Passcode</span>
+                <span>Owner Passcode</span>
               </span>
-              <span className="text-[10px] text-neutral-500 font-mono">Encrypted</span>
+              <span className="text-[10px] text-neutral-500 font-mono">Secret</span>
             </label>
 
             <div className="relative">
@@ -104,7 +104,7 @@ export const OwnerLoginModal: React.FC = () => {
                   setPasscode(e.target.value);
                   if (errorMessage) setErrorMessage('');
                 }}
-                placeholder="Enter owner passcode..."
+                placeholder="Enter passcode..."
                 autoFocus
                 className="w-full bg-black border-2 border-neutral-800 focus:border-yellow-400 rounded-2xl px-4 py-3.5 text-sm text-white placeholder:text-neutral-600 focus:outline-none transition-colors font-mono"
               />
@@ -130,10 +130,10 @@ export const OwnerLoginModal: React.FC = () => {
           <div className="bg-neutral-900/90 border border-neutral-800 rounded-xl p-3 text-[11px] text-neutral-400 space-y-1">
             <div className="flex items-center gap-1 text-yellow-400 font-bold">
               <ShieldCheck className="w-3.5 h-3.5" />
-              <span>Owner Security Notice:</span>
+              <span>Default Passcode:</span>
             </div>
             <p className="leading-normal">
-              Default Master Key: <code className="text-white font-mono bg-black px-1.5 py-0.5 rounded border border-neutral-700">KILLAPEST#2026</code> (or <code className="text-white font-mono bg-black px-1.5 py-0.5 rounded border border-neutral-700">7453</code>). You can customize this passcode anytime inside the dashboard settings.
+              Default Passcode: <code className="text-white font-mono bg-black px-1.5 py-0.5 rounded border border-neutral-700">KILLAPEST#2026</code> (or <code className="text-white font-mono bg-black px-1.5 py-0.5 rounded border border-neutral-700">7453</code>). You can change this anytime inside the admin dashboard.
             </p>
           </div>
 
@@ -145,10 +145,10 @@ export const OwnerLoginModal: React.FC = () => {
               className="w-full py-3.5 px-4 rounded-2xl btn-3d-yellow text-black font-black text-sm uppercase tracking-wide flex items-center justify-center gap-2 shadow-lg disabled:opacity-50"
             >
               {isLoading ? (
-                <span>Authenticating Owner...</span>
+                <span>Checking Passcode...</span>
               ) : (
                 <>
-                  <span>Unlock Owner Console</span>
+                  <span>Log In to Admin Portal</span>
                   <ArrowRight className="w-4 h-4" />
                 </>
               )}
@@ -162,7 +162,7 @@ export const OwnerLoginModal: React.FC = () => {
               }}
               className="w-full py-2.5 text-xs font-bold text-neutral-400 hover:text-white transition-colors"
             >
-              Return to Storefront
+              Cancel & Go Back
             </button>
           </div>
         </form>

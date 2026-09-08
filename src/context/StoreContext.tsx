@@ -307,11 +307,7 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
           pathname.endsWith('/oliver/') ||
           params.has('oliver') ||
           params.get('admin') === 'oliver' ||
-          params.get('portal') === 'oliver' ||
-          hash === '#admin' ||
-          hash === '#owner' ||
-          hash === '#portal' ||
-          params.get('admin') === 'secure';
+          params.get('portal') === 'oliver';
 
         if (isAdminUrl) {
           setActiveView('admin');

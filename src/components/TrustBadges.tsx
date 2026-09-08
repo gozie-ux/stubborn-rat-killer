@@ -5,26 +5,26 @@ export const TrustBadges: React.FC = () => {
   const guarantees = [
     {
       icon: Zap,
-      title: '45M – 2H KNOCKDOWN ACTION',
-      desc: 'Formulated with high-potency fast-acting premix matrix that terminates rats within 45 mins to 2 hours.',
+      title: 'KILLS FAST (45 MINS – 2 HOURS)',
+      desc: 'Very strong powder that kills any rat or mouse within 45 minutes to 2 hours after eating.',
       color: 'text-amber-600 bg-amber-50 border border-amber-200 shadow-sm'
     },
     {
       icon: Award,
-      title: 'ZERO KNOWN RODENT RESISTANCE',
-      desc: 'Overcomes urban rat immunity. Wipes out giant sewer rats and roof mice that survived other poisons.',
+      title: 'KILLS EVEN STUBBORN RATS',
+      desc: 'Even big gutter rats and ceiling mice that survived other market poisons will die once they eat this.',
       color: 'text-red-600 bg-red-50 border border-red-200 shadow-sm'
     },
     {
       icon: ShieldCheck,
-      title: 'ODORLESS MUMMIFICATION',
-      desc: 'Compels rodents into the open before death and dries carcasses odorless with zero rotting stench.',
+      title: 'RATS LOVE TO EAT IT',
+      desc: 'It smells sweet to rats so they eat it with joy without suspecting anything, and then die quickly.',
       color: 'text-emerald-600 bg-emerald-50 border border-emerald-200 shadow-sm'
     },
     {
       icon: Truck,
-      title: '24-48HR NATIONWIDE DISPATCH',
-      desc: 'Daily prioritized express cargo from Ikeja Lagos depot to Abuja, Port Harcourt, and all 36 states.',
+      title: 'FAST DELIVERY IN NIGERIA',
+      desc: 'We send directly from Ikeja Lagos to Abuja, Port Harcourt, and all 36 states fast and safe.',
       color: 'text-blue-600 bg-blue-50 border border-blue-200 shadow-sm'
     }
   ];

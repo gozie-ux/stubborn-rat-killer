@@ -67,36 +67,36 @@ export const SingleProductShowcase: React.FC = () => {
   const packs = [
     {
       id: 'single' as const,
-      name: '1 Jar (Standard Home Pack)',
+      name: '1 Bottle (Small Flat / Shop)',
       qty: 1,
       price: product.price, // 5800
       originalPrice: product.originalPrice, // 7500
       discount: '23% OFF',
-      bestFor: '1 - 2 Bedroom Flat / Shop',
-      bonus: 'Includes 1x Free Dosing Scoop Spoon',
-      tag: 'STANDARD'
+      bestFor: '1 - 2 Room Flat or Small Shop',
+      bonus: 'Includes 1x Free Measuring Spoon',
+      tag: '1 BOTTLE'
     },
     {
       id: 'double' as const,
-      name: '2 Jars (Duplex & Compound Pack)',
+      name: '2 Bottles (Big House / Duplex)',
       qty: 2,
       price: 11000, // 5500 per jar (save ₦600)
       originalPrice: 15000,
       discount: 'SAVE ₦4,000',
-      bestFor: '3 - 5 Bedroom Duplex / Office Block',
-      bonus: 'Includes 2x Free Precision Scoops',
+      bestFor: '3 - 5 Bedroom House or Office',
+      bonus: 'Includes 2x Free Measuring Spoons',
       tag: '🔥 MOST POPULAR',
       recommended: true
     },
     {
       id: 'triple' as const,
-      name: '3 Jars (Master Farm & Warehouse Pack)',
+      name: '3 Bottles (Poultry Farm, Store or Warehouse)',
       qty: 3,
       price: 16000, // 5333 per jar (save ₦1,400)
       originalPrice: 22500,
       discount: 'SAVE ₦6,500',
-      bestFor: 'Poultry Farms, Warehouses & Estates',
-      bonus: 'Includes 3x Free Scoops + Priority Waybill Dispatch',
+      bestFor: 'Poultry Farms, Stores & Big Compounds',
+      bonus: 'Includes 3x Free Spoons + Quick Delivery',
       tag: 'BEST VALUE'
     }
   ];
@@ -137,27 +137,27 @@ export const SingleProductShowcase: React.FC = () => {
   const faqs = [
     {
       q: 'How fast does Stubborn Rat Killer kill rats and mice?',
-      a: 'Stubborn Rat Killer is formulated as a fast-acting premix rodenticide. Any rat or mouse that ingests the bait is terminated within 45 minutes to 2 hours. This is verified across residential flats, warehouses, and poultry farms.'
+      a: 'It kills any rat or mouse within 45 minutes to 2 hours after they eat the powder. This has been tested and confirmed in homes, shops, and poultry farms.'
     },
     {
-      q: 'What if the rats in my house are immune to normal market poisons?',
-      a: 'Market poisons usually rely on old anticoagulants to which urban rats have developed genetic resistance. Stubborn Rat Killer uses a high-potency synergistic attractant matrix with zero known resistance in Nigerian rats and mice.'
+      q: 'What if the rats in my house refused to die with other market poisons?',
+      a: 'Most ordinary market poisons are too weak because rats are now used to them. Stubborn Rat Killer is very strong. Even big gutter rats that survived other poisons will die once they eat this.'
     },
     {
-      q: 'Will the dead rats smell and rot inside my ceiling walls?',
-      a: 'No! The formulation creates acute dehydration and oxygen thirst within 45 minutes, compelling the rodents to seek outdoor air and floor spaces before death. The active chemical contains drying mummification agents that dry out the carcass odorless.'
+      q: 'Will the rats agree to eat it?',
+      a: 'Yes! The powder smells very sweet to rats, so they eat it happily without suspecting anything. Once they eat it, they die quickly.'
     },
     {
-      q: 'How many scoops should I use and what time is best?',
-      a: 'Rats and mice are nocturnal creatures and are most active in the dark. For maximum results, place one level scoop (using the free spoon included inside the jar) on pieces of cardboard paper at the darkest wall corners between 5:00 PM and 7:00 PM.'
+      q: 'How many spoons should I put down, and what time is best?',
+      a: 'Rats move around at night in the dark. For best results, use the free spoon inside the bottle to put one full spoon on small pieces of paper or carton in dark wall corners between 5:00 PM and 7:00 PM in the evening.'
     },
     {
-      q: 'How does nationwide delivery work across Nigeria?',
-      a: 'We dispatch daily from our central logistics depot in Ikeja, Lagos. Lagos orders arrive Same-Day or within 24 hours. Interstate orders (Abuja, Port Harcourt, Ibadan, Kano, etc.) arrive within 24–48 hours via registered park waybills or courier dispatch.'
+      q: 'How does delivery work across Nigeria?',
+      a: 'We send packages every day from our office in Ikeja, Lagos. Lagos orders arrive same-day or next day. For Abuja, Port Harcourt, Ibadan, Kano, and other states, it takes 1 to 2 days.'
     },
     {
-      q: 'How do I make payment?',
-      a: 'You can pay instantly online using Moniepoint Direct Bank Transfer, Debit Card, or USSD via our secure checkout. You can also place your order directly on WhatsApp (+234 808 985 4753) for manual bank transfer confirmation.'
+      q: 'How do I pay?',
+      a: 'You can pay online with bank transfer or debit card. You can also chat with us directly on WhatsApp (+234 808 985 4753) to pay by normal bank transfer.'
     }
   ];
 
@@ -213,12 +213,8 @@ export const SingleProductShowcase: React.FC = () => {
                   <Zap className="w-4 h-4 text-amber-400 fill-amber-400" />
                   Speed: 45 Mins – 2 Hours
                 </span>
-                <span className="flex items-center gap-2 text-slate-200 text-[11px]">
-                  <span className="inline-flex items-center gap-1 bg-black/50 px-2 py-0.5 rounded-full border border-white/20">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-                    Auto-slides 2s
-                  </span>
-                  <span>{selectedImageIndex + 1}/{product.images.length}</span>
+                <span className="text-slate-200 text-xs font-mono">
+                  {selectedImageIndex + 1}/{product.images.length}
                 </span>
               </div>
             </div>
@@ -241,21 +237,6 @@ export const SingleProductShowcase: React.FC = () => {
                     className="w-full h-full object-contain p-1"
                     referrerPolicy="no-referrer"
                   />
-                  {idx === 0 && (
-                    <span className="absolute bottom-1 right-1 text-[9px] font-black bg-white/90 text-slate-900 px-1.5 py-0.5 rounded border border-slate-200 shadow-xs">
-                      Jar Front
-                    </span>
-                  )}
-                  {idx === 1 && (
-                    <span className="absolute bottom-1 right-1 text-[9px] font-black bg-white/90 text-slate-900 px-1.5 py-0.5 rounded border border-slate-200 shadow-xs">
-                      Inside
-                    </span>
-                  )}
-                  {idx === 2 && (
-                    <span className="absolute bottom-1 right-1 text-[9px] font-black bg-white/90 text-slate-900 px-1.5 py-0.5 rounded border border-slate-200 shadow-xs">
-                      Bait Spoon
-                    </span>
-                  )}
                 </button>
               ))}
             </div>
@@ -267,10 +248,10 @@ export const SingleProductShowcase: React.FC = () => {
               </div>
               <div className="text-xs">
                 <span className="font-black text-slate-950 uppercase tracking-wider block">
-                  FREE PRECISION SCOOP SPOON INCLUDED
+                  FREE MEASURING SPOON INCLUDED
                 </span>
                 <p className="text-slate-700 mt-0.5 font-normal">
-                  Every jar arrives with a factory-calibrated measuring spoon. Never touch poison with your bare hands.
+                  Every bottle comes with a free spoon inside. You never have to touch the poison with your bare hands.
                 </p>
               </div>
             </div>
@@ -282,12 +263,12 @@ export const SingleProductShowcase: React.FC = () => {
             <div className="space-y-2">
               <div className="flex flex-wrap items-center gap-2">
                 <span className="px-3 py-1 rounded-lg bg-red-50 border border-red-200 text-red-700 text-xs font-black uppercase tracking-wider">
-                  OFFICIAL NIGERIAN RAT ERADICATOR
+                  ORIGINAL NIGERIAN RAT KILLER
                 </span>
                 <div className="flex items-center gap-1 text-xs text-slate-800 font-bold bg-slate-100 px-2.5 py-1 rounded-lg border border-slate-200">
                   <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-500" />
                   <span className="font-black">5.0</span>
-                  <span className="text-slate-600 font-medium">({product.reviewCount} Verified Eradication Reviews)</span>
+                  <span className="text-slate-600 font-medium">({product.reviewCount} Happy Customer Reviews)</span>
                 </div>
               </div>
 
@@ -303,19 +284,19 @@ export const SingleProductShowcase: React.FC = () => {
             <div className="grid grid-cols-2 gap-2 text-xs font-bold text-slate-800">
               <div className="flex items-center gap-2 bg-slate-50 p-2.5 rounded-xl border border-slate-200">
                 <Check className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>Dead in 45m – 2h</span>
+                <span>Dead in 45 Mins – 2 Hours</span>
               </div>
               <div className="flex items-center gap-2 bg-slate-50 p-2.5 rounded-xl border border-slate-200">
                 <Check className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>Zero Known Resistance</span>
+                <span>Kills Even Stubborn Rats</span>
               </div>
               <div className="flex items-center gap-2 bg-slate-50 p-2.5 rounded-xl border border-slate-200">
                 <Check className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>Odorless Mummifier</span>
+                <span>Kills on First Eating</span>
               </div>
               <div className="flex items-center gap-2 bg-slate-50 p-2.5 rounded-xl border border-slate-200">
                 <Check className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>Giant Sewer Rats & Mice</span>
+                <span>Big Gutter Rats & Mice</span>
               </div>
             </div>
 
@@ -333,14 +314,14 @@ export const SingleProductShowcase: React.FC = () => {
                 </span>
               </div>
               <p className="text-xs text-slate-600">
-                Unit breakdown: <strong className="text-slate-900">{formatPrice(unitPrice)}</strong> for {currentPackData.name} ({totalItemsCount} Jars total).
+                Price: <strong className="text-slate-900">{formatPrice(unitPrice)}</strong> for {currentPackData.name}.
               </p>
             </div>
 
             {/* Bundle Pack Selector (1 Jar, 2 Jars, 3 Jars) */}
             <div className="space-y-3">
               <label className="text-xs font-black text-slate-900 uppercase tracking-wider block">
-                Select Your Eradication Package:
+                Choose Your Pack:
               </label>
               <div className="space-y-2.5">
                 {packs.map((pack) => (
@@ -421,7 +402,7 @@ export const SingleProductShowcase: React.FC = () => {
                 className="w-full py-4 px-6 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-black text-sm sm:text-base flex items-center justify-center gap-3 shadow-md hover:translate-y-[-1px] transition-all group"
               >
                 <MessageCircle className="w-5 h-5 fill-white group-hover:scale-110 transition-transform" />
-                <span>ORDER INSTANTLY ON WHATSAPP (+234 808 985 4753)</span>
+                <span>BUY ON WHATSAPP (+234 808 985 4753)</span>
               </button>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -455,10 +436,10 @@ export const SingleProductShowcase: React.FC = () => {
                     </span>
                     <div>
                       <span className="text-xs font-black text-slate-950 uppercase tracking-tight block">
-                        Prefer to Shop on Jiji.ng?
+                        Do You Prefer Buying on Jiji?
                       </span>
                       <span className="text-[11px] text-slate-600 font-medium block">
-                        Order through our verified Jiji marketplace stores with buyer protection
+                        You can also buy safely from our official verified Jiji store
                       </span>
                     </div>
                   </div>
@@ -477,7 +458,7 @@ export const SingleProductShowcase: React.FC = () => {
                     <div className="flex items-center gap-1.5 min-w-0">
                       <MapPin className="w-3.5 h-3.5 text-red-600 shrink-0" />
                       <span className="text-xs font-black text-slate-900 group-hover:text-emerald-700 transition-colors">
-                        Official Jiji Verified Store
+                        Official Jiji Store
                       </span>
                     </div>
                     <span className="px-3 py-1.5 rounded-lg bg-[#3db83a] group-hover:bg-emerald-700 text-white font-black text-xs flex items-center gap-1.5 shrink-0 transition-colors shadow-xs">
@@ -493,11 +474,11 @@ export const SingleProductShowcase: React.FC = () => {
             <div className="pt-4 border-t border-slate-200 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-600">
               <div className="flex items-center gap-2">
                 <Truck className="w-4 h-4 text-amber-500 shrink-0" />
-                <span className="font-semibold text-slate-800">24hr Nationwide Dispatch</span>
+                <span className="font-semibold text-slate-800">Fast Delivery Nationwide</span>
               </div>
               <div className="flex items-center gap-2">
                 <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span className="font-semibold text-slate-800">Moniepoint Secure Payment</span>
+                <span className="font-semibold text-slate-800">Safe & Easy Payment</span>
               </div>
             </div>
 
@@ -510,13 +491,13 @@ export const SingleProductShowcase: React.FC = () => {
         <div className="text-center max-w-2xl mx-auto space-y-2">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 border border-red-200 text-red-700 text-xs font-black uppercase">
             <AlertOctagon className="w-3.5 h-3.5" />
-            THE HARD TRUTH ABOUT NIGERIAN RATS
+            WHY ORDINARY RAT POISONS FAIL
           </div>
           <h2 className="text-2xl sm:text-3xl font-black text-slate-950 font-['Outfit']">
-            Why Ordinary Market Poisons Fail While Stubborn Rat Killer Wipes Them Out
+            Why Stubborn Rat Killer Works When Other Market Poisons Fail
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 font-normal">
-            Over the past 8+ years, Nigerian urban sewer and ceiling rats have developed high genetic immunity to cheap market pellets.
+            Rats in Nigeria have become used to weak market poisons and do not die from them anymore.
           </p>
         </div>
 
@@ -524,48 +505,41 @@ export const SingleProductShowcase: React.FC = () => {
           <table className="w-full text-left text-xs border-collapse">
             <thead>
               <tr className="border-b-2 border-slate-200">
-                <th className="p-3.5 text-slate-600 font-black uppercase">Feature</th>
+                <th className="p-3.5 text-slate-600 font-black uppercase">What You Need</th>
                 <th className="p-3.5 text-amber-900 font-black uppercase bg-amber-50 border-x border-amber-200 rounded-t-xl">
                   ⚡ STUBBORN RAT KILLER
                 </th>
-                <th className="p-3.5 text-slate-500 font-black uppercase">Ordinary Supermarket Poisons</th>
+                <th className="p-3.5 text-slate-500 font-black uppercase">Ordinary Market Poisons</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-200">
               <tr>
-                <td className="p-3.5 text-slate-900 font-bold">Speed of Eradication</td>
+                <td className="p-3.5 text-slate-900 font-bold">How Fast It Kills</td>
                 <td className="p-3.5 text-amber-950 font-black bg-amber-50/60 border-x border-amber-200">
-                  ✓ Terminated in 45 Minutes to 2 Hours
+                  ✓ Kills in 45 Minutes to 2 Hours
                 </td>
-                <td className="p-3.5 text-slate-500">Takes 4 to 8 days (if they even eat it)</td>
+                <td className="p-3.5 text-slate-500">Takes 4 to 8 days or doesn't work at all</td>
               </tr>
               <tr>
-                <td className="p-3.5 text-slate-900 font-bold">Resistance Defense</td>
+                <td className="p-3.5 text-slate-900 font-bold">Kills Stubborn Rats</td>
                 <td className="p-3.5 text-amber-950 font-black bg-amber-50/60 border-x border-amber-200">
-                  ✓ ZERO Known Resistance (Kills Super-Rats)
+                  ✓ Kills Even Giant Gutter & Ceiling Rats
                 </td>
-                <td className="p-3.5 text-slate-500">High resistance; rats eat it like food</td>
+                <td className="p-3.5 text-slate-500">Rats are used to it and eat it like free food</td>
               </tr>
               <tr>
-                <td className="p-3.5 text-slate-900 font-bold">Dying Location</td>
+                <td className="p-3.5 text-slate-900 font-bold">Rats Agree to Eat It?</td>
                 <td className="p-3.5 text-amber-950 font-black bg-amber-50/60 border-x border-amber-200">
-                  ✓ Compels rodents outside into open floor / light
+                  ✓ Sweet smell makes rats eat it quickly
                 </td>
-                <td className="p-3.5 text-slate-500">Die inside deep ceiling rafters and cavity walls</td>
+                <td className="p-3.5 text-slate-500">Rats avoid it because of chemical smell</td>
               </tr>
               <tr>
-                <td className="p-3.5 text-slate-900 font-bold">Odor & Decomposition</td>
+                <td className="p-3.5 text-slate-900 font-bold">Free Spoon Inside?</td>
                 <td className="p-3.5 text-amber-950 font-black bg-amber-50/60 border-x border-amber-200">
-                  ✓ Mummifying formula dries carcass odorless
+                  ✓ Free measuring spoon inside every bottle
                 </td>
-                <td className="p-3.5 text-slate-500">Horrible putrid smell for 2-3 weeks</td>
-              </tr>
-              <tr>
-                <td className="p-3.5 text-slate-900 font-bold">Precision Dosing Tool</td>
-                <td className="p-3.5 text-amber-950 font-black bg-amber-50/60 border-x border-amber-200">
-                  ✓ Free calibrated scoop spoon included inside
-                </td>
-                <td className="p-3.5 text-slate-500">No spoon; forced to use bare hands or makeshift spoons</td>
+                <td className="p-3.5 text-slate-500">No spoon; you risk touching poison with your hands</td>
               </tr>
             </tbody>
           </table>
@@ -578,68 +552,68 @@ export const SingleProductShowcase: React.FC = () => {
           <div className="space-y-2">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-amber-100 text-amber-900 text-xs font-black uppercase">
               <Clock className="w-3.5 h-3.5 text-amber-600" />
-              NIGHT-TIME EXTERMINATION PROTOCOL
+              SIMPLE 4-STEP GUIDE
             </div>
             <h3 className="text-2xl sm:text-3xl font-black text-slate-950 font-['Outfit']">
-              How To Apply Between 5:00 PM – 7:00 PM For 100% Morning Kill
+              How to Put Down the Powder in the Evening
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 max-w-2xl font-normal">
-              Rats and mice are nocturnal creatures that emerge when human activity slows down. Following this 4-step protocol guarantees total silence in the morning.
+              Rats move around in the dark looking for food. Follow these 4 easy steps between 5:00 PM and 7:00 PM to kill them by morning.
             </p>
           </div>
 
           <div className="shrink-0 bg-slate-50 border border-slate-200 px-4 py-2 rounded-xl text-xs font-mono text-slate-700">
-            ⏰ Best Window: <strong className="text-red-600 font-bold">5:00 PM – 7:00 PM</strong>
+            ⏰ Best Time: <strong className="text-red-600 font-bold">5:00 PM – 7:00 PM in the Evening</strong>
           </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-3 relative group hover:border-amber-500 hover:shadow-md transition-all">
             <span className="text-3xl font-black text-amber-500 font-mono">01</span>
-            <h4 className="text-sm font-black text-slate-950">Scoop with Tool</h4>
+            <h4 className="text-sm font-black text-slate-950">Scoop One Spoon</h4>
             <p className="text-xs text-slate-600 leading-relaxed font-normal">
-              Open the airtight jar and take out the included free precision scoop spoon. Scoop a level spoon full of the bait.
+              Open the bottle and use the free spoon inside to take one full spoon of powder.
             </p>
           </div>
 
           <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-3 relative group hover:border-amber-500 hover:shadow-md transition-all">
             <span className="text-3xl font-black text-amber-500 font-mono">02</span>
-            <h4 className="text-sm font-black text-slate-950">Cardboard Sheet</h4>
+            <h4 className="text-sm font-black text-slate-950">Put on Carton Paper</h4>
             <p className="text-xs text-slate-600 leading-relaxed font-normal">
-              Deposit the scooped bait on a piece of cardboard paper or flat carton sheet along the edge of your floor walls.
+              Pour the scooped powder on a piece of paper or carton on the floor near the wall.
             </p>
           </div>
 
           <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-3 relative group hover:border-amber-500 hover:shadow-md transition-all">
             <span className="text-3xl font-black text-amber-500 font-mono">03</span>
-            <h4 className="text-sm font-black text-slate-950">Darkest Corners</h4>
+            <h4 className="text-sm font-black text-slate-950">Put in Dark Corners</h4>
             <p className="text-xs text-slate-600 leading-relaxed font-normal">
-              Position at the darkest corners and known rodent runways (behind fridges, kitchen cupboards, generator sheds, ceilings).
+              Place it in dark corners where you have seen rats pass (like behind the fridge, under the sink, or in the ceiling).
             </p>
           </div>
 
           <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-3 relative group hover:border-amber-500 hover:shadow-md transition-all">
             <span className="text-3xl font-black text-amber-500 font-mono">04</span>
-            <h4 className="text-sm font-black text-slate-950">Wake Up Rat-Free</h4>
+            <h4 className="text-sm font-black text-slate-950">Wake Up to Dead Rats</h4>
             <p className="text-xs text-slate-600 leading-relaxed font-normal">
-              The rats feed greedily at night and perish within 45m - 2h. Wake up to a calm, rodent-free home in the morning.
+              Rats eat it greedily at night and die within 45 minutes to 2 hours. You will see dead rats by morning.
             </p>
           </div>
         </div>
       </div>
 
-      {/* 4. Verified Nigerian Customer Eradication Reviews */}
+      {/* 4. Verified Nigerian Customer Reviews */}
       <div id="reviews" className="rounded-3xl bg-white border border-slate-200 p-6 sm:p-10 space-y-8 shadow-md">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-100 pb-6">
           <div className="space-y-1">
             <span className="text-xs font-black text-red-600 uppercase tracking-widest font-mono">
-              CUSTOMER TESTIMONIALS
+              WHAT OUR CUSTOMERS SAY
             </span>
             <h3 className="text-2xl sm:text-3xl font-black text-slate-950 font-['Outfit']">
-              Verified Eradication Proof Across Nigeria
+              Real Reviews from People Across Nigeria
             </h3>
             <p className="text-xs text-slate-600 font-normal">
-              Real results from verified homeowners, facility managers, and farm owners.
+              Read real stories from people who used Stubborn Rat Killer to clear rats from their homes and shops.
             </p>
           </div>
 
@@ -663,7 +637,7 @@ export const SingleProductShowcase: React.FC = () => {
                   <div className="flex items-center gap-2">
                     <span className="text-sm font-black text-slate-950">{rev.userName}</span>
                     <span className="text-[10px] font-black text-emerald-700 bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded">
-                      ✓ Verified Buyer
+                      ✓ Real Buyer
                     </span>
                   </div>
                   <span className="text-xs text-slate-500 flex items-center gap-1 mt-0.5">
@@ -677,7 +651,7 @@ export const SingleProductShowcase: React.FC = () => {
               </div>
 
               <div className="text-xs font-bold text-amber-800 bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-lg inline-block">
-                Eliminated: {rev.pestEliminated}
+                Killed: {rev.pestEliminated}
               </div>
 
               <h4 className="text-sm font-bold text-slate-950">"{rev.title}"</h4>
@@ -695,15 +669,15 @@ export const SingleProductShowcase: React.FC = () => {
           <div>
             <h3 className="text-xl font-black text-slate-950 font-['Outfit'] flex items-center gap-2">
               <Truck className="w-5 h-5 text-amber-500" />
-              Nationwide Nigeria Dispatch & Delivery Schedule
+              Delivery Time & Fee by State
             </h3>
             <p className="text-xs text-slate-600 mt-1 font-normal">
-              We ship to all 36 states and the FCT. Check the delivery fee and estimated arrival time for your state.
+              We send to all 36 states and Abuja. Click your state to see the delivery fee and how fast it reaches you.
             </p>
           </div>
 
           <div className="text-xs text-slate-700 bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200">
-            Logistics Hub: <strong className="text-slate-900">Ikeja, Lagos Depot</strong>
+            Office Location: <strong className="text-slate-900">Ikeja, Lagos</strong>
           </div>
         </div>
 
@@ -759,13 +733,13 @@ export const SingleProductShowcase: React.FC = () => {
       <div id="faqs" className="rounded-3xl bg-white border border-slate-200 p-6 sm:p-10 space-y-6 shadow-md">
         <div className="text-center max-w-xl mx-auto space-y-2">
           <span className="text-xs font-black text-red-600 uppercase tracking-widest font-mono">
-            QUESTIONS & ANSWERS
+            COMMON QUESTIONS
           </span>
           <h3 className="text-2xl sm:text-3xl font-black text-slate-950 font-['Outfit']">
             Frequently Asked Questions
           </h3>
           <p className="text-xs text-slate-600 font-normal">
-            Everything you need to know before securing your Stubborn Rat Killer jar.
+            Everything you need to know before buying your Stubborn Rat Killer bottle.
           </p>
         </div>
 
@@ -801,24 +775,24 @@ export const SingleProductShowcase: React.FC = () => {
         <div className="space-y-2 text-center md:text-left z-10 pt-2">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-red-600 text-white text-xs font-black uppercase shadow-xs">
             <Flame className="w-3.5 h-3.5 fill-amber-300" />
-            COMMERCIAL WHOLESALE DISPATCH
+            BUY IN BULK / CARTONS
           </div>
           <h3 className="text-xl sm:text-2xl font-black text-slate-950 font-['Outfit'] tracking-tight">
-            Need Wholesale Cartons for Poultry, Hotels or Warehouses?
+            Do You Need Bulk Cartons for Poultry, Hotels, or Stores?
           </h3>
           <p className="text-xs sm:text-sm text-slate-700 max-w-xl font-normal">
-            We supply bulk cartons (12, 24, or 48 Jars) at wholesale merchant distributor rates with direct interstate haulage.
+            We sell full cartons (12, 24, or 48 bottles) at cheaper wholesale prices, with fast delivery to any state in Nigeria.
           </p>
         </div>
 
         <div className="flex items-center gap-3 z-10 shrink-0">
           <a
-            href="https://wa.me/2348089854753?text=Hello%20Stubborn%20Rat%20Killer,%20I%20need%20a%20commercial%20bulk%20wholesale%20carton%20quotation."
+            href="https://wa.me/2348089854753?text=Hello%20Stubborn%20Rat%20Killer,%20I%20want%20to%20buy%20in%20bulk%20cartons."
             target="_blank"
             rel="noreferrer"
             className="px-6 py-3.5 rounded-2xl btn-3d-yellow text-slate-950 font-black text-xs sm:text-sm flex items-center gap-2 shadow-md"
           >
-            <span>Request Bulk Wholesale Quote</span>
+            <span>Ask for Bulk / Wholesale Price</span>
             <ArrowRight className="w-4 h-4" />
           </a>
         </div>

@@ -109,9 +109,9 @@ export const CartDrawer: React.FC = () => {
               <span className="flex items-center gap-1.5 text-slate-800">
                 <Truck className="w-4 h-4 text-amber-600" />
                 {amountNeededForFreeShip > 0 ? (
-                  <span>Add <strong className="text-red-600 font-mono">{formatPrice(amountNeededForFreeShip)}</strong> for Free Nationwide Delivery</span>
+                  <span>Add <strong className="text-red-600 font-mono">{formatPrice(amountNeededForFreeShip)}</strong> more to get Free Delivery</span>
                 ) : (
-                  <span className="text-emerald-700 font-black">⚡ YOU QUALIFY FOR FREE NATIONWIDE DISPATCH!</span>
+                  <span className="text-emerald-700 font-black">⚡ YOU GET FREE DELIVERY ANYWHERE IN NIGERIA!</span>
                 )}
               </span>
               <span className="font-black text-amber-700 font-mono">{progressToFreeShip}%</span>
@@ -133,16 +133,16 @@ export const CartDrawer: React.FC = () => {
                 <ShoppingCart className="w-8 h-8" />
               </div>
               <div>
-                <h3 className="text-base font-black text-slate-950">Your Cart is Currently Empty</h3>
+                <h3 className="text-base font-black text-slate-950">Your Cart is Empty</h3>
                 <p className="text-xs text-slate-600 mt-1 max-w-xs font-normal">
-                  Select your Stubborn Rat Killer eradication bundle to get started.
+                  Choose how many bottles you want to get started.
                 </p>
               </div>
               <button
                 onClick={() => setIsCartDrawerOpen(false)}
                 className="px-6 py-3 btn-3d-yellow text-slate-950 font-black text-xs rounded-2xl shadow-sm"
               >
-                Select Stubborn Rat Killer Package
+                Choose Bottle Size
               </button>
             </div>
           ) : (
@@ -231,7 +231,7 @@ export const CartDrawer: React.FC = () => {
                     type="text"
                     value={couponInput}
                     onChange={(e) => setCouponInput(e.target.value)}
-                    placeholder="Coupon code (e.g. STUBBORN10)"
+                    placeholder="Discount code (e.g. STUBBORN10)"
                     className="flex-1 bg-white border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-900 uppercase placeholder:normal-case placeholder:text-slate-400 focus:outline-none focus:border-amber-500 shadow-xs"
                   />
                   <button
@@ -257,12 +257,12 @@ export const CartDrawer: React.FC = () => {
               </div>
               {couponDiscount > 0 && (
                 <div className="flex items-center justify-between text-red-600 font-bold">
-                  <span>Coupon Discount:</span>
+                  <span>Discount:</span>
                   <span>-{formatPrice(couponDiscount)}</span>
                 </div>
               )}
               <div className="flex items-center justify-between text-sm font-black text-slate-950 pt-2 border-t border-slate-200">
-                <span>Estimated Total:</span>
+                <span>Total:</span>
                 <span className="text-red-600 font-mono text-base font-black">{formatPrice(finalTotal)}</span>
               </div>
             </div>
@@ -274,7 +274,7 @@ export const CartDrawer: React.FC = () => {
                 id="cart-checkout-proceed-btn"
                 className="w-full py-3.5 px-4 rounded-2xl bg-red-600 hover:bg-red-700 text-white font-black text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md transition-all"
               >
-                <span>PROCEED TO SECURE CHECKOUT</span>
+                <span>GO TO CHECKOUT</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
 
@@ -285,7 +285,7 @@ export const CartDrawer: React.FC = () => {
                 className="w-full py-2.5 px-4 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-black text-xs flex items-center justify-center gap-2 shadow-sm transition-all"
               >
                 <MessageCircle className="w-4 h-4" />
-                <span>Quick WhatsApp Dispatch Order</span>
+                <span>Order Directly on WhatsApp</span>
               </a>
             </div>
           </div>

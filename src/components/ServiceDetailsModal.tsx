@@ -66,7 +66,7 @@ export const ServiceDetailsModal: React.FC = () => {
   const handleBookingSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!hasAgreedTo3Days) {
-      showToast('Please confirm that you can vacate the apartment for 3 days.', 'warning');
+      showToast('Please confirm that you can leave the house for 3 days.', 'warning');
       return;
     }
 
@@ -80,7 +80,7 @@ export const ServiceDetailsModal: React.FC = () => {
     });
 
     window.open(bookingUrl, '_blank', 'noopener,noreferrer');
-    showToast('Redirecting to WhatsApp to finalize your booking schedule...', 'success');
+    showToast('Opening WhatsApp to finish your booking...', 'success');
   };
 
   return (
@@ -169,7 +169,7 @@ export const ServiceDetailsModal: React.FC = () => {
               <div className="bg-red-950/60 border-2 border-red-500 rounded-2xl p-4.5 space-y-3 shadow-lg">
                 <div className="flex items-center gap-2 text-yellow-300 font-black text-xs uppercase font-mono">
                   <AlertTriangle className="w-4 h-4 text-yellow-400 animate-bounce" />
-                  MANDATORY 3-DAY PROTOCOL
+                  IMPORTANT 3-DAY RULE
                 </div>
                 <p className="text-sm font-black text-white leading-relaxed">
                   "{service.requirementNotice}"
@@ -183,7 +183,7 @@ export const ServiceDetailsModal: React.FC = () => {
               {/* Verified Features */}
               <div className="space-y-2">
                 <h4 className="text-xs font-black text-neutral-300 uppercase tracking-wider font-mono">
-                  Key Extermination Highlights:
+                  What We Do:
                 </h4>
                 <ul className="space-y-2 text-xs text-neutral-300">
                   {service.features.map((feat, idx) => (
@@ -202,7 +202,7 @@ export const ServiceDetailsModal: React.FC = () => {
                   className="w-full py-3 px-4 btn-3d-red text-white font-black text-xs sm:text-sm rounded-xl flex items-center justify-center gap-2"
                 >
                   <Phone className="w-4 h-4" />
-                  <span>Call Hotline: {service.phone}</span>
+                  <span>Call Us: {service.phone}</span>
                 </a>
               </div>
             </div>
@@ -212,7 +212,7 @@ export const ServiceDetailsModal: React.FC = () => {
           <div className="bg-neutral-900/90 border border-neutral-800 rounded-2xl p-5 space-y-4">
             <h3 className="text-sm font-black text-yellow-400 uppercase tracking-wider font-mono flex items-center gap-2">
               <Calendar className="w-4 h-4 text-yellow-400" />
-              Standard 3-Day Execution Protocol (e.g. Friday to Sunday):
+              How The 3-Day Work Happens (e.g. Friday to Sunday):
             </h3>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -220,9 +220,9 @@ export const ServiceDetailsModal: React.FC = () => {
                 <span className="text-[10px] font-mono font-black text-red-400 uppercase bg-red-950 px-2 py-0.5 rounded">
                   FRIDAY MORNING
                 </span>
-                <h4 className="text-xs font-black text-white">1. Full Thermal Fogging</h4>
+                <h4 className="text-xs font-black text-white">1. Smoking the House</h4>
                 <p className="text-[11px] text-neutral-400">
-                  Technicians seal premises and inject deep-penetrating micron fog into all cracks and mattress seams.
+                  We close all doors and windows and fill the house with hot smoke that enters every crack and mattress.
                 </p>
               </div>
 
@@ -230,9 +230,9 @@ export const ServiceDetailsModal: React.FC = () => {
                 <span className="text-[10px] font-mono font-black text-yellow-400 uppercase bg-yellow-950 px-2 py-0.5 rounded">
                   SATURDAY (ALL DAY)
                 </span>
-                <h4 className="text-xs font-black text-white">2. Ovicidal Gas Seal</h4>
+                <h4 className="text-xs font-black text-white">2. Keep It Closed</h4>
                 <p className="text-[11px] text-neutral-400">
-                  Premises remain locked and undisturbed so the gas completely destroys all unhatched eggs.
+                  House stays locked all day so the smoke kills all bugs and unhatched eggs completely.
                 </p>
               </div>
 
@@ -240,9 +240,9 @@ export const ServiceDetailsModal: React.FC = () => {
                 <span className="text-[10px] font-mono font-black text-green-400 uppercase bg-green-950 px-2 py-0.5 rounded">
                   SUNDAY (FROM 4:00 PM)
                 </span>
-                <h4 className="text-xs font-black text-green-300">3. Safe Re-Entry</h4>
+                <h4 className="text-xs font-black text-green-300">3. Return Home</h4>
                 <p className="text-[11px] text-neutral-400">
-                  Ventilate windows and re-enter. 100% bedbugs, roaches, and wall geckos eradicated permanently.
+                  Open windows for fresh air and return. Your house is now 100% free of bugs.
                 </p>
               </div>
             </div>
@@ -253,10 +253,10 @@ export const ServiceDetailsModal: React.FC = () => {
             <div>
               <h3 className="text-lg font-black text-white font-['Outfit'] flex items-center gap-2">
                 <Sparkles className="w-5 h-5 text-yellow-400" />
-                Book Bedbug Extermination / Request Instant WhatsApp Quote
+                Book Fumigation Service on WhatsApp
               </h3>
               <p className="text-xs text-neutral-400 mt-1">
-                Fill the quick details below and click to send directly to our Killapest Resources engineering team on WhatsApp.
+                Fill in your details below to send directly to our team on WhatsApp.
               </p>
             </div>
 
@@ -294,7 +294,7 @@ export const ServiceDetailsModal: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-bold text-neutral-300 mb-1.5">
-                    Facility Location / City (Nigeria):
+                    Your City &amp; Address (Nigeria):
                   </label>
                   <input
                     type="text"
@@ -308,7 +308,7 @@ export const ServiceDetailsModal: React.FC = () => {
 
                 <div>
                   <label className="block text-xs font-bold text-neutral-300 mb-1.5">
-                    Facility Category:
+                    Type of Building:
                   </label>
                   <select
                     value={facilityType}
@@ -346,7 +346,7 @@ export const ServiceDetailsModal: React.FC = () => {
 
                 <div>
                   <label className="block text-xs font-bold text-neutral-300 mb-1.5">
-                    Brief Notes / Severity of Infestation:
+                    Tell Us What Pests You Have:
                   </label>
                   <input
                     type="text"
@@ -368,7 +368,7 @@ export const ServiceDetailsModal: React.FC = () => {
                   className="mt-0.5 w-4 h-4 rounded text-red-600 focus:ring-red-500 bg-black border-neutral-700"
                 />
                 <span className="text-xs font-bold text-neutral-200 leading-relaxed">
-                  I understand and agree that all occupants will vacate the premises for <strong className="text-yellow-400">3 full days (Friday to Sunday 4pm)</strong> to guarantee permanent bedbug and egg eradication.
+                  I agree that everyone will leave the house for <strong className="text-yellow-400">3 full days (Friday to Sunday 4pm)</strong> so all bugs and eggs will die.
                 </span>
               </label>
 
@@ -378,7 +378,7 @@ export const ServiceDetailsModal: React.FC = () => {
                 className="w-full py-4 btn-3d-yellow text-black font-black text-sm rounded-2xl flex items-center justify-center gap-2 shadow-[0_10px_25px_rgba(250,204,21,0.4)]"
               >
                 <MessageSquare className="w-5 h-5 fill-black" />
-                <span>Submit &amp; Open WhatsApp Dispatch (+234 8089854753)</span>
+                <span>Send Booking on WhatsApp (+234 8089854753)</span>
               </button>
             </form>
           </div>

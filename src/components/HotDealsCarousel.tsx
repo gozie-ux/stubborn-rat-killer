@@ -33,7 +33,7 @@ export const HotDealsCarousel: React.FC = () => {
       type: 'service' as const,
       id: s.id,
       name: s.name,
-      price: 'Negotiable (Quote)',
+      price: 'Call for Price',
       originalPrice: null,
       image: s.images[0] || '/images/service-bedbugs-1.jpg',
       badge: '⭐ TOP SERVICE',
@@ -109,7 +109,7 @@ export const HotDealsCarousel: React.FC = () => {
               <span className="truncate">Hot Selling Products & Services</span>
             </h2>
             <span className="hidden md:inline-block text-[11px] text-neutral-400 font-medium">
-              — Tap any item to jump directly to its full details & ordering
+              — Tap any item to see details and buy
             </span>
           </div>
 
