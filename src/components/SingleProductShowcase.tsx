@@ -467,50 +467,22 @@ export const SingleProductShowcase: React.FC = () => {
                   </span>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                <div className="pt-1">
                   <a
                     href="https://jiji.ng/lekki/household-chemicals/fastest-stubborn-rat-killer-bait-ciSv9nnA3SA4DqoFGySRvkDg.html"
                     target="_blank"
                     rel="noreferrer"
-                    className="p-3 rounded-xl bg-white border border-emerald-200 hover:border-emerald-500 hover:shadow-sm transition-all flex items-center justify-between gap-2 group"
+                    className="p-3.5 rounded-xl bg-white border border-emerald-200 hover:border-emerald-500 hover:shadow-sm transition-all flex items-center justify-between gap-3 group"
                   >
-                    <div className="space-y-0.5 min-w-0">
-                      <div className="flex items-center gap-1">
-                        <MapPin className="w-3 h-3 text-red-600 shrink-0" />
-                        <span className="text-xs font-black text-slate-900 group-hover:text-emerald-700 transition-colors">
-                          Lekki Store
-                        </span>
-                      </div>
-                      <span className="text-[11px] text-slate-600 font-medium block truncate">
-                        Fastest Stubborn Rat Killer Bait
+                    <div className="flex items-center gap-1.5 min-w-0">
+                      <MapPin className="w-3.5 h-3.5 text-red-600 shrink-0" />
+                      <span className="text-xs font-black text-slate-900 group-hover:text-emerald-700 transition-colors">
+                        Official Jiji Verified Store
                       </span>
                     </div>
-                    <span className="px-2.5 py-1.5 rounded-lg bg-[#3db83a] group-hover:bg-emerald-700 text-white font-black text-[10px] flex items-center gap-1 shrink-0 transition-colors shadow-xs">
+                    <span className="px-3 py-1.5 rounded-lg bg-[#3db83a] group-hover:bg-emerald-700 text-white font-black text-xs flex items-center gap-1.5 shrink-0 transition-colors shadow-xs">
                       <span>Buy on Jiji</span>
-                      <ExternalLink className="w-3 h-3" />
-                    </span>
-                  </a>
-
-                  <a
-                    href="https://jiji.ng/ikeja/cleaning-services/most-wanted-rat-killer-expert-guaranteed-results-ub485cR3z0x5xozhbjHDUzqb.html"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="p-3 rounded-xl bg-white border border-emerald-200 hover:border-emerald-500 hover:shadow-sm transition-all flex items-center justify-between gap-2 group"
-                  >
-                    <div className="space-y-0.5 min-w-0">
-                      <div className="flex items-center gap-1">
-                        <MapPin className="w-3 h-3 text-red-600 shrink-0" />
-                        <span className="text-xs font-black text-slate-900 group-hover:text-emerald-700 transition-colors">
-                          Ikeja Store
-                        </span>
-                      </div>
-                      <span className="text-[11px] text-slate-600 font-medium block truncate">
-                        Expert Guaranteed Results
-                      </span>
-                    </div>
-                    <span className="px-2.5 py-1.5 rounded-lg bg-[#3db83a] group-hover:bg-emerald-700 text-white font-black text-[10px] flex items-center gap-1 shrink-0 transition-colors shadow-xs">
-                      <span>Buy on Jiji</span>
-                      <ExternalLink className="w-3 h-3" />
+                      <ExternalLink className="w-3.5 h-3.5" />
                     </span>
                   </a>
                 </div>

@@ -290,6 +290,58 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   // Toasts
   const [toasts, setToasts] = useState<Toast[]>([]);
 
+  // Private Admin Portal URL Route & Secret Keyboard Shortcut Listener
+  useEffect(() => {
+    const handleUrlCheck = () => {
+      try {
+        const hash = (window.location.hash || '').toLowerCase();
+        const pathname = (window.location.pathname || '').toLowerCase();
+        const search = window.location.search || '';
+        const params = new URLSearchParams(search);
+
+        const isAdminUrl =
+          hash === '#oliver' ||
+          hash.includes('oliver') ||
+          pathname === '/oliver' ||
+          pathname.endsWith('/oliver') ||
+          pathname.endsWith('/oliver/') ||
+          params.has('oliver') ||
+          params.get('admin') === 'oliver' ||
+          params.get('portal') === 'oliver' ||
+          hash === '#admin' ||
+          hash === '#owner' ||
+          hash === '#portal' ||
+          params.get('admin') === 'secure';
+
+        if (isAdminUrl) {
+          setActiveView('admin');
+        }
+      } catch (err) {
+        console.error('Error checking admin URL:', err);
+      }
+    };
+
+    handleUrlCheck();
+    window.addEventListener('hashchange', handleUrlCheck);
+    window.addEventListener('popstate', handleUrlCheck);
+
+    // Secret Key Combination: Ctrl + Shift + A (or Cmd + Shift + A on Mac)
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === 'a') {
+        e.preventDefault();
+        setActiveView((prev) => (prev === 'admin' ? 'shop' : 'admin'));
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('hashchange', handleUrlCheck);
+      window.removeEventListener('popstate', handleUrlCheck);
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
   // Sync to localStorage
   useEffect(() => {
     try {

@@ -82,24 +82,15 @@ export const HeroSection: React.FC = () => {
           <div className="flex flex-wrap items-center gap-2 pt-0.5 text-xs text-slate-600">
             <span className="font-bold text-slate-800 flex items-center gap-1.5">
               <span className="w-4 h-4 rounded bg-[#3db83a] text-white flex items-center justify-center font-black text-[9px] tracking-tighter">Ji</span>
-              Prefer Jiji? Buy via:
+              Prefer Jiji?
             </span>
             <a
               href="https://jiji.ng/lekki/household-chemicals/fastest-stubborn-rat-killer-bait-ciSv9nnA3SA4DqoFGySRvkDg.html"
               target="_blank"
               rel="noreferrer"
-              className="text-emerald-700 hover:text-emerald-800 font-black underline"
+              className="text-emerald-700 hover:text-emerald-800 font-black underline flex items-center gap-1"
             >
-              Lekki Store
-            </a>
-            <span className="text-slate-300">•</span>
-            <a
-              href="https://jiji.ng/ikeja/cleaning-services/most-wanted-rat-killer-expert-guaranteed-results-ub485cR3z0x5xozhbjHDUzqb.html"
-              target="_blank"
-              rel="noreferrer"
-              className="text-emerald-700 hover:text-emerald-800 font-black underline"
-            >
-              Ikeja Store
+              <span>Order on Jiji Store →</span>
             </a>
           </div>
 

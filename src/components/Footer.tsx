@@ -18,10 +18,7 @@ export const Footer: React.FC = () => {
   const { 
     setSelectedCategory, 
     setActiveView, 
-    showToast,
-    setIsAdvisorOpen,
-    setIsOwnerLoginModalOpen,
-    isAdminAuthenticated
+    showToast
   } = useStore();
   const [newsletterEmail, setNewsletterEmail] = useState('');
 
@@ -152,18 +149,7 @@ export const Footer: React.FC = () => {
                   className="hover:text-emerald-700 text-slate-700 flex items-center gap-1.5 font-semibold"
                 >
                   <span className="w-4 h-4 rounded bg-[#3db83a] text-white flex items-center justify-center text-[9px] font-black tracking-tighter">Ji</span>
-                  <span>Buy on Jiji (Lekki Store)</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://jiji.ng/ikeja/cleaning-services/most-wanted-rat-killer-expert-guaranteed-results-ub485cR3z0x5xozhbjHDUzqb.html"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="hover:text-emerald-700 text-slate-700 flex items-center gap-1.5 font-semibold"
-                >
-                  <span className="w-4 h-4 rounded bg-[#3db83a] text-white flex items-center justify-center text-[9px] font-black tracking-tighter">Ji</span>
-                  <span>Buy on Jiji (Ikeja Store)</span>
+                  <span>Buy on Jiji Store</span>
                 </a>
               </li>
             </ul>
@@ -197,27 +183,12 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom Bar with Payment Trust Badges & Discreet Owner Portal */}
+        {/* Bottom Bar with Payment Trust Badges */}
         <div className="pt-8 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4 text-xs font-medium">
           <div className="flex items-center gap-3">
             <p className="text-slate-500">
               © {new Date().getFullYear()} STUBBORN RAT KILLER. All rights reserved.
             </p>
-            <span className="text-slate-300 hidden sm:inline">•</span>
-            <button
-              onClick={() => {
-                if (isAdminAuthenticated) {
-                  setActiveView('admin');
-                } else {
-                  setIsOwnerLoginModalOpen(true);
-                }
-              }}
-              className="text-[11px] text-slate-400 hover:text-slate-800 transition-colors flex items-center gap-1 font-mono group"
-              title="Store Owner & Inventory Manager Access"
-            >
-              <Lock className="w-3 h-3 group-hover:text-slate-800 text-slate-400" />
-              <span>{isAdminAuthenticated ? '👑 Owner Console (Active)' : 'Owner Portal'}</span>
-            </button>
           </div>
 
           <div className="flex items-center gap-3 text-slate-500 font-mono text-[11px]">

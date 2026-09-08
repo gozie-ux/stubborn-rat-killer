@@ -291,24 +291,14 @@ export const Navbar: React.FC = () => {
               <span className="w-4 h-4 rounded bg-[#3db83a] text-white flex items-center justify-center text-[9px] font-black tracking-tighter">Ji</span>
               <span>Prefer Shopping on Jiji.ng?</span>
             </div>
-            <div className="grid grid-cols-2 gap-2">
-              <a
-                href="https://jiji.ng/lekki/household-chemicals/fastest-stubborn-rat-killer-bait-ciSv9nnA3SA4DqoFGySRvkDg.html"
-                target="_blank"
-                rel="noreferrer"
-                className="p-2 rounded-lg bg-white border border-emerald-200 text-[11px] font-bold text-slate-800 hover:text-emerald-700 block text-center"
-              >
-                Lekki Store Listing →
-              </a>
-              <a
-                href="https://jiji.ng/ikeja/cleaning-services/most-wanted-rat-killer-expert-guaranteed-results-ub485cR3z0x5xozhbjHDUzqb.html"
-                target="_blank"
-                rel="noreferrer"
-                className="p-2 rounded-lg bg-white border border-emerald-200 text-[11px] font-bold text-slate-800 hover:text-emerald-700 block text-center"
-              >
-                Ikeja Store Listing →
-              </a>
-            </div>
+            <a
+              href="https://jiji.ng/lekki/household-chemicals/fastest-stubborn-rat-killer-bait-ciSv9nnA3SA4DqoFGySRvkDg.html"
+              target="_blank"
+              rel="noreferrer"
+              className="w-full p-2.5 rounded-lg bg-white border border-emerald-200 text-xs font-bold text-slate-800 hover:text-emerald-700 block text-center shadow-xs"
+            >
+              Order on Jiji Store →
+            </a>
           </div>
 
           <div className="pt-2 border-t border-slate-200 flex flex-col gap-2">

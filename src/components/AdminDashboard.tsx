@@ -33,7 +33,10 @@ import {
   Lock,
   LogOut,
   KeyRound,
-  Shield
+  Shield,
+  Copy,
+  Check,
+  ExternalLink
 } from 'lucide-react';
 
 export const AdminDashboard: React.FC = () => {
@@ -75,6 +78,35 @@ export const AdminDashboard: React.FC = () => {
   const [newPasscode, setNewPasscode] = useState('');
   const [confirmPasscode, setConfirmPasscode] = useState('');
   const [passcodeMsg, setPasscodeMsg] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
+  const [hasCopiedLink, setHasCopiedLink] = useState(false);
+
+  const getPrivateAdminUrl = () => {
+    const origin = window.location.origin;
+    const pathname = window.location.pathname.replace(/\/oliver\/?$/, '') || '/';
+    const cleanPath = pathname === '/' ? '' : pathname;
+    return `${origin}${cleanPath}#oliver`;
+  };
+
+  const handleCopyAdminUrl = async () => {
+    try {
+      await navigator.clipboard.writeText(getPrivateAdminUrl());
+      setHasCopiedLink(true);
+      showToast('Private Admin URL copied to clipboard! Bookmark this link.', 'success');
+      setTimeout(() => setHasCopiedLink(false), 3000);
+    } catch {
+      showToast('Could not copy automatically. Link: ' + getPrivateAdminUrl(), 'info');
+    }
+  };
+
+  const returnToStorefront = () => {
+    try {
+      const cleanPath = window.location.pathname.replace(/\/oliver\/?$/, '') || '/';
+      window.history.replaceState(null, '', cleanPath + window.location.search);
+    } catch (err) {
+      console.error(err);
+    }
+    setActiveView('shop');
+  };
 
   const handleGateUnlock = (e: React.FormEvent) => {
     e.preventDefault();
@@ -345,7 +377,7 @@ export const AdminDashboard: React.FC = () => {
 
               <button
                 type="button"
-                onClick={() => setActiveView('shop')}
+                onClick={returnToStorefront}
                 className="w-full py-2.5 text-xs font-bold text-neutral-400 hover:text-white transition-colors text-center block"
               >
                 ← Return to Public Storefront
@@ -381,7 +413,7 @@ export const AdminDashboard: React.FC = () => {
 
         <div className="flex items-center gap-3">
           <button
-            onClick={() => setActiveView('shop')}
+            onClick={returnToStorefront}
             className="px-4 py-2.5 btn-3d-black text-yellow-400 font-black text-xs rounded-xl flex items-center gap-2"
           >
             <ArrowUpRight className="w-4 h-4" />
@@ -1134,6 +1166,69 @@ export const AdminDashboard: React.FC = () => {
                 </button>
               </div>
             </form>
+          </div>
+
+          {/* Dedicated Private Admin Access URL Card */}
+          <div className="bg-neutral-950 border-2 border-yellow-500/50 rounded-3xl p-6 sm:p-7 space-y-5 card-3d shadow-xl">
+            <div className="flex items-center gap-3 border-b border-neutral-900 pb-4">
+              <div className="w-12 h-12 rounded-2xl bg-yellow-400 text-black flex items-center justify-center font-black">
+                <Lock className="w-6 h-6" />
+              </div>
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] font-black uppercase tracking-wider bg-emerald-950 border border-emerald-500/40 text-emerald-400 px-2 py-0.5 rounded">
+                    Hidden From Public
+                  </span>
+                </div>
+                <h3 className="text-lg font-black text-white font-['Outfit'] mt-1">
+                  Private Admin Direct Link & Shortcut
+                </h3>
+                <p className="text-xs text-neutral-400">
+                  The public website has zero visible links to this control room. Bookmark this direct URL to access your store privately.
+                </p>
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              <label className="block text-xs font-black text-yellow-400 uppercase tracking-wider">
+                Your Direct Private Access URL
+              </label>
+              <div className="flex flex-col sm:flex-row items-stretch gap-2">
+                <div className="flex-1 bg-black border-2 border-neutral-800 rounded-2xl px-4 py-3 text-xs text-neutral-200 font-mono flex items-center overflow-x-auto select-all">
+                  {typeof window !== 'undefined' ? getPrivateAdminUrl() : 'https://yourwebsite.com/#oliver'}
+                </div>
+                <button
+                  type="button"
+                  onClick={handleCopyAdminUrl}
+                  className="px-5 py-3 btn-3d-yellow text-black font-black text-xs rounded-2xl flex items-center justify-center gap-2 shrink-0 shadow-md"
+                >
+                  {hasCopiedLink ? (
+                    <>
+                      <Check className="w-4 h-4 text-emerald-900" />
+                      <span>Copied!</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-4 h-4" />
+                      <span>Copy Secret Link</span>
+                    </>
+                  )}
+                </button>
+              </div>
+              <p className="text-[11px] text-neutral-500">
+                Tip: Save this link in your browser bookmarks bar (e.g. <em>"Rat Killer Admin HQ"</em>). When opened, it takes you directly into this secure control room.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-black border border-neutral-800 flex items-center justify-between gap-3">
+              <div>
+                <span className="text-xs font-black text-white block">Secret Keyboard Shortcut</span>
+                <span className="text-[11px] text-neutral-400">Press on any page to open this management desk</span>
+              </div>
+              <div className="flex items-center gap-1 font-mono text-xs font-black bg-neutral-900 border border-neutral-700 px-3 py-1.5 rounded-xl text-yellow-400">
+                <span>Ctrl</span> + <span>Shift</span> + <span>A</span>
+              </div>
+            </div>
           </div>
 
           {/* Security Protocols Card */}
