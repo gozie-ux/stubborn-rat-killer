@@ -20,6 +20,7 @@ import {
   ExternalLink
 } from 'lucide-react';
 import { NIGERIAN_STATES } from '../data/initialProducts';
+import { WhatsAppReviewSection } from './WhatsAppReviewSection';
 
 export const SingleProductShowcase: React.FC = () => {
   const {
@@ -265,11 +266,14 @@ export const SingleProductShowcase: React.FC = () => {
                 <span className="px-3 py-1 rounded-lg bg-red-50 border border-red-200 text-red-700 text-xs font-black uppercase tracking-wider">
                   ORIGINAL NIGERIAN RAT KILLER
                 </span>
-                <div className="flex items-center gap-1 text-xs text-slate-800 font-bold bg-slate-100 px-2.5 py-1 rounded-lg border border-slate-200">
+                <a 
+                  href="#reviews"
+                  className="flex items-center gap-1 text-xs text-slate-800 font-bold bg-slate-100 hover:bg-slate-200 px-2.5 py-1 rounded-lg border border-slate-200 transition-colors cursor-pointer"
+                >
                   <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-500" />
                   <span className="font-black">5.0</span>
-                  <span className="text-slate-600 font-medium">({product.reviewCount} Happy Customer Reviews)</span>
-                </div>
+                  <span className="text-slate-600 font-medium">(Verified WhatsApp Reviews)</span>
+                </a>
               </div>
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-950 tracking-tight font-['Outfit']">
@@ -486,7 +490,10 @@ export const SingleProductShowcase: React.FC = () => {
         </div>
       </div>
 
-      {/* 2. Comparison: Stubborn Rat Killer vs Ordinary Supermarket Poisons */}
+      {/* 2. Verified Nigerian Customer Reviews - WhatsApp Proof */}
+      <WhatsAppReviewSection />
+
+      {/* 3. Comparison: Stubborn Rat Killer vs Ordinary Supermarket Poisons */}
       <div className="rounded-3xl bg-white border border-slate-200 p-6 sm:p-8 space-y-6 shadow-md">
         <div className="text-center max-w-2xl mx-auto space-y-2">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 border border-red-200 text-red-700 text-xs font-black uppercase">
@@ -602,68 +609,7 @@ export const SingleProductShowcase: React.FC = () => {
         </div>
       </div>
 
-      {/* 4. Verified Nigerian Customer Reviews */}
-      <div id="reviews" className="rounded-3xl bg-white border border-slate-200 p-6 sm:p-10 space-y-8 shadow-md">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-100 pb-6">
-          <div className="space-y-1">
-            <span className="text-xs font-black text-red-600 uppercase tracking-widest font-mono">
-              WHAT OUR CUSTOMERS SAY
-            </span>
-            <h3 className="text-2xl sm:text-3xl font-black text-slate-950 font-['Outfit']">
-              Real Reviews from People Across Nigeria
-            </h3>
-            <p className="text-xs text-slate-600 font-normal">
-              Read real stories from people who used Stubborn Rat Killer to clear rats from their homes and shops.
-            </p>
-          </div>
-
-          <div className="flex items-center gap-3 bg-slate-50 px-4 py-2.5 rounded-2xl border border-slate-200">
-            <div className="text-2xl font-black text-amber-500 font-mono">5.0</div>
-            <div className="text-left">
-              <div className="flex text-amber-400 text-xs">★★★★★</div>
-              <div className="text-[10px] text-slate-600 font-bold">100% Recommended</div>
-            </div>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {product.reviews.map((rev) => (
-            <div
-              key={rev.id}
-              className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-3 text-left hover:border-amber-400 hover:bg-white transition-all shadow-xs"
-            >
-              <div className="flex items-start justify-between gap-2">
-                <div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm font-black text-slate-950">{rev.userName}</span>
-                    <span className="text-[10px] font-black text-emerald-700 bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded">
-                      ✓ Real Buyer
-                    </span>
-                  </div>
-                  <span className="text-xs text-slate-500 flex items-center gap-1 mt-0.5">
-                    <MapPin className="w-3 h-3 text-red-500" />
-                    {rev.userLocation} • <span className="text-slate-400">{rev.date}</span>
-                  </span>
-                </div>
-                <div className="flex text-amber-400 text-xs">
-                  {'★'.repeat(rev.rating)}
-                </div>
-              </div>
-
-              <div className="text-xs font-bold text-amber-800 bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-lg inline-block">
-                Killed: {rev.pestEliminated}
-              </div>
-
-              <h4 className="text-sm font-bold text-slate-950">"{rev.title}"</h4>
-              <p className="text-xs text-slate-700 leading-relaxed font-normal">
-                {rev.comment}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* 5. Nationwide Delivery Schedule & Shipping Calculator */}
+      {/* 4. Nationwide Delivery Schedule & Shipping Calculator */}
       <div id="dispatch-schedule" className="rounded-3xl bg-white border border-slate-200 p-6 sm:p-8 space-y-6 shadow-md">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
           <div>

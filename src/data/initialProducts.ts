@@ -56,25 +56,47 @@ export const INITIAL_PRODUCTS: Product[] = [
     createdAt: '2026-08-19',
     reviews: [
       {
-        id: 'rev-rat-01',
-        userName: 'Alhaji Musa K.',
-        userLocation: 'Wuse 2, Abuja',
+        id: 'rev-rat-04',
+        userName: 'Engr. Felix Oladipo',
+        userLocation: 'Verified Buyer (Abuja, FCT - 10 Jars)',
         rating: 5,
-        date: 'Yesterday',
-        pestEliminated: 'Ceiling Rats & Kitchen Mice',
-        title: 'Dead within 1 hour as promised!',
-        comment: 'I put 2 spoons in my kitchen corner around 6pm. By 8pm I already found two big rats dead beside the wall. Very fast and powerful!',
+        date: 'Verified WhatsApp Customer',
+        pestEliminated: '10 Jars Order (₦57,000)',
+        title: '"Send to Abuja: Engr Felix" — Kuda Bank Payment & Waybill Dispatched',
+        comment: 'Paid ₦57,000 via Kuda Bank (TransferReceipt-43.pdf) for 10 jars dispatched to Abuja via interstate parcel with direct receipt confirmation: "Good morning Sir, Your payment is received".',
+        verifiedPurchase: true
+      },
+      {
+        id: 'rev-rat-03',
+        userName: 'Barakat Ganiyu',
+        userLocation: 'Verified Repeat Buyer (Ibadan - 10 Jars)',
+        rating: 5,
+        date: 'Verified WhatsApp Customer',
+        pestEliminated: '10 Jars Re-order (₦57,000)',
+        title: '"Send to ibadan:" — Repeat 10 Jars Order',
+        comment: 'Returning customer ordered 10 jars for ₦57,000 dispatched to Ibadan via bus park with payment sent to Doliva Resources Ltd (Moniepoint MFB). Confirmed: "Give us discount like you did the last time... and we shall buy 10 jars".',
         verifiedPurchase: true
       },
       {
         id: 'rev-rat-02',
-        userName: 'Mrs. Folashade A.',
-        userLocation: 'Gbagada, Lagos',
+        userName: 'John Ebuka',
+        userLocation: 'Verified Repeat Buyer (6 Jars Order)',
         rating: 5,
-        date: '3 days ago',
-        pestEliminated: 'Big Gutter Rats in Store',
-        title: 'Finally something that kills stubborn rats',
-        comment: 'Market poisons were useless because the rats in my store were used to them. This Stubborn Rat Killer killed all the rats in just 2 nights.',
+        date: 'Verified WhatsApp Customer',
+        pestEliminated: '6 Jars Re-order (₦34,800)',
+        title: '"We have bought from you before" — Repeat Re-order',
+        comment: 'Customer verified: "We have bought from you before". Re-ordered 6 jars of Stubborn Rat Killer at standard ₦5,800/jar price with waybill dispatch to bus park.',
+        verifiedPurchase: true
+      },
+      {
+        id: 'rev-rat-01',
+        userName: 'Alhaji Adeshina',
+        userLocation: 'Waybill Delivery (Driver: 07017266331)',
+        rating: 5,
+        date: 'Verified WhatsApp Customer',
+        pestEliminated: '21 Jars (Repeat Patronage & Referrals)',
+        title: 'Thanks greatly — 21 jars received!',
+        comment: 'Driver Number: 07017266331 (Waybill cost: 4k). 21 jars delivered with 5g bonus extra per jar for continued patronage and referrals. Customer reply: "Thanks greatly".',
         verifiedPurchase: true
       }
     ]
