@@ -92,9 +92,9 @@ export const CheckoutModal: React.FC = () => {
 
   const handleCopyAccount = () => {
     if (navigator.clipboard) {
-      navigator.clipboard.writeText('8123456789');
+      navigator.clipboard.writeText('6789725821');
       setCopiedAccount(true);
-      showToast('Account Number copied to clipboard!', 'info');
+      showToast('Moniepoint Account (6789725821) copied to clipboard!', 'info');
       setTimeout(() => setCopiedAccount(false), 3000);
     }
   };
@@ -438,36 +438,43 @@ export const CheckoutModal: React.FC = () => {
 
             {/* Dynamic Payment Details Container */}
             {paymentMethod === 'bank_transfer' && (
-              <div className="p-5 rounded-3xl bg-slate-50 border border-slate-200 space-y-4 text-xs shadow-xs">
-                <div className="flex items-center justify-between pb-3 border-b border-slate-200">
-                  <span className="font-bold text-slate-900 uppercase tracking-wider">Pay to this Bank Account:</span>
-                  <span className="text-amber-800 font-mono text-xs font-bold bg-amber-100 px-2.5 py-1 rounded-lg border border-amber-200">
-                    Official Company Account
+              <div className="p-4 sm:p-5 rounded-3xl bg-amber-50/70 border border-amber-300 space-y-3 text-xs shadow-xs">
+                <div className="flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-xl bg-amber-500 text-slate-950 flex items-center justify-center font-black shadow-xs shrink-0">
+                      <CreditCard className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <span className="text-xs font-black text-slate-950 uppercase tracking-tight block">
+                        Official Bank Deposit Account
+                      </span>
+                      <span className="text-[11px] text-slate-600 font-medium block">
+                        Transfer directly from any bank app or USSD
+                      </span>
+                    </div>
+                  </div>
+                  <span className="text-[10px] font-black bg-amber-200 text-amber-900 border border-amber-300 px-2.5 py-1 rounded-lg shrink-0 uppercase tracking-wider">
+                    Moniepoint MFB
                   </span>
                 </div>
 
-                <div className="grid grid-cols-2 gap-3 text-slate-700">
-                  <div>
-                    <span className="text-slate-500 block text-[10px] uppercase font-bold">Bank Name:</span>
-                    <strong className="text-slate-900 text-xs font-bold">Moniepoint Microfinance Bank</strong>
-                  </div>
-                  <div>
-                    <span className="text-slate-500 block text-[10px] uppercase font-bold">Account Name:</span>
-                    <strong className="text-slate-900 text-xs font-bold">STUBBORN RAT KILLER LTD</strong>
-                  </div>
-                </div>
-
-                <div className="p-4 bg-white rounded-2xl border border-slate-300 flex items-center justify-between shadow-xs">
-                  <div>
-                    <span className="text-[10px] text-amber-700 uppercase font-mono font-bold">Account Number:</span>
-                    <div className="text-xl font-black text-slate-950 font-mono tracking-widest mt-0.5">
-                      8123456789
+                <div className="p-3.5 sm:p-4 bg-white rounded-2xl border border-amber-200 flex items-center justify-between gap-3 shadow-2xs">
+                  <div className="min-w-0">
+                    <div className="text-[10px] text-slate-500 font-bold uppercase truncate">
+                      DOLIVA RESOURCES LTD
+                    </div>
+                    <div className="text-xl sm:text-2xl font-black font-mono text-slate-950 tracking-wider mt-0.5">
+                      6789725821
+                    </div>
+                    <div className="text-[10px] sm:text-[11px] text-emerald-700 font-bold flex items-center gap-1 mt-0.5">
+                      <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
+                      <span>Instant Same-Day Dispatch Confirmation</span>
                     </div>
                   </div>
                   <button
                     type="button"
                     onClick={handleCopyAccount}
-                    className="px-4 py-2 btn-3d-yellow text-slate-950 font-black text-xs rounded-xl flex items-center gap-1.5 shadow-xs"
+                    className="px-4 py-2.5 btn-3d-yellow text-slate-950 font-black text-xs rounded-xl flex items-center gap-1.5 shadow-2xs shrink-0"
                   >
                     {copiedAccount ? <Check className="w-4 h-4 stroke-[3]" /> : <Copy className="w-4 h-4" />}
                     <span>{copiedAccount ? 'Copied!' : 'Copy'}</span>
@@ -475,7 +482,7 @@ export const CheckoutModal: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-[11px] font-bold text-slate-700 mb-1.5 uppercase">
+                  <label className="block text-[11px] font-bold text-slate-700 mb-1 uppercase">
                     Your Name or Transfer Note:
                   </label>
                   <input
@@ -633,6 +640,57 @@ export const CheckoutModal: React.FC = () => {
                 <span className="font-mono text-red-600 text-lg font-black">{formatPrice(completedOrder.total)}</span>
               </div>
             </div>
+
+            {/* Bank Transfer Deposit Reminder */}
+            {completedOrder.paymentMethod === 'bank_transfer' && (
+              <div className="p-4 sm:p-5 rounded-2xl bg-amber-50 border-2 border-amber-300 text-left space-y-3 shadow-xs">
+                <div className="flex items-center justify-between">
+                  <span className="font-black text-amber-950 text-xs uppercase tracking-wider flex items-center gap-1.5">
+                    <AlertCircle className="w-4 h-4 text-amber-600 shrink-0" />
+                    Complete Bank Deposit for Order #{completedOrder.orderNumber}
+                  </span>
+                  <span className="text-[10px] font-bold bg-amber-200 text-amber-900 px-2 py-0.5 rounded">
+                    Official Account
+                  </span>
+                </div>
+
+                <div className="bg-white p-3.5 rounded-xl border border-amber-200 flex items-center justify-between gap-3">
+                  <div>
+                    <span className="text-[10px] text-slate-500 font-bold uppercase block">
+                      Moniepoint MFB • DOLIVA RESOURCES LTD
+                    </span>
+                    <span className="font-mono text-lg font-black text-slate-950 tracking-wider block mt-0.5">
+                      6789725821
+                    </span>
+                    <span className="text-[11px] font-bold text-red-600 block mt-0.5">
+                      Amount to Transfer: {formatPrice(completedOrder.total)}
+                    </span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={handleCopyAccount}
+                    className="px-3.5 py-2 btn-3d-yellow text-slate-950 font-black text-xs rounded-xl flex items-center gap-1 shrink-0 shadow-xs"
+                  >
+                    {copiedAccount ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+                    <span>{copiedAccount ? 'Copied' : 'Copy'}</span>
+                  </button>
+                </div>
+
+                <p className="text-[11px] text-slate-600 leading-relaxed">
+                  After transfer, kindly share your payment proof or transaction screenshot to our WhatsApp dispatch line for immediate confirmation & dispatch.
+                </p>
+
+                <a
+                  href={`https://wa.me/2348089854753?text=${encodeURIComponent(`Hello, I have made a bank deposit of ${formatPrice(completedOrder.total)} for Order #${completedOrder.orderNumber} to DOLIVA RESOURCES LTD (Moniepoint MFB: 6789725821). Here is my payment receipt screenshot.`)}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-xs transition-colors"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  <span>Send Payment Proof on WhatsApp</span>
+                </a>
+              </div>
+            )}
 
             {/* Action Buttons */}
             <div className="flex flex-wrap items-center justify-center gap-3 pt-2">

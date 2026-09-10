@@ -139,7 +139,7 @@ export const Footer: React.FC = () => {
                 <span className="text-slate-500">• Bulk / Wholesale Cartons Available</span>
               </li>
               <li>
-                <span className="text-slate-500">• Pay by Card or Bank Transfer</span>
+                <span className="text-slate-500">• Pay by Card, Bank Transfer or Delivery</span>
               </li>
               <li className="pt-2 border-t border-slate-200">
                 <a

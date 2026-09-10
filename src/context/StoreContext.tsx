@@ -679,7 +679,11 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       message += `${index + 1}. *${item.product.name}*\n   Qty: ${item.quantity}x @ ₦${item.product.price.toLocaleString()} = ₦${lineTotal.toLocaleString()}\n   Target: ${item.product.category}\n\n`;
     });
 
-    message += `💰 *Subtotal:* ₦${total.toLocaleString()}\n`;
+    message += `💰 *Subtotal:* ₦${total.toLocaleString()}\n\n`;
+    message += `🏦 *Official Payment Deposit Account:*\n`;
+    message += `• Bank: Moniepoint MFB\n`;
+    message += `• Account Name: DOLIVA RESOURCES LTD\n`;
+    message += `• Account Number: 6789725821\n\n`;
     message += `🚚 *Please confirm payment details & dispatch timeframe.* Thank you!`;
 
     const encoded = encodeURIComponent(message);

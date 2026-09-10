@@ -158,7 +158,7 @@ export const SingleProductShowcase: React.FC = () => {
     },
     {
       q: 'How do I pay?',
-      a: 'You can pay online with bank transfer or debit card. You can also chat with us directly on WhatsApp (+234 808 985 4753) to pay by normal bank transfer.'
+      a: 'You can pay easily and securely at checkout using Bank Transfer, Debit Card, or Cash on Delivery where applicable. You can also chat directly with our dispatch team on WhatsApp (+234 808 985 4753).'
     }
   ];
 
