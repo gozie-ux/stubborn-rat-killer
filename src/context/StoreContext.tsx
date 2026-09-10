@@ -673,11 +673,17 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     message += `\n🛒 *Order Items:*\n`;
 
     let total = 0;
+    let totalJars = 0;
     items.forEach((item, index) => {
       const lineTotal = item.product.price * item.quantity;
       total += lineTotal;
+      totalJars += item.quantity;
       message += `${index + 1}. *${item.product.name}*\n   Qty: ${item.quantity}x @ ₦${item.product.price.toLocaleString()} = ₦${lineTotal.toLocaleString()}\n   Target: ${item.product.category}\n\n`;
     });
+
+    if (totalJars >= 5) {
+      message += `🎁 *SPECIAL PROMO APPLIED (BUY 5+ GET 1 FREE):*\n• Offer: +1 FREE Additional Jar Included!\n• Total Jars to Deliver: *${totalJars + 1} Jars* (${totalJars} Paid + 1 Free)\n\n`;
+    }
 
     message += `💰 *Subtotal:* ₦${total.toLocaleString()}\n\n`;
     message += `🏦 *Official Payment Deposit Account:*\n`;

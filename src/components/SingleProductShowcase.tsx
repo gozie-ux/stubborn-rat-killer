@@ -38,7 +38,7 @@ export const SingleProductShowcase: React.FC = () => {
   const product = products[0];
 
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
-  const [selectedPack, setSelectedPack] = useState<'single' | 'double' | 'triple'>('single');
+  const [selectedPack, setSelectedPack] = useState<'single' | 'double' | 'triple' | 'five'>('single');
   const [quantity, setQuantity] = useState(1);
   const [selectedStateIndex, setSelectedStateIndex] = useState(0);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
@@ -64,59 +64,65 @@ export const SingleProductShowcase: React.FC = () => {
 
   const isWish = isInWishlist(product.id);
 
-  // Bundle pricing logic
+  // Strict linear pricing: ₦5,800 per jar (no discounts).
+  // Special Rule: If you buy from 5 jars and above, you get 1 additional jar for free!
   const packs = [
     {
       id: 'single' as const,
-      name: '1 Bottle (Small Flat / Shop)',
+      name: '1 Jar (Small Flat / Shop)',
       qty: 1,
-      price: product.price, // 5800
-      originalPrice: product.originalPrice, // 7500
-      discount: '23% OFF',
+      price: 5800,
       bestFor: '1 - 2 Room Flat or Small Shop',
       bonus: 'Includes 1x Free Measuring Spoon',
-      tag: '1 BOTTLE'
+      tag: '1 JAR'
     },
     {
       id: 'double' as const,
-      name: '2 Bottles (Big House / Duplex)',
+      name: '2 Jars (Big House / Duplex)',
       qty: 2,
-      price: 11000, // 5500 per jar (save ₦600)
-      originalPrice: 15000,
-      discount: 'SAVE ₦4,000',
+      price: 11600,
       bestFor: '3 - 5 Bedroom House or Office',
       bonus: 'Includes 2x Free Measuring Spoons',
-      tag: '🔥 MOST POPULAR',
-      recommended: true
+      tag: '2 JARS'
     },
     {
       id: 'triple' as const,
-      name: '3 Bottles (Poultry Farm, Store or Warehouse)',
+      name: '3 Jars (Store / Warehouse / Big Compound)',
       qty: 3,
-      price: 16000, // 5333 per jar (save ₦1,400)
-      originalPrice: 22500,
-      discount: 'SAVE ₦6,500',
+      price: 17400,
       bestFor: 'Poultry Farms, Stores & Big Compounds',
-      bonus: 'Includes 3x Free Spoons + Quick Delivery',
-      tag: 'BEST VALUE'
+      bonus: 'Includes 3x Free Spoons',
+      tag: '3 JARS'
+    },
+    {
+      id: 'five' as const,
+      name: '5 Jars (Bulk Commercial / Poultry Farm)',
+      qty: 5,
+      price: 29000,
+      bestFor: 'Big Poultry Farms, Hotels & Warehouses',
+      bonus: 'Includes 5x Free Spoons + 1 FREE EXTRA JAR (6 Jars Total!)',
+      tag: '🎁 +1 FREE JAR',
+      recommended: true
     }
   ];
 
   const currentPackData = packs.find((p) => p.id === selectedPack) || packs[0];
-  const unitPrice = currentPackData.price;
-  const totalPrice = unitPrice * quantity;
-  const totalItemsCount = currentPackData.qty * quantity;
+  const totalPaidJars = currentPackData.qty * quantity;
+  const totalPrice = totalPaidJars * 5800;
+  const freeBonusJars = totalPaidJars >= 5 ? 1 : 0;
+  const totalDeliveredJars = totalPaidJars + freeBonusJars;
 
-  const handlePackSelect = (packId: 'single' | 'double' | 'triple') => {
+  const handlePackSelect = (packId: 'single' | 'double' | 'triple' | 'five') => {
     setSelectedPack(packId);
+    setQuantity(1);
   };
 
   const handleAddToCart = () => {
-    addToCart(product, totalItemsCount);
+    addToCart(product, totalPaidJars);
   };
 
   const handleInstantBuyNow = () => {
-    addToCart(product, totalItemsCount);
+    addToCart(product, totalPaidJars);
     setIsCheckoutOpen(true);
   };
 
@@ -126,9 +132,9 @@ export const SingleProductShowcase: React.FC = () => {
       {
         product: {
           ...product,
-          price: unitPrice / currentPackData.qty
+          price: 5800
         },
-        quantity: totalItemsCount
+        quantity: totalPaidJars
       }
     ];
     const url = generateWhatsAppOrderUrl(items, undefined, `${selectedState} (${currentPackData.name})`);
@@ -304,29 +310,54 @@ export const SingleProductShowcase: React.FC = () => {
               </div>
             </div>
 
-            {/* Pricing Box */}
-            <div className="p-4 sm:p-5 rounded-2xl bg-slate-50 border-2 border-slate-200 space-y-2">
-              <div className="flex items-baseline gap-3">
-                <span className="text-3xl sm:text-4xl font-black text-slate-950 font-['Outfit']">
-                  {formatPrice(totalPrice)}
-                </span>
-                <span className="text-sm sm:text-base text-slate-400 line-through font-bold">
-                  {formatPrice(currentPackData.originalPrice * quantity)}
-                </span>
-                <span className="px-2.5 py-1 rounded-md bg-red-600 text-white font-black text-xs uppercase shadow-xs">
-                  {currentPackData.discount}
-                </span>
+            {/* Pricing Box - Strictly ₦5,800 per jar, no price discounts */}
+            <div className="p-4 sm:p-5 rounded-2xl bg-slate-50 border-2 border-slate-200 space-y-2.5">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <div className="flex items-baseline gap-2.5">
+                  <span className="text-3xl sm:text-4xl font-black text-slate-950 font-['Outfit']">
+                    {formatPrice(totalPrice)}
+                  </span>
+                  <span className="text-xs sm:text-sm font-bold text-slate-500 font-mono">
+                    (₦5,800 / jar)
+                  </span>
+                </div>
+
+                {freeBonusJars > 0 && (
+                  <span className="px-3 py-1 rounded-full bg-emerald-600 text-white font-black text-xs uppercase tracking-wide flex items-center gap-1.5 shadow-xs animate-pulse">
+                    <span>🎁</span>
+                    <span>+1 FREE JAR INCLUDED</span>
+                  </span>
+                )}
               </div>
-              <p className="text-xs text-slate-600">
-                Price: <strong className="text-slate-900">{formatPrice(unitPrice)}</strong> for {currentPackData.name}.
-              </p>
+
+              <div className="text-xs text-slate-700 flex flex-wrap items-center gap-1.5 font-medium">
+                <span>Total to deliver:</span>
+                <strong className="text-slate-950 font-black">
+                  {totalPaidJars} {totalPaidJars === 1 ? 'Jar' : 'Jars'}
+                </strong>
+                {freeBonusJars > 0 ? (
+                  <span className="text-emerald-700 font-black bg-emerald-100 px-2 py-0.5 rounded border border-emerald-300">
+                    + 1 Extra Free Jar = {totalDeliveredJars} Jars Total!
+                  </span>
+                ) : (
+                  <span className="text-slate-500">
+                    (Buy from 5 jars and above to get 1 free extra jar)
+                  </span>
+                )}
+              </div>
             </div>
 
-            {/* Bundle Pack Selector (1 Jar, 2 Jars, 3 Jars) */}
+            {/* Bundle Pack Selector (1 Jar, 2 Jars, 3 Jars, 5 Jars) */}
             <div className="space-y-3">
-              <label className="text-xs font-black text-slate-900 uppercase tracking-wider block">
-                Choose Your Pack:
-              </label>
+              <div className="flex items-center justify-between">
+                <label className="text-xs font-black text-slate-900 uppercase tracking-wider block">
+                  Choose Number of Jars:
+                </label>
+                <span className="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                  ₦5,800 Per Jar Flat Rate
+                </span>
+              </div>
+
               <div className="space-y-2.5">
                 {packs.map((pack) => (
                   <div
@@ -346,7 +377,11 @@ export const SingleProductShowcase: React.FC = () => {
                           {selectedPack === pack.id && <span className="w-1.5 h-1.5 rounded-full bg-white" />}
                         </span>
                         <span className="text-sm font-black text-slate-900">{pack.name}</span>
-                        <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded bg-amber-100 text-amber-900 border border-amber-200">
+                        <span className={`text-[10px] font-black uppercase px-2 py-0.5 rounded border ${
+                          pack.qty >= 5 
+                            ? 'bg-emerald-600 text-white border-emerald-700 shadow-xs' 
+                            : 'bg-amber-100 text-amber-900 border-amber-200'
+                        }`}>
                           {pack.tag}
                         </span>
                       </div>
@@ -359,22 +394,54 @@ export const SingleProductShowcase: React.FC = () => {
                       <div className="text-sm sm:text-base font-black text-slate-950 font-['Outfit']">
                         {formatPrice(pack.price)}
                       </div>
-                      <div className="text-[11px] text-slate-400 line-through">
-                        {formatPrice(pack.originalPrice)}
+                      <div className="text-[10px] text-slate-500 font-medium">
+                        {pack.qty >= 5 ? 'Gets 6 Jars' : `${pack.qty} ${pack.qty === 1 ? 'Jar' : 'Jars'}`}
                       </div>
                     </div>
                   </div>
                 ))}
               </div>
+
+              {/* Special Promotion Alert: 5+ Jars gets 1 free jar */}
+              {totalPaidJars >= 5 ? (
+                <div className="p-3.5 rounded-2xl bg-emerald-50 border-2 border-emerald-400 text-emerald-950 flex items-start gap-3 shadow-xs">
+                  <span className="text-2xl shrink-0">🎁</span>
+                  <div className="text-xs space-y-0.5">
+                    <div className="font-black text-emerald-900 uppercase tracking-wide">
+                      SPECIAL BONUS UNLOCKED: +1 FREE JAR!
+                    </div>
+                    <p className="text-emerald-800 leading-relaxed font-normal">
+                      You are buying <strong>{totalPaidJars} jars</strong>, so you get <strong>1 additional jar completely FREE</strong>! A total of <strong className="text-emerald-950 font-black">{totalDeliveredJars} jars</strong> will be packaged and delivered to you.
+                    </p>
+                  </div>
+                </div>
+              ) : (
+                <div className="p-3 rounded-2xl bg-amber-50 border border-amber-300 text-amber-950 flex flex-wrap items-center justify-between gap-2.5 text-xs shadow-2xs">
+                  <div className="flex items-center gap-2">
+                    <span className="text-base">💡</span>
+                    <span className="font-medium text-slate-800">
+                      <strong>Special Offer:</strong> Buy <strong>5 jars and above</strong>, get <strong>1 additional jar FREE</strong>!
+                    </span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => handlePackSelect('five')}
+                    className="px-3 py-1.5 rounded-xl bg-amber-400 hover:bg-amber-500 text-slate-950 font-black text-xs shrink-0 transition-colors shadow-xs"
+                  >
+                    Select 5 Jars (+1 Free)
+                  </button>
+                </div>
+              )}
             </div>
 
             {/* Quantity Selector */}
-            <div className="flex items-center gap-4 pt-1">
+            <div className="flex flex-wrap items-center gap-4 pt-1">
               <span className="text-xs font-black text-slate-900 uppercase tracking-wider">
                 Quantity:
               </span>
               <div className="flex items-center border border-slate-300 rounded-xl bg-white overflow-hidden shadow-xs">
                 <button
+                  type="button"
                   onClick={() => setQuantity((q) => Math.max(1, q - 1))}
                   className="p-2.5 text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors"
                   aria-label="Decrease quantity"
@@ -385,6 +452,7 @@ export const SingleProductShowcase: React.FC = () => {
                   {quantity}
                 </span>
                 <button
+                  type="button"
                   onClick={() => setQuantity((q) => Math.min(20, q + 1))}
                   className="p-2.5 text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors"
                   aria-label="Increase quantity"
@@ -392,9 +460,17 @@ export const SingleProductShowcase: React.FC = () => {
                   <Plus className="w-4 h-4" />
                 </button>
               </div>
-              <span className="text-xs text-slate-600">
-                Total Jars: <strong className="text-slate-950 font-black">{totalItemsCount}</strong>
-              </span>
+              <div className="text-xs text-slate-700">
+                Total Jars to Deliver:{' '}
+                <strong className="text-slate-950 font-black text-sm">
+                  {totalDeliveredJars}
+                </strong>
+                {freeBonusJars > 0 && (
+                  <span className="ml-1.5 text-emerald-700 font-black bg-emerald-100 px-2 py-0.5 rounded text-[11px]">
+                    ({totalPaidJars} Paid + 1 Free)
+                  </span>
+                )}
+              </div>
             </div>
 
             {/* Primary High-Converting CTAs */}

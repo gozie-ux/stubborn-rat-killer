@@ -26,9 +26,9 @@ export const PromoBanner: React.FC = () => {
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2 flex flex-col sm:flex-row items-center justify-between gap-2 overflow-hidden">
         {/* Left Announcements */}
         <div className="flex items-center justify-center sm:justify-start gap-2 sm:gap-3 text-xs font-semibold w-full sm:w-auto">
-          <div className="flex items-center gap-1.5 text-slate-950 font-black bg-gradient-to-r from-amber-400 to-yellow-400 px-2.5 sm:px-3 py-1 rounded-lg shadow-sm uppercase tracking-wider text-[10px] sm:text-[11px] animate-pulse whitespace-nowrap shrink-0">
+          <div className="flex items-center gap-1.5 text-slate-950 font-black bg-gradient-to-r from-amber-400 to-yellow-400 px-2.5 sm:px-3 py-1 rounded-lg shadow-sm uppercase tracking-wider text-[10px] sm:text-[11px] whitespace-nowrap shrink-0">
             <Flame className="w-3.5 h-3.5 fill-slate-950 text-slate-950" />
-            <span>STUBBORN RAT KILLER: 23% OFF</span>
+            <span>SPECIAL OFFER: BUY 5 JARS & ABOVE, GET 1 FREE JAR!</span>
           </div>
 
           <div className="flex items-center gap-1 text-slate-300 bg-slate-900 border border-slate-800 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-lg text-[10px] sm:text-xs shrink-0">

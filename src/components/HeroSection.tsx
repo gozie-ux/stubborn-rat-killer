@@ -39,6 +39,10 @@ export const HeroSection: React.FC = () => {
               <Flame className="w-3.5 h-3.5 text-red-600 fill-red-600 shrink-0" />
               <span>NIGERIA'S #1 STRONGEST RAT KILLER</span>
             </div>
+            <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-300 text-emerald-800 text-[10px] sm:text-xs font-black uppercase tracking-wider shadow-xs">
+              <span>🎁</span>
+              <span>BUY 5+ JARS: GET 1 FREE JAR</span>
+            </div>
             <span className="text-[10px] sm:text-xs font-mono font-bold text-slate-700 bg-slate-100 px-3.5 py-1.5 rounded-full border border-slate-200">
               CALL US DIRECTLY: <strong className="text-red-600 font-black">+234 808 985 4753</strong>
             </span>

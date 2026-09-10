@@ -249,12 +249,48 @@ export const CartDrawer: React.FC = () => {
               )}
             </div>
 
+            {/* Promo / Free Jar Indicator */}
+            {cartCount >= 5 ? (
+              <div className="p-3 rounded-2xl bg-emerald-50 border border-emerald-300 flex items-start gap-2.5 text-xs text-emerald-950 shadow-2xs">
+                <span className="text-lg shrink-0">🎁</span>
+                <div>
+                  <strong className="block font-black text-emerald-900 uppercase">
+                    +1 FREE BONUS JAR INCLUDED!
+                  </strong>
+                  <span className="text-emerald-800 font-medium">
+                    You ordered <strong>{cartCount} jars</strong>. You get <strong>1 extra jar FREE</strong> (Total: <strong>{cartCount + 1} Jars delivered</strong>).
+                  </span>
+                </div>
+              </div>
+            ) : (
+              <div className="p-2.5 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-between gap-2 text-xs text-amber-950">
+                <span className="text-[11px] font-medium text-slate-700">
+                  💡 Buy <strong>{5 - cartCount} more</strong> to get <strong>1 FREE extra jar</strong>!
+                </span>
+                {cart[0] && (
+                  <button
+                    type="button"
+                    onClick={() => updateCartQuantity(cart[0].product.id, 5)}
+                    className="px-2 py-1 rounded-md bg-amber-400 hover:bg-amber-500 font-black text-[10px] text-slate-950 shrink-0 shadow-2xs"
+                  >
+                    Upgrade to 5
+                  </button>
+                )}
+              </div>
+            )}
+
             {/* Calculations Breakdown */}
             <div className="space-y-1.5 text-xs text-slate-600 pt-1">
               <div className="flex items-center justify-between">
-                <span>Subtotal:</span>
+                <span>Subtotal ({cartCount} Jars):</span>
                 <span className="font-bold text-slate-900">{formatPrice(cartSubtotal)}</span>
               </div>
+              {cartCount >= 5 && (
+                <div className="flex items-center justify-between text-emerald-700 font-bold">
+                  <span>Bonus Free Jar:</span>
+                  <span>+1 Free Jar (₦0)</span>
+                </div>
+              )}
               {couponDiscount > 0 && (
                 <div className="flex items-center justify-between text-red-600 font-bold">
                   <span>Discount:</span>
@@ -265,6 +301,11 @@ export const CartDrawer: React.FC = () => {
                 <span>Total:</span>
                 <span className="text-red-600 font-mono text-base font-black">{formatPrice(finalTotal)}</span>
               </div>
+              {cartCount >= 5 && (
+                <p className="text-[11px] text-emerald-700 font-bold text-right">
+                  Delivering {cartCount + 1} Jars Total
+                </p>
+              )}
             </div>
 
             {/* Checkout Action Buttons */}

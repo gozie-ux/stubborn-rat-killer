@@ -69,6 +69,9 @@ export const CheckoutModal: React.FC = () => {
   const selectedStateObj = NIGERIAN_STATES.find((s) => s.name === customer.state) || NIGERIAN_STATES[0];
   const deliveryFee = cartSubtotal >= 35000 ? 0 : selectedStateObj.fee;
   const grandTotal = Math.max(0, cartSubtotal - couponDiscount + deliveryFee);
+  const totalJars = cart.reduce((acc, item) => acc + item.quantity, 0);
+  const freeBonusJars = totalJars >= 5 ? 1 : 0;
+  const totalDeliveredJars = totalJars + freeBonusJars;
 
   // Reset when modal opens
   useEffect(() => {
@@ -184,9 +187,16 @@ export const CheckoutModal: React.FC = () => {
         {step === 'details' && (
           <form onSubmit={handleProceedToPayment} className="p-6 space-y-5">
             {/* Quick Order Summary Mini Bar */}
-            <div className="p-4 rounded-2xl bg-amber-50 border border-amber-200 flex items-center justify-between text-xs">
-              <div className="flex items-center gap-2">
-                <span className="font-black text-slate-900">Units: {cart.length}</span>
+            <div className="p-4 rounded-2xl bg-amber-50 border border-amber-200 flex flex-wrap items-center justify-between gap-2.5 text-xs">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="font-black text-slate-900">
+                  {totalJars} {totalJars === 1 ? 'Jar' : 'Jars'}
+                </span>
+                {freeBonusJars > 0 && (
+                  <span className="text-[11px] font-black text-emerald-800 bg-emerald-100 px-2.5 py-0.5 rounded-full border border-emerald-300">
+                    🎁 +1 Free Jar ({totalDeliveredJars} Total Delivered)
+                  </span>
+                )}
                 <span className="text-slate-400">•</span>
                 <span className="text-slate-600">Subtotal: <strong className="text-slate-900 font-mono">{formatPrice(cartSubtotal)}</strong></span>
               </div>
@@ -617,6 +627,13 @@ export const CheckoutModal: React.FC = () => {
               </div>
 
               <div className="space-y-2 text-slate-700">
+                <div className="flex justify-between">
+                  <span className="text-slate-500">Items Ordered:</span>
+                  <strong className="text-slate-900 font-bold">
+                    {totalJars} Paid {totalJars === 1 ? 'Jar' : 'Jars'}
+                    {freeBonusJars > 0 ? ` (+1 FREE Jar = ${totalDeliveredJars} Total)` : ''}
+                  </strong>
+                </div>
                 <div className="flex justify-between">
                   <span className="text-slate-500">Sent To:</span>
                   <strong className="text-slate-900 font-bold">{completedOrder.customer.fullName} ({completedOrder.customer.phone})</strong>
