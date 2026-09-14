@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useStore } from '../context/StoreContext';
 import { BrandLogo } from './BrandLogo';
 import { PestCategory, ApplicationForm, ToxicityRating, OrderStatus, PaymentStatus, Product } from '../types';
@@ -211,6 +211,54 @@ export const AdminDashboard: React.FC = () => {
   const totalUnitsSold = orders.reduce((sum, o) => sum + o.items.reduce((s, it) => s + it.quantity, 0), 0);
   const totalLowStock = products.filter((p) => p.stock <= 5).length;
 
+  // Custom Brand Logo Upload Management
+  const logoInputRef = useRef<HTMLInputElement | null>(null);
+  const [hasCustomLogo, setHasCustomLogo] = useState<boolean>(() => {
+    try {
+      return !!localStorage.getItem('custom_brand_logo');
+    } catch {
+      return false;
+    }
+  });
+
+  const handleLogoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (!file.type.startsWith('image/')) {
+      showToast('Please select a valid image file (PNG, JPG, SVG, WebP)', 'error');
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const dataUrl = event.target?.result as string;
+      if (dataUrl) {
+        try {
+          localStorage.setItem('custom_brand_logo', dataUrl);
+          window.dispatchEvent(new Event('brand_logo_updated'));
+          setHasCustomLogo(true);
+          showToast('Official logo image updated successfully across the entire site!', 'success');
+        } catch {
+          showToast('Failed to save image. Please upload a smaller image file.', 'error');
+        }
+      }
+    };
+    reader.readAsDataURL(file);
+    e.target.value = '';
+  };
+
+  const handleResetLogo = () => {
+    try {
+      localStorage.removeItem('custom_brand_logo');
+      window.dispatchEvent(new Event('brand_logo_updated'));
+      setHasCustomLogo(false);
+      showToast('Brand logo reset to official vector shield.', 'info');
+    } catch {
+      // ignore
+    }
+  };
+
   const filteredProducts = products.filter(
     (p) =>
       p.name.toLowerCase().includes(productSearch.toLowerCase()) ||
@@ -394,7 +442,34 @@ export const AdminDashboard: React.FC = () => {
       {/* Top 3D Admin Header */}
       <div className="p-6 rounded-3xl bg-neutral-950 border-2 border-yellow-500/40 shadow-[0_15px_35px_rgba(0,0,0,0.8)] flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-4">
-          <BrandLogo size="md" />
+          <div className="relative group flex flex-col items-center">
+            <BrandLogo size="md" />
+            <button
+              type="button"
+              onClick={() => logoInputRef.current?.click()}
+              className="mt-1.5 px-2 py-0.5 rounded-md bg-yellow-400 hover:bg-yellow-300 text-neutral-950 text-[10px] font-black uppercase tracking-wider flex items-center gap-1 shadow-xs cursor-pointer transition-colors"
+              title="Upload exact original image to replace logo"
+            >
+              <Upload className="w-2.5 h-2.5" />
+              <span>{hasCustomLogo ? 'Change' : 'Upload'}</span>
+            </button>
+            {hasCustomLogo && (
+              <button
+                type="button"
+                onClick={handleResetLogo}
+                className="mt-0.5 text-[9px] text-neutral-400 hover:text-red-400 underline font-medium"
+              >
+                Reset
+              </button>
+            )}
+            <input
+              ref={logoInputRef}
+              type="file"
+              accept="image/*"
+              onChange={handleLogoUpload}
+              className="hidden"
+            />
+          </div>
           <div>
             <div className="flex items-center gap-2">
               <span className="text-[10px] font-black uppercase tracking-widest bg-yellow-400 text-black px-2 py-0.5 rounded shadow-sm">

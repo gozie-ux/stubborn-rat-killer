@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 interface BrandLogoProps {
   size?: 'sm' | 'md' | 'lg' | 'xl' | 'hero';
@@ -6,11 +6,47 @@ interface BrandLogoProps {
   className?: string;
 }
 
+// Global cached image status
+let cachedImageStatus: { tried: boolean; workingSrc: string | null } = {
+  tried: true,
+  workingSrc: '/logo.png'
+};
+
 export const BrandLogo: React.FC<BrandLogoProps> = ({
   size = 'md',
   showSubtitle = false,
   className = ''
 }) => {
+  const [activeSrc, setActiveSrc] = useState<string | null>(() => {
+    try {
+      const stored = localStorage.getItem('custom_brand_logo');
+      if (stored) return stored;
+    } catch {
+      // ignore
+    }
+    return '/logo.png';
+  });
+
+  useEffect(() => {
+    const handleLogoUpdate = () => {
+      try {
+        const stored = localStorage.getItem('custom_brand_logo');
+        if (stored) {
+          setActiveSrc(stored);
+          return;
+        }
+      } catch {
+        // ignore
+      }
+      setActiveSrc('/logo.png');
+    };
+
+    window.addEventListener('brand_logo_updated', handleLogoUpdate);
+    return () => {
+      window.removeEventListener('brand_logo_updated', handleLogoUpdate);
+    };
+  }, []);
+
   // Dimension mapping
   const sizeMap = {
     sm: { width: 44, height: 44, shieldWidth: 44, shieldHeight: 44 },
@@ -21,6 +57,33 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
   };
 
   const { width, height } = sizeMap[size];
+
+  // If user uploaded an original image file, render it directly
+  if (activeSrc) {
+    const roundedClass = size === 'sm' ? 'rounded-lg' : size === 'md' ? 'rounded-xl' : 'rounded-2xl';
+    return (
+      <div className={`inline-flex flex-col items-center justify-center ${className}`}>
+        <img
+          src={activeSrc}
+          alt="Stubborn Rat Killer - Complete Deratization Solutions"
+          width={width}
+          height={height}
+          style={{ width: `${width}px`, height: `${height}px` }}
+          className={`object-contain ${roundedClass} shadow-md border border-black/10 select-none transition-transform duration-300 hover:scale-105`}
+          referrerPolicy="no-referrer"
+          onError={() => {
+            cachedImageStatus = { tried: true, workingSrc: null };
+            setActiveSrc(null);
+          }}
+        />
+        {showSubtitle && (
+          <span className="text-[11px] font-black uppercase tracking-widest text-amber-500 font-['Outfit'] mt-1 drop-shadow-md">
+            Complete Deratization Solutions
+          </span>
+        )}
+      </div>
+    );
+  }
 
   return (
     <div className={`inline-flex flex-col items-center justify-center ${className}`}>
@@ -319,7 +382,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
           </text>
         </g>
 
-        {/* 3D Chrome Text Below Shield: COMPLETE EXTERMINATION SOLUTIONS */}
+        {/* 3D Chrome Text Below Shield: COMPLETE DERATIZATION SOLUTIONS */}
         <text
           x="250"
           y="488"
@@ -330,15 +393,15 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
           fontWeight="900"
           fontSize="17"
           fontFamily="'Outfit', 'Arial Black', sans-serif"
-          letterSpacing="2.5"
+          letterSpacing="2"
         >
-          COMPLETE EXTERMINATION SOLUTIONS
+          COMPLETE DERATIZATION SOLUTIONS
         </text>
       </svg>
 
       {showSubtitle && (
         <span className="text-[11px] font-black uppercase tracking-widest text-yellow-400 font-['Outfit'] mt-1 drop-shadow-md">
-          Complete Extermination Solutions
+          Complete Deratization Solutions
         </span>
       )}
     </div>
