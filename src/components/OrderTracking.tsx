@@ -6,28 +6,60 @@ import {
   CheckCircle2, 
   Clock, 
   Package, 
-  MapPin, 
   PhoneCall, 
   MessageCircle, 
   ShieldCheck, 
   AlertCircle,
-  Calendar,
-  ArrowRight
+  KeyRound,
+  Lock,
+  Unlock,
+  Shield
 } from 'lucide-react';
 import { Order } from '../types';
 
 export const OrderTracking: React.FC = () => {
-  const { lookupOrder, formatPrice, orders, setActiveView } = useStore();
-  const [query, setQuery] = useState('');
+  const { lookupOrder, formatPrice, setActiveView } = useStore();
+  const [orderQuery, setOrderQuery] = useState('');
+  const [phoneVerification, setPhoneVerification] = useState('');
   const [foundOrder, setFoundOrder] = useState<Order | null>(null);
+  const [isVerified, setIsVerified] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!query.trim()) return;
-    const result = lookupOrder(query);
-    setFoundOrder(result || null);
-    setHasSearched(true);
+    setErrorMessage('');
+    const cleanQuery = orderQuery.trim();
+    if (!cleanQuery) {
+      setErrorMessage('Please enter your Order Number (e.g. SPK-12345) or Tracking Code.');
+      return;
+    }
+
+    const res = lookupOrder(cleanQuery, phoneVerification);
+    if (res && res.order) {
+      setFoundOrder(res.order);
+      setIsVerified(res.verified);
+      setHasSearched(true);
+    } else {
+      setFoundOrder(null);
+      setIsVerified(false);
+      setHasSearched(true);
+    }
+  };
+
+  const handleVerifyPhoneInline = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!foundOrder || !phoneVerification.trim()) return;
+    const res = lookupOrder(foundOrder.orderNumber, phoneVerification);
+    if (res && res.order) {
+      setFoundOrder(res.order);
+      setIsVerified(res.verified);
+      if (!res.verified) {
+        setErrorMessage('Phone digits did not match this order. Please check the last 4 digits.');
+      } else {
+        setErrorMessage('');
+      }
+    }
   };
 
   const getStepStatus = (orderStatus: string, stepIndex: number) => {
@@ -51,32 +83,59 @@ export const OrderTracking: React.FC = () => {
       <div className="text-center space-y-3">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-50 border border-red-200 text-red-700 text-xs font-black uppercase tracking-wider shadow-xs">
           <Truck className="w-4 h-4 text-red-600" />
-          <span>Easy Order Tracker</span>
+          <span>Secure Order Tracker</span>
         </div>
         <h1 className="text-2xl sm:text-4xl font-black text-slate-950 font-['Outfit'] tracking-tight">
-          TRACK YOUR ORDER
+          TRACK YOUR DELIVERY
         </h1>
         <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto font-normal">
-          Type your Order Number (like <strong className="text-red-600 font-mono">SPK-98421</strong>) or your Phone Number below to check where your order is.
+          Enter your Order Number (e.g. <strong className="text-red-600 font-mono">SPK-98421</strong>) to check the live status of your Stubborn Rat Killer delivery.
         </p>
       </div>
 
-      {/* Search Input */}
-      <form onSubmit={handleSearch} className="max-w-xl mx-auto relative flex items-center">
-        <input
-          type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="e.g. SPK-98421 or 0808..."
-          className="w-full bg-slate-50 border border-slate-300 rounded-2xl pl-12 pr-36 py-4 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white shadow-sm font-medium"
-        />
-        <Search className="w-5 h-5 text-amber-500 absolute left-4 pointer-events-none" />
-        <button
-          type="submit"
-          className="absolute right-2 px-6 py-2.5 btn-3d-yellow text-slate-950 font-black text-xs rounded-xl shadow-xs"
-        >
-          CHECK STATUS
-        </button>
+      {/* Search Input Form */}
+      <form onSubmit={handleSearch} className="max-w-xl mx-auto bg-slate-50 border border-slate-300 rounded-3xl p-3 sm:p-4 shadow-sm space-y-3">
+        <div className="relative flex items-center">
+          <input
+            type="text"
+            value={orderQuery}
+            onChange={(e) => {
+              setOrderQuery(e.target.value);
+              if (errorMessage) setErrorMessage('');
+            }}
+            placeholder="Order Number (e.g. SPK-98421) or Tracking Code..."
+            className="w-full bg-white border border-slate-300 rounded-2xl pl-11 pr-4 py-3.5 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-amber-500 shadow-2xs font-mono font-medium"
+          />
+          <Search className="w-4 h-4 text-amber-500 absolute left-4 pointer-events-none" />
+        </div>
+
+        <div className="flex flex-col sm:flex-row items-center gap-2.5 pt-1">
+          <div className="relative flex-1 w-full">
+            <input
+              type="text"
+              maxLength={4}
+              value={phoneVerification}
+              onChange={(e) => setPhoneVerification(e.target.value.replace(/[^0-9]/g, ''))}
+              placeholder="Last 4 digits of phone (for full address unlock)..."
+              className="w-full bg-white border border-slate-300 rounded-2xl pl-10 pr-3 py-3 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-amber-500 shadow-2xs font-mono"
+            />
+            <KeyRound className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+          </div>
+
+          <button
+            type="submit"
+            className="w-full sm:w-auto px-6 py-3 btn-3d-yellow text-slate-950 font-black text-xs rounded-2xl shadow-xs whitespace-nowrap"
+          >
+            TRACK STATUS
+          </button>
+        </div>
+
+        {errorMessage && (
+          <p className="text-xs font-bold text-red-600 flex items-center gap-1.5 px-2">
+            <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+            <span>{errorMessage}</span>
+          </p>
+        )}
       </form>
 
       {/* Result Display */}
@@ -113,6 +172,51 @@ export const OrderTracking: React.FC = () => {
                 {foundOrder.trackingNumber}
               </span>
             </div>
+          </div>
+
+          {/* Privacy Verification Status Banner */}
+          <div className={`p-4 rounded-2xl border text-xs flex flex-wrap items-center justify-between gap-3 ${
+            isVerified 
+              ? 'bg-emerald-50 border-emerald-200 text-emerald-950' 
+              : 'bg-blue-50/80 border-blue-200 text-blue-950'
+          }`}>
+            <div className="flex items-center gap-2">
+              {isVerified ? (
+                <ShieldCheck className="w-5 h-5 text-emerald-600 shrink-0" />
+              ) : (
+                <Shield className="w-5 h-5 text-blue-600 shrink-0" />
+              )}
+              <div>
+                <strong className="block font-black">
+                  {isVerified ? 'Customer Identity Confirmed' : 'Customer Privacy Protected'}
+                </strong>
+                <span className="text-[11px] text-slate-600 font-medium">
+                  {isVerified 
+                    ? 'Full delivery address, recipient details, and courier notes unlocked.' 
+                    : 'Home address is masked to protect customer privacy against unauthorized lookup.'}
+                </span>
+              </div>
+            </div>
+
+            {!isVerified && (
+              <form onSubmit={handleVerifyPhoneInline} className="flex items-center gap-2">
+                <input
+                  type="text"
+                  maxLength={4}
+                  value={phoneVerification}
+                  onChange={(e) => setPhoneVerification(e.target.value.replace(/[^0-9]/g, ''))}
+                  placeholder="Last 4 phone digits..."
+                  className="bg-white border border-blue-300 rounded-xl px-3 py-1.5 text-xs text-slate-900 font-mono focus:outline-none focus:border-blue-600 w-36 shadow-2xs"
+                />
+                <button
+                  type="submit"
+                  className="px-3 py-1.5 bg-blue-600 text-white font-black text-xs rounded-xl hover:bg-blue-500 transition-colors flex items-center gap-1 shadow-2xs"
+                >
+                  <Unlock className="w-3.5 h-3.5" />
+                  <span>Unlock</span>
+                </button>
+              </form>
+            )}
           </div>
 
           {/* Timeline Milestones */}
@@ -165,14 +269,44 @@ export const OrderTracking: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 border-t border-slate-200 text-xs">
             {/* Delivery Info */}
             <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 shadow-xs">
-              <span className="font-black text-slate-900 uppercase tracking-wider block text-[11px]">
-                Where It Is Going
-              </span>
+              <div className="flex items-center justify-between">
+                <span className="font-black text-slate-900 uppercase tracking-wider block text-[11px]">
+                  Where It Is Going
+                </span>
+                {isVerified ? (
+                  <span className="text-[10px] font-black text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full flex items-center gap-1">
+                    <CheckCircle2 className="w-3 h-3" />
+                    <span>Verified</span>
+                  </span>
+                ) : (
+                  <span className="text-[10px] font-bold text-slate-500 bg-slate-200/80 px-2 py-0.5 rounded-full flex items-center gap-1">
+                    <Lock className="w-3 h-3" />
+                    <span>Protected</span>
+                  </span>
+                )}
+              </div>
+
               <p className="text-slate-900 font-bold">{foundOrder.customer.fullName}</p>
-              <p className="text-slate-600 font-normal">{foundOrder.customer.deliveryAddress}, {foundOrder.customer.cityOrLga}, {foundOrder.customer.state}</p>
-              <p className="text-slate-500 font-mono">Phone: {foundOrder.customer.phone}</p>
+              
+              {isVerified ? (
+                <p className="text-slate-700 font-normal leading-relaxed">
+                  {foundOrder.customer.deliveryAddress}, {foundOrder.customer.cityOrLga}, {foundOrder.customer.state}
+                </p>
+              ) : (
+                <p className="text-slate-500 italic font-normal leading-relaxed">
+                  Destination: {foundOrder.customer.cityOrLga}, {foundOrder.customer.state}
+                  <span className="block text-[10px] text-slate-400 not-italic mt-0.5">
+                    (Street address hidden for privacy. Enter phone digits above to reveal)
+                  </span>
+                </p>
+              )}
+
+              <p className="text-slate-500 font-mono">
+                Phone: {foundOrder.customer.phone}
+              </p>
+
               <div className="pt-2 flex items-center gap-1.5 text-amber-700 font-bold">
-                <Clock className="w-4 h-4 text-amber-600" />
+                <Clock className="w-4 h-4 text-amber-600 shrink-0" />
                 <span>Expected Delivery: {foundOrder.estimatedDeliveryDate}</span>
               </div>
             </div>
@@ -205,7 +339,7 @@ export const OrderTracking: React.FC = () => {
           <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex flex-wrap items-center justify-between gap-3 text-xs">
             <div className="flex items-center gap-2 text-slate-700 font-medium">
               <PhoneCall className="w-4 h-4 text-amber-600" />
-              <span>Have questions about your delivery or how to use it?</span>
+              <span>Have questions about your delivery or need same-day dispatch?</span>
             </div>
             <a
               href={`https://wa.me/2348089854753?text=Hello%20Stubborn%20Rat%20Killer%20Support,%20I%20am%20tracking%20order%20${encodeURIComponent(foundOrder.orderNumber)}`}
@@ -223,23 +357,34 @@ export const OrderTracking: React.FC = () => {
           <AlertCircle className="w-10 h-10 text-red-500 mx-auto" />
           <h3 className="text-base font-black text-slate-950">No Order Found</h3>
           <p className="text-xs text-slate-600 font-normal">
-            We could not find any order with "{query}". Please check your order number or chat with us on WhatsApp.
+            We could not find any order matching "{orderQuery}". Please confirm your Order Number from your SMS/WhatsApp confirmation or chat with our dispatch team.
           </p>
-          <button
-            onClick={() => setActiveView('shop')}
-            className="px-6 py-2.5 btn-3d-yellow text-slate-950 font-black text-xs rounded-xl shadow-xs"
-          >
-            Back to Product
-          </button>
+          <div className="flex flex-col sm:flex-row gap-2 justify-center pt-2">
+            <a
+              href="https://wa.me/2348089854753?text=Hello%20Stubborn%20Rat%20Killer,%20I%20need%20help%20checking%20my%20order%20status."
+              target="_blank"
+              rel="noreferrer"
+              className="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-xs"
+            >
+              <MessageCircle className="w-4 h-4" />
+              <span>Ask on WhatsApp</span>
+            </a>
+            <button
+              onClick={() => setActiveView('shop')}
+              className="px-5 py-2.5 btn-3d-yellow text-slate-950 font-black text-xs rounded-xl shadow-xs"
+            >
+              Back to Store
+            </button>
+          </div>
         </div>
       ) : (
         <div className="bg-slate-50 border border-slate-200 rounded-3xl p-8 text-center space-y-4 max-w-lg mx-auto shadow-xs">
           <div className="w-12 h-12 rounded-2xl bg-white border border-slate-200 flex items-center justify-center mx-auto text-amber-600 shadow-xs">
             <Truck className="w-6 h-6" />
           </div>
-          <h3 className="text-base font-black text-slate-950">Check Where Your Order Is</h3>
+          <h3 className="text-base font-black text-slate-950">Real-Time Dispatch Tracker</h3>
           <p className="text-xs text-slate-600 leading-relaxed font-normal">
-            Type your Order Number (like <span className="text-amber-700 font-mono font-bold">SPK-...</span>) or your phone number in the box above to see if your order is packed, on the road, or delivered.
+            Enter your 5-digit Order Number (e.g. <span className="text-amber-700 font-mono font-bold">SPK-10293</span>) to see if your order is packaged, on transit with our dispatch rider, or delivered.
           </p>
         </div>
       )}

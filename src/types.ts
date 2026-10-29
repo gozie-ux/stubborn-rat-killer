@@ -96,6 +96,7 @@ export interface WishlistItem {
 }
 
 export type PaymentMethod = 
+  | 'monnify'
   | 'bank_transfer'
   | 'debit_card'
   | 'pay_on_delivery'
@@ -143,6 +144,8 @@ export interface Order {
   trackingNumber: string;
   estimatedDeliveryDate: string;
   proofOfPaymentNote?: string;
+  monnifyReference?: string;
+  monnifyTransactionReference?: string;
 }
 
 export interface PestDiagnosisResult {

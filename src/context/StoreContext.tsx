@@ -78,7 +78,7 @@ interface StoreContextType {
   createOrder: (orderData: Omit<Order, 'id' | 'orderNumber' | 'createdAt' | 'trackingNumber' | 'orderStatus' | 'paymentStatus'> & { paymentStatus?: PaymentStatus; paymentMethod: PaymentMethod }) => Order;
   updateOrderStatus: (orderId: string, status: OrderStatus) => void;
   updatePaymentStatus: (orderId: string, status: PaymentStatus) => void;
-  lookupOrder: (query: string) => Order | undefined;
+  lookupOrder: (query: string, phoneVerification?: string) => { order?: Order; verified: boolean; message?: string } | undefined;
 
   // Currency
   currency: 'NGN' | 'USD';
@@ -100,6 +100,20 @@ interface StoreContextType {
   loginAdmin: (passcode: string) => boolean;
   logoutAdmin: () => void;
   changeAdminPasscode: (oldPasscode: string, newPasscode: string) => { success: boolean; message: string };
+  adminFailedAttempts: number;
+  adminLockoutRemaining: number;
+  isLockedOut: boolean;
+
+  // Monnify (Moniepoint) Integration & Settings
+  monnifyApiKey: string;
+  setMonnifyApiKey: (key: string) => void;
+  monnifyContractCode: string;
+  setMonnifyContractCode: (code: string) => void;
+  monnifyContractName: string;
+  isMonnifyEnabled: boolean;
+  setIsMonnifyEnabled: (enabled: boolean) => void;
+  isMonnifyTestMode: boolean;
+  setIsMonnifyTestMode: (test: boolean) => void;
 
   // Toasts
   toasts: Toast[];
@@ -119,6 +133,10 @@ const LOCAL_STORAGE_KEY_CART = 'spk_cart_single_v1';
 const LOCAL_STORAGE_KEY_WISHLIST = 'spk_wishlist_single_v1';
 const LOCAL_STORAGE_KEY_ORDERS = 'spk_orders_v20';
 const LOCAL_STORAGE_KEY_OWNER_PASSCODE = 'spk_owner_passcode_v1';
+const LOCAL_STORAGE_KEY_MONNIFY_API_KEY = 'spk_monnify_api_key_v1';
+const LOCAL_STORAGE_KEY_MONNIFY_CONTRACT_CODE = 'spk_monnify_contract_code_v1';
+const LOCAL_STORAGE_KEY_MONNIFY_ENABLED = 'spk_monnify_enabled_v1';
+const LOCAL_STORAGE_KEY_MONNIFY_TEST_MODE = 'spk_monnify_test_mode_v1';
 const SESSION_STORAGE_KEY_OWNER_AUTH = 'spk_owner_session_active';
 const DEFAULT_OWNER_PASSCODE = 'KILLAPEST#2026';
 
@@ -206,7 +224,7 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const [isProductModalOpen, setIsProductModalOpen] = useState(false);
   const [isOwnerLoginModalOpen, setIsOwnerLoginModalOpen] = useState(false);
 
-  // Owner Authentication & Security Gate
+  // Owner Authentication & Security Gate (Hardened & Rate-Limited)
   const [isAdminAuthenticated, setIsAdminAuthenticated] = useState<boolean>(() => {
     try {
       return sessionStorage.getItem(SESSION_STORAGE_KEY_OWNER_AUTH) === 'true';
@@ -223,28 +241,89 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     }
   });
 
-  const loginAdmin = (inputPasscode: string): boolean => {
-    const trimmed = inputPasscode.trim();
-    // Accept custom owner passcode, default passcode, or emergency master key
-    const isMasterValid =
-      trimmed === ownerPasscode ||
-      trimmed === DEFAULT_OWNER_PASSCODE ||
-      trimmed === '7453' ||
-      trimmed === 'Killapest2026' ||
-      trimmed === 'killapest2026';
+  const [adminFailedAttempts, setAdminFailedAttempts] = useState<number>(() => {
+    try {
+      const saved = sessionStorage.getItem('spk_admin_failed_attempts');
+      return saved ? parseInt(saved, 10) : 0;
+    } catch {
+      return 0;
+    }
+  });
 
-    if (isMasterValid) {
+  const [adminLockoutUntil, setAdminLockoutUntil] = useState<number>(() => {
+    try {
+      const saved = sessionStorage.getItem('spk_admin_lockout_until');
+      return saved ? parseInt(saved, 10) : 0;
+    } catch {
+      return 0;
+    }
+  });
+
+  const [adminLockoutRemaining, setAdminLockoutRemaining] = useState<number>(0);
+
+  // Lockout countdown ticker
+  useEffect(() => {
+    const updateCountdown = () => {
+      const now = Date.now();
+      if (adminLockoutUntil > now) {
+        setAdminLockoutRemaining(Math.ceil((adminLockoutUntil - now) / 1000));
+      } else {
+        setAdminLockoutRemaining(0);
+      }
+    };
+    updateCountdown();
+    const interval = setInterval(updateCountdown, 1000);
+    return () => clearInterval(interval);
+  }, [adminLockoutUntil]);
+
+  const isLockedOut = adminLockoutRemaining > 0;
+
+  const loginAdmin = (inputPasscode: string): boolean => {
+    const now = Date.now();
+    if (adminLockoutUntil > now) {
+      const secondsLeft = Math.ceil((adminLockoutUntil - now) / 1000);
+      showToast(`Admin Console Locked. Please wait ${secondsLeft}s before retrying.`, 'error');
+      return false;
+    }
+
+    const trimmed = inputPasscode.trim();
+    // Strictly verify against the actual configured passcode (NO backdoor masterkeys)
+    const isValid = trimmed === ownerPasscode;
+
+    if (isValid) {
       setIsAdminAuthenticated(true);
+      setAdminFailedAttempts(0);
+      setAdminLockoutUntil(0);
       try {
         sessionStorage.setItem(SESSION_STORAGE_KEY_OWNER_AUTH, 'true');
+        sessionStorage.removeItem('spk_admin_failed_attempts');
+        sessionStorage.removeItem('spk_admin_lockout_until');
       } catch (e) {
         console.error(e);
       }
-      showToast('Owner authentication successful. Access granted to Owner Console.', 'success');
+      showToast('Owner authentication successful. Access granted.', 'success');
       return true;
     }
 
-    showToast('Invalid Owner Security Passcode. Access denied.', 'error');
+    // Register failed attempt
+    const newCount = adminFailedAttempts + 1;
+    setAdminFailedAttempts(newCount);
+    try {
+      sessionStorage.setItem('spk_admin_failed_attempts', String(newCount));
+    } catch {}
+
+    if (newCount >= 5) {
+      const lockoutTime = Date.now() + 5 * 60 * 1000; // 5 minutes lockout
+      setAdminLockoutUntil(lockoutTime);
+      try {
+        sessionStorage.setItem('spk_admin_lockout_until', String(lockoutTime));
+      } catch {}
+      showToast('Too many incorrect attempts! Console locked for 5 minutes.', 'error');
+    } else {
+      const attemptsLeft = 5 - newCount;
+      showToast(`Invalid Passcode. ${attemptsLeft} attempt${attemptsLeft === 1 ? '' : 's'} remaining before lockout.`, 'error');
+    }
+
     return false;
   };
 
@@ -265,12 +344,13 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     const trimmedOld = oldPasscode.trim();
     const trimmedNew = newPasscode.trim();
 
-    if (trimmedOld !== ownerPasscode && trimmedOld !== DEFAULT_OWNER_PASSCODE && trimmedOld !== '7453') {
+    // Strictly require current owner passcode — NO backdoor 7453
+    if (trimmedOld !== ownerPasscode) {
       return { success: false, message: 'Current passcode is incorrect.' };
     }
 
-    if (trimmedNew.length < 4) {
-      return { success: false, message: 'New passcode must be at least 4 characters.' };
+    if (trimmedNew.length < 6) {
+      return { success: false, message: 'New passcode must be at least 6 characters.' };
     }
 
     setOwnerPasscode(trimmedNew);
@@ -281,6 +361,87 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     }
     showToast('Owner security passcode updated successfully.', 'success');
     return { success: true, message: 'Passcode updated successfully.' };
+  };
+
+  // Monnify (Moniepoint) Integration State
+  const [monnifyApiKey, setMonnifyApiKeyState] = useState<string>(() => {
+    try {
+      return localStorage.getItem(LOCAL_STORAGE_KEY_MONNIFY_API_KEY) || 'MK_TEST_QPA6P8AKKQ';
+    } catch {
+      return 'MK_TEST_QPA6P8AKKQ';
+    }
+  });
+
+  const [monnifyContractCode, setMonnifyContractCodeState] = useState<string>(() => {
+    try {
+      const saved = localStorage.getItem(LOCAL_STORAGE_KEY_MONNIFY_CONTRACT_CODE);
+      if (saved && saved.trim() && saved.trim() !== 'ZYSTWMFZTNQ9N2BXGTBNZ86P7ZFP9S1C') {
+        return saved.trim();
+      }
+      // Migrate and persist new official contract code 1640726152
+      localStorage.setItem(LOCAL_STORAGE_KEY_MONNIFY_CONTRACT_CODE, '1640726152');
+      return '1640726152';
+    } catch {
+      return '1640726152';
+    }
+  });
+
+  const monnifyContractName = 'Default Contract';
+
+  const [isMonnifyEnabled, setIsMonnifyEnabledState] = useState<boolean>(() => {
+    try {
+      const saved = localStorage.getItem(LOCAL_STORAGE_KEY_MONNIFY_ENABLED);
+      return saved !== null ? saved === 'true' : true;
+    } catch {
+      return true;
+    }
+  });
+
+  const [isMonnifyTestMode, setIsMonnifyTestModeState] = useState<boolean>(() => {
+    try {
+      const saved = localStorage.getItem(LOCAL_STORAGE_KEY_MONNIFY_TEST_MODE);
+      return saved !== null ? saved === 'true' : true;
+    } catch {
+      return true;
+    }
+  });
+
+  const setMonnifyApiKey = (key: string) => {
+    const trimmed = key.trim();
+    setMonnifyApiKeyState(trimmed);
+    try {
+      localStorage.setItem(LOCAL_STORAGE_KEY_MONNIFY_API_KEY, trimmed);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  const setMonnifyContractCode = (code: string) => {
+    const trimmed = code.trim();
+    setMonnifyContractCodeState(trimmed);
+    try {
+      localStorage.setItem(LOCAL_STORAGE_KEY_MONNIFY_CONTRACT_CODE, trimmed);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  const setIsMonnifyEnabled = (enabled: boolean) => {
+    setIsMonnifyEnabledState(enabled);
+    try {
+      localStorage.setItem(LOCAL_STORAGE_KEY_MONNIFY_ENABLED, String(enabled));
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  const setIsMonnifyTestMode = (test: boolean) => {
+    setIsMonnifyTestModeState(test);
+    try {
+      localStorage.setItem(LOCAL_STORAGE_KEY_MONNIFY_TEST_MODE, String(test));
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   // Currency
@@ -592,7 +753,31 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     }
   };
 
-  // Order Actions
+  // Fetch persisted orders from server on boot (Cross-Device Merchant Sync)
+  useEffect(() => {
+    fetch('/api/orders')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success && Array.isArray(data.orders) && data.orders.length > 0) {
+          setOrders((prev) => {
+            const map = new Map<string, Order>();
+            prev.forEach((o) => map.set(o.orderNumber || o.id, o));
+            data.orders.forEach((o: Order) => map.set(o.orderNumber || o.id, o));
+            const merged = Array.from(map.values());
+            try {
+              localStorage.setItem(LOCAL_STORAGE_KEY_ORDERS, JSON.stringify(merged));
+            } catch {}
+            return merged;
+          });
+        }
+      })
+      .catch((err) => {
+        // Fallback to local storage gracefully
+        console.debug('Backend orders fetch notice:', err.message);
+      });
+  }, []);
+
+  // Order Actions (Hardened Payment Status & Cross-Device Persistence)
   const createOrder = (orderData: Omit<Order, 'id' | 'orderNumber' | 'createdAt' | 'trackingNumber' | 'orderStatus' | 'paymentStatus'> & { paymentStatus?: PaymentStatus; paymentMethod: PaymentMethod }): Order => {
     const id = 'ord-' + Date.now();
     const orderNumber = 'SPK-' + Math.floor(10000 + Math.random() * 90000);
@@ -602,6 +787,14 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     const matchedState = NIGERIAN_STATES.find(s => s.name.toLowerCase().includes(orderData.customer.state.toLowerCase()));
     const estDelivery = matchedState ? matchedState.days : '2 - 4 Business Days';
 
+    // Strict payment verification: Only set to 'Paid' if live gateway confirmed
+    const resolvedPaymentStatus: PaymentStatus =
+      orderData.paymentStatus === 'Paid'
+        ? 'Paid'
+        : orderData.paymentMethod === 'bank_transfer' || orderData.paymentMethod === 'debit_card' || orderData.paymentMethod === 'monnify'
+          ? 'Pending Verification'
+          : 'Unpaid';
+
     const newOrder: Order = {
       ...orderData,
       id,
@@ -609,7 +802,7 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       createdAt: new Date().toISOString(),
       trackingNumber,
       estimatedDeliveryDate: estDelivery,
-      paymentStatus: orderData.paymentStatus || (orderData.paymentMethod === 'bank_transfer' ? 'Pending Verification' : orderData.paymentMethod === 'debit_card' ? 'Paid' : 'Unpaid'),
+      paymentStatus: resolvedPaymentStatus,
       orderStatus: 'Confirmed'
     };
 
@@ -625,6 +818,14 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     );
 
     setOrders((prev) => [newOrder, ...prev]);
+
+    // Asynchronously dispatch to server API
+    fetch('/api/orders', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newOrder)
+    }).catch((e) => console.warn('Order sync notice:', e.message));
+
     clearCart();
     return newOrder;
   };
@@ -633,6 +834,11 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     setOrders((prev) =>
       prev.map((o) => (o.id === orderId ? { ...o, orderStatus: status } : o))
     );
+    fetch(`/api/orders/${orderId}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ orderStatus: status })
+    }).catch(() => {});
     showToast(`Order status updated to "${status}"`, 'info');
   };
 
@@ -640,19 +846,60 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     setOrders((prev) =>
       prev.map((o) => (o.id === orderId ? { ...o, paymentStatus: status } : o))
     );
+    fetch(`/api/orders/${orderId}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ paymentStatus: status })
+    }).catch(() => {});
     showToast(`Payment status updated to "${status}"`, 'info');
   };
 
-  const lookupOrder = (query: string): Order | undefined => {
+  // Privacy-Hardened Order Lookup (Dual Verification)
+  const lookupOrder = (query: string, phoneVerification?: string): { order?: Order; verified: boolean; message?: string } | undefined => {
     const clean = query.trim().toLowerCase();
     if (!clean) return undefined;
-    return orders.find(
+
+    // Strict matching: Only exact order number or tracking number.
+    // NEVER partial substring matching on phone numbers to prevent customer PII harvesting.
+    const found = orders.find(
       (o) =>
         o.orderNumber.toLowerCase() === clean ||
-        o.trackingNumber.toLowerCase() === clean ||
-        o.customer.phone.replace(/[^0-9]/g, '').includes(clean.replace(/[^0-9]/g, '')) ||
-        o.customer.email.toLowerCase() === clean
+        o.trackingNumber.toLowerCase() === clean
     );
+
+    if (!found) return undefined;
+
+    // Verify phone digits if provided
+    const rawOrderPhone = found.customer.phone.replace(/[^0-9]/g, '');
+    const cleanPhoneInput = (phoneVerification || '').trim().replace(/[^0-9]/g, '');
+
+    const isVerified =
+      cleanPhoneInput.length >= 4 &&
+      rawOrderPhone.endsWith(cleanPhoneInput);
+
+    if (isVerified) {
+      return { order: found, verified: true };
+    }
+
+    // Return order with sensitive customer details masked for privacy
+    const maskedCustomer = {
+      ...found.customer,
+      fullName: found.customer.fullName ? `${found.customer.fullName.charAt(0)}*** ${found.customer.fullName.split(' ').slice(1).map(n => n.charAt(0) + '***').join(' ')}`.trim() : 'Customer',
+      phone: rawOrderPhone.length >= 4 ? `${rawOrderPhone.slice(0, 4)}****${rawOrderPhone.slice(-2)}` : '****',
+      email: found.customer.email ? '***@***.com' : '',
+      deliveryAddress: 'Address protected for customer privacy. Enter last 4 digits of phone number to view full delivery address.',
+      landmark: undefined,
+      orderNotes: undefined
+    };
+
+    return {
+      order: {
+        ...found,
+        customer: maskedCustomer
+      },
+      verified: false,
+      message: 'Enter last 4 digits of phone number to unlock full delivery address and contact details.'
+    };
   };
 
   // Currency Formatter
@@ -795,6 +1042,18 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         loginAdmin,
         logoutAdmin,
         changeAdminPasscode,
+        adminFailedAttempts,
+        adminLockoutRemaining,
+        isLockedOut,
+        monnifyApiKey,
+        setMonnifyApiKey,
+        monnifyContractCode,
+        setMonnifyContractCode,
+        monnifyContractName,
+        isMonnifyEnabled,
+        setIsMonnifyEnabled,
+        isMonnifyTestMode,
+        setIsMonnifyTestMode,
         toasts,
         showToast,
         removeToast,

@@ -196,9 +196,7 @@ export const Footer: React.FC = () => {
               <Lock className="w-3.5 h-3.5" /> 256-Bit SSL Encrypted
             </span>
             <span>•</span>
-            <span>Paystack</span>
-            <span>•</span>
-            <span>Moniepoint</span>
+            <span className="text-blue-700 font-bold">Monnify (Moniepoint)</span>
             <span>•</span>
             <span>Bank Transfer</span>
             <span>•</span>

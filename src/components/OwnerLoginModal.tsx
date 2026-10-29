@@ -19,7 +19,10 @@ export const OwnerLoginModal: React.FC = () => {
     isOwnerLoginModalOpen,
     setIsOwnerLoginModalOpen,
     loginAdmin,
-    setActiveView
+    setActiveView,
+    adminLockoutRemaining,
+    adminFailedAttempts,
+    isLockedOut
   } = useStore();
 
   const [passcode, setPasscode] = useState('');
@@ -32,6 +35,10 @@ export const OwnerLoginModal: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMessage('');
+    if (isLockedOut) {
+      setErrorMessage(`Access locked. Please wait ${adminLockoutRemaining}s.`);
+      return;
+    }
     if (!passcode.trim()) {
       setErrorMessage('Please enter your owner security key');
       return;
@@ -46,7 +53,9 @@ export const OwnerLoginModal: React.FC = () => {
         setIsOwnerLoginModalOpen(false);
         setActiveView('admin');
       } else {
-        setErrorMessage('Incorrect Owner Security Passcode. Access denied.');
+        if (!isLockedOut) {
+          setErrorMessage('Incorrect Owner Security Passcode. Access denied.');
+        }
       }
     }, 400);
   };
@@ -74,13 +83,13 @@ export const OwnerLoginModal: React.FC = () => {
 
           <div>
             <span className="text-[10px] font-black uppercase tracking-widest text-red-500 bg-red-950/60 border border-red-500/30 px-2.5 py-0.5 rounded-full">
-              OWNER ONLY
+              AUTHORIZED PERSONNEL ONLY
             </span>
             <h2 className="text-xl font-black text-white font-['Outfit'] mt-1.5 tracking-tight">
-              Admin & Owner Login
+              Owner Security Console
             </h2>
             <p className="text-xs text-neutral-400 mt-1 leading-relaxed">
-              Enter your passcode to manage customer orders, view sales, and update stock.
+              Enter your passcode to manage customer orders, inventory, and payment settings.
             </p>
           </div>
         </div>
@@ -93,7 +102,7 @@ export const OwnerLoginModal: React.FC = () => {
                 <KeyRound className="w-3.5 h-3.5 text-yellow-400" />
                 <span>Owner Passcode</span>
               </span>
-              <span className="text-[10px] text-neutral-500 font-mono">Secret</span>
+              <span className="text-[10px] text-neutral-500 font-mono">Confidential</span>
             </label>
 
             <div className="relative">
@@ -104,36 +113,50 @@ export const OwnerLoginModal: React.FC = () => {
                   setPasscode(e.target.value);
                   if (errorMessage) setErrorMessage('');
                 }}
-                placeholder="Enter passcode..."
-                autoFocus
-                className="w-full bg-black border-2 border-neutral-800 focus:border-yellow-400 rounded-2xl px-4 py-3.5 text-sm text-white placeholder:text-neutral-600 focus:outline-none transition-colors font-mono"
+                disabled={isLockedOut || isLoading}
+                placeholder={isLockedOut ? `Locked out (${adminLockoutRemaining}s)` : 'Enter passcode...'}
+                autoFocus={!isLockedOut}
+                className="w-full bg-black border-2 border-neutral-800 focus:border-yellow-400 rounded-2xl px-4 py-3.5 text-sm text-white placeholder:text-neutral-600 focus:outline-none transition-colors font-mono disabled:opacity-50 disabled:cursor-not-allowed"
               />
               <button
                 type="button"
+                disabled={isLockedOut}
                 onClick={() => setShowPasscode(!showPasscode)}
-                className="absolute right-3.5 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-white p-1"
+                className="absolute right-3.5 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-white p-1 disabled:opacity-30"
                 aria-label={showPasscode ? 'Hide passcode' : 'Show passcode'}
               >
                 {showPasscode ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
               </button>
             </div>
 
-            {errorMessage && (
+            {isLockedOut ? (
+              <div className="mt-2.5 p-3 rounded-xl bg-red-950/80 border border-red-500/70 text-xs font-bold text-red-300 flex items-center gap-2">
+                <AlertTriangle className="w-4 h-4 text-red-400 shrink-0 animate-pulse" />
+                <span>
+                  Console Locked. Wait <strong className="text-white font-mono">{adminLockoutRemaining}s</strong> before retrying.
+                </span>
+              </div>
+            ) : errorMessage ? (
               <p className="mt-2 text-xs font-bold text-red-400 flex items-center gap-1.5 animate-in fade-in">
                 <AlertTriangle className="w-3.5 h-3.5 shrink-0" />
                 <span>{errorMessage}</span>
               </p>
-            )}
+            ) : adminFailedAttempts > 0 ? (
+              <p className="mt-2 text-[11px] font-bold text-amber-400 flex items-center gap-1.5">
+                <AlertTriangle className="w-3.5 h-3.5 shrink-0 text-amber-400" />
+                <span>{5 - adminFailedAttempts} attempts remaining before 5-minute lockout.</span>
+              </p>
+            ) : null}
           </div>
 
-          {/* Master Key Hint for Owner */}
+          {/* Security Notice */}
           <div className="bg-neutral-900/90 border border-neutral-800 rounded-xl p-3 text-[11px] text-neutral-400 space-y-1">
             <div className="flex items-center gap-1 text-yellow-400 font-bold">
               <ShieldCheck className="w-3.5 h-3.5" />
-              <span>Default Passcode:</span>
+              <span>Security Protected:</span>
             </div>
             <p className="leading-normal">
-              Default Passcode: <code className="text-white font-mono bg-black px-1.5 py-0.5 rounded border border-neutral-700">KILLAPEST#2026</code> (or <code className="text-white font-mono bg-black px-1.5 py-0.5 rounded border border-neutral-700">7453</code>). You can change this anytime inside the admin dashboard.
+              This portal is restricted to the store owner. Access attempts are monitored and rate-limited to safeguard customer records.
             </p>
           </div>
 
@@ -141,11 +164,13 @@ export const OwnerLoginModal: React.FC = () => {
           <div className="space-y-2 pt-2">
             <button
               type="submit"
-              disabled={isLoading}
-              className="w-full py-3.5 px-4 rounded-2xl btn-3d-yellow text-black font-black text-sm uppercase tracking-wide flex items-center justify-center gap-2 shadow-lg disabled:opacity-50"
+              disabled={isLoading || isLockedOut}
+              className="w-full py-3.5 px-4 rounded-2xl btn-3d-yellow text-black font-black text-sm uppercase tracking-wide flex items-center justify-center gap-2 shadow-lg disabled:opacity-40 disabled:cursor-not-allowed"
             >
               {isLoading ? (
-                <span>Checking Passcode...</span>
+                <span>Verifying Credentials...</span>
+              ) : isLockedOut ? (
+                <span>Locked Out ({adminLockoutRemaining}s)</span>
               ) : (
                 <>
                   <span>Log In to Admin Portal</span>
@@ -162,7 +187,7 @@ export const OwnerLoginModal: React.FC = () => {
               }}
               className="w-full py-2.5 text-xs font-bold text-neutral-400 hover:text-white transition-colors"
             >
-              Cancel & Go Back
+              Cancel &amp; Go Back
             </button>
           </div>
         </form>
